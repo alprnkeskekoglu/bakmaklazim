@@ -1,0 +1,285 @@
+@extends('layouts.app')
+
+@section('title') {!! $blog->name . ' | ' . env('APP_NAME') !!} @endsection
+@section('description') {!!  \Str::limit(strip_tags($blog->detail), 100) !!} @endsection
+@section('keywords') {!! $blog->category->name . ', ' . implode(', ', $blog->tags->pluck('name')->toArray()) !!} @endsection
+
+
+@section('content')
+    <div class="section breadcrumb_section bg_gray">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-title">
+                        <h1>Blog List</h1>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @include('layouts.breadcrumb')
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="single_post">
+                        <div class="blog_img">
+                            <img src="{!! image($blog->image) !!}" alt="{!! $blog->name !!}">
+                            <div class="blog_tags">
+                                <a class="blog_tags_cat"
+                                   style="background-color: {{ $blog->category->color ?: "#4382FF" }}"
+                                   href="{!! $blog->category->url !!}">
+                                    {!! $blog->category->name !!}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="blog_content">
+                            <div class="blog_text">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h2 class="blog_title">{!! $blog->name !!}</h2>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="float-right">
+                                            <img class="author-circle" src="{!! image($blog->admin->image) !!}"
+                                                 alt="{!! $blog->admin->name !!}" height="30">
+                                            <span>{!! $blog->admin->name !!}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="blog_meta">
+                                    <li>
+                                        <i class="ti-calendar"></i>
+                                        <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span>
+                                    </li>
+                                    <li>
+                                        <i class="ti-comments"></i>
+                                        <span>{!! $comments->count() !!} Yorum</span>
+                                    </li>
+                                    <li>
+                                        <i class="ti-eye"></i>
+                                        <span>{!! $blog->view_count !!} Görüntülenme</span>
+                                    </li>
+                                </ul>
+                                {!! $blog->detail !!}
+                                <div class="blog_post_footer">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-8 mb-3 mb-md-0">
+                                            <div class="artical_tags">
+                                                @foreach($blog->tags as $tag)
+                                                    <a href="{!! $tag->category->url . '?tags=' . $tag->slug !!}">{!! $tag->name !!}</a>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-area">
+                        @if($comments->isNotEmpty())
+                            <div class="content_title">
+                                <h5>({!! $comments->count() !!}) Yorum</h5>
+                            </div>
+                            <ul class="list_none comment_list">
+                                @foreach($comments as $comment)
+                                    <li class="comment_info">
+                                        <div class="d-flex">
+                                            <div class="comment_user">
+                                                <div
+                                                    class="profile-image">{!! getProfileImage($comment->user_name) !!}</div>
+                                            </div>
+                                            <div class="comment_content">
+                                                <div class="d-flex">
+                                                    <div class="meta_data">
+                                                        <h6>
+                                                            {!! $comment->user_name !!}
+                                                        </h6>
+                                                        <div
+                                                            class="comment-time">{!! \Carbon\Carbon::parse($comment->created_at)->formatLocalized('%d %B %Y') !!}</div>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <p style="font-size: 85%">
+                                                            <strong>{!! $comment->user_name !!}</strong> adlı kullanıcı
+                                                            bu yazıyı
+                                                            {!! $comment->useful == 1 ? "<span class='text-success'>faydalı buldu.</span>" : "<span class='text-danger'>faydalı bulmadı.</span>" !!}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                {!! $comment->detail !!}
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+
+                        <div class="content_title">
+                            <h5>Mesajını Gönder</h5>
+                        </div>
+                        <div class="alert" style="display: none"></div>
+                        <form class="field_form">
+                            @csrf
+                            <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <input name="user_name" class="form-control" placeholder="Adınız" type="text">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input name="user_email" class="form-control" placeholder="E-posta Adresiniz"
+                                           type="email">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="row">
+                                        <div class="col-4 mt-2">
+                                            <span>Faydalı mı?</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="btn-group float-right">
+                                                <label class="btn btn-sm btn-success active"
+                                                       style="border-top-left-radius: 1.25rem; border-bottom-left-radius: 1.25rem; !important">
+                                                    <input type="radio" name="useful" value="1" checked> Evet
+                                                </label>
+                                                <label class="btn btn-sm btn-light"
+                                                       style="border-top-right-radius: 1.25rem; border-bottom-right-radius: 1.25rem; !important">
+                                                    <input type="radio" name="useful" value="0"> Hayır
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                        <textarea rows="5" name="detail" class="form-control" style="resize: none;"
+                                                  placeholder="Mesajınız"></textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button class="btn btn-default" id="senderBtn"
+                                            title="Yorumunu Gönder!">Gönder
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('styles')
+    <style>
+        .alert li {
+            list-style-type: none;
+        }
+
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #512DA8;
+            font-size: 35px;
+            color: #fff;
+            text-align: center;
+            line-height: 80px;
+            margin: 20px 0;
+        }
+
+        .author-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            background: #eee no-repeat center;
+            background-size: cover;
+        }
+    </style>
+@endpush
+
+
+@push('scripts')
+    <script>
+        $('#senderBtn').on('click', function (e) {
+            e.preventDefault()
+            var formData = $(this).closest('form').serialize();
+            $.ajax({
+                'url': "{{ route('blog.commentSave') }}",
+                'method': "post",
+                'data': formData,
+                success: function (response) {
+                    content = "" +
+                        "<ul>" +
+                        "<li>İlginiz için teşekkür ederim. Mesajınız onaya gönderilmiştir</li>" +
+                        "</ul>";
+
+                    $('div.alert').html(content);
+                    $('div.alert').addClass('alert-success').show();
+                    $('.field_form').remove();
+                },
+                error: function (response) {
+                    content = "<ul>";
+                    console.log(response)
+                    $.each(response.responseJSON, function (k, value) {
+                        content += "<li>" + value + "</li>";
+                    });
+                    content += "</ul>";
+
+                    $('div.alert').html(content);
+                    $('div.alert').addClass('alert-danger').show();
+
+                }
+            })
+        });
+
+        $("input[name='useful']").on('click', function () {
+            var el = $(this).parent();
+
+            if ($(this).val() == 1) {
+                el.removeClass('btn-light');
+                el.addClass('btn-success');
+                el.closest('.btn-group').find('label.active').removeClass('btn-danger').removeClass('active').addClass('btn-light')
+            } else {
+                el.removeClass('btn-light');
+                el.addClass('btn-danger');
+                el.closest('.btn-group').find('label.active').removeClass('btn-success').removeClass('active').addClass('btn-light')
+            }
+            el.addClass('active');
+        })
+    </script>
+
+    @php
+        $coverImageSize = getimagesize(image($blog->cover));
+        $imageImageSize = getimagesize(image($blog->image));
+    @endphp
+    <script type="application/ld+json">
+    {
+       "@context": "http://schema.org",
+       "@type": "NewsArticle",
+       "author": "{{ env("APP_NAME") }}",
+       "url": "{{ $blog->url }}",
+       "publisher":{
+          "@type":"Organization",
+          "name":"{{ env("APP_NAME") }}",
+          "url": "{{ env("APP_URL") }}",
+          "logo":{
+                    "@type"	: "ImageObject",
+                    "url"	: "{{ image($blog->cover) }}",
+                    "height": {{ $coverImageSize[1] }},
+                    "width" : {{ $coverImageSize[0] }}
+        }
+},
+"headline": "{{ $blog->name }}",
+       "mainEntityOfPage": "{{ $blog->url }}",
+       "articleBody": "{{ \Str::limit(strip_tags($blog->detail), 100) }}",
+       "image":{
+                    "@type"	: "ImageObject",
+                    "url"	: "{{ image($blog->image) }}",
+                    "height": {{ $imageImageSize[1] }},
+                    "width" : {{ $imageImageSize[0] }}
+        },
+"datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
+       "dateModified":"{{ \Carbon\Carbon::parse($blog->updated_at)->format('Y-m-d') }}"
+    }
+
+    </script>
+@endpush
