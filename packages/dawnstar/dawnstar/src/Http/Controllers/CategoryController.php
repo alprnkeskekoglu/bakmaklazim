@@ -5,6 +5,7 @@ namespace Dawnstar\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Dawnstar\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -22,8 +23,15 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', 'cover');
 
+        $file = request()->file('cover');
+
+        if ($file != null) {
+            $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $file->storeAs('', $fileName);
+            $data['cover'] = Storage::disk('public')->url($fileName);
+        }
 
         $category = Category::firstOrCreate(
             $data
@@ -50,8 +58,16 @@ class CategoryController extends Controller
     public function update($id)
     {
         $category = Category::find($id);
-        $data = request()->all();
-        unset($data['_token']);
+
+        $data = request()->except('_token', 'cover');
+
+        $file = request()->file('cover');
+
+        if ($file != null) {
+            $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $file->storeAs('', $fileName);
+            $data['cover'] = Storage::disk('public')->url($fileName);
+        }
 
         $category->update($data);
 

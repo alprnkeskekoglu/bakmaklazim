@@ -2,21 +2,7 @@
 
 @section('content')
     <main id="main-container">
-        <div class="bg-body-light">
-            <div class="content content-full">
-                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                    <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">Category</li>
-                            <li class="breadcrumb-item">{!! $category->name !!}</li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- END Hero -->
-        <!-- Page Content -->
+        @include('Dawnstar::layouts.breadcrumb')
         <div class="content">
             <div class="block block-rounded block-bordered">
                 @if(session()->get('message'))
@@ -38,30 +24,58 @@
                         @csrf
                         <h2 class="content-heading pt-0">{!! $category->name !!}</h2>
                         <div class="row push">
-                            <div class="col-lg-2"></div>
+                            <div class="col-lg-3 col-xl-4">
+                                <div class="col-sm-6 col-lg-12">
+                                    <h4><b>Blog Cover Image</b></h4>
+                                    <span id="btnCover" style="cursor: pointer;">
+                                        <img src="{!! $category->cover ? url($category->cover) : 'https://via.placeholder.com/150' !!}"
+                                             alt="Blog Cover Image" class="card p-1" id="imageCover"
+                                             style="width: 50%; margin-left: auto; margin-right: auto; border: 1px dashed black">
+                                    </span>
+                                    <label>
+                                        Dosya yüklemek için icon'a tıklayınız.
+                                    </label>
+                                    <div class="form-group" style="display: none">
+                                        <div class="custom-file ">
+                                            <input type="file" class="form-control" id="cover-file"
+                                                   name="cover" accept="image/*" onchange="loadCover(event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-9 col-xl-8">
-                                <div class="form-group row mt-5">
-                                    <label class="col-4"><b>Status</b></label>
-                                    <div class="col-8">
-                                        <div class="custom-control-inline custom-radio custom-control-success custom-control-lg mb-1">
-                                            <input type="radio" class="custom-control-input" id="active"
-                                                   name="status" value="1"
-                                                    {!! $category->status == 1 ? 'checked' : '' !!}>
-                                            <label class="custom-control-label" for="active">Active</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group col-sm-6">
+                                            <label for="color">Color</label>
+                                            <input type="text" class="js-colorpicker form-control" id="color" data-format="hex" name="color" value="{{$category->color}}">
                                         </div>
-                                        <div
-                                            class="custom-control-inline custom-radio custom-control-warning custom-control-lg mb-1">
-                                            <input type="radio" class="custom-control-input" id="draft"
-                                                   name="status" value="2"
-                                                {!! $category->status == 2 ? 'checked' : '' !!}>
-                                            <label class="custom-control-label" for="draft">Draft</label>
-                                        </div>
-                                        <div
-                                            class="custom-control-inline custom-radio custom-control-danger custom-control-lg mb-1">
-                                            <input type="radio" class="custom-control-input" id="passive"
-                                                   name="status" value="3"
-                                                {!! $category->status == 3 ? 'checked' : '' !!}>
-                                            <label class="custom-control-label" for="passive">Passive</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group row mt-5">
+                                            <label class="col-4"><b>Status</b></label>
+                                            <div class="col-8">
+                                                <div class="custom-control-inline custom-radio custom-control-success custom-control-lg mb-1">
+                                                    <input type="radio" class="custom-control-input" id="active"
+                                                           name="status" value="1"
+                                                        {!! $category->status == 1 ? 'checked' : '' !!}>
+                                                    <label class="custom-control-label" for="active">Active</label>
+                                                </div>
+                                                <div
+                                                    class="custom-control-inline custom-radio custom-control-warning custom-control-lg mb-1">
+                                                    <input type="radio" class="custom-control-input" id="draft"
+                                                           name="status" value="2"
+                                                        {!! $category->status == 2 ? 'checked' : '' !!}>
+                                                    <label class="custom-control-label" for="draft">Draft</label>
+                                                </div>
+                                                <div
+                                                    class="custom-control-inline custom-radio custom-control-danger custom-control-lg mb-1">
+                                                    <input type="radio" class="custom-control-input" id="passive"
+                                                           name="status" value="3"
+                                                        {!! $category->status == 3 ? 'checked' : '' !!}>
+                                                    <label class="custom-control-label" for="passive">Passive</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,9 +106,18 @@
     </main>
 @endsection
 
+@push('styles')
+    <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}">
+@endpush
+
 @push('scripts')
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('vendor/dawnstar/assets/js/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+    <script>jQuery(function(){ Dashmix.helpers(['colorpicker']); });</script>
     <script>
-        CKEDITOR.replace('detail');
+        CKEDITOR.replace('detail', {
+            filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
     </script>
 @endpush

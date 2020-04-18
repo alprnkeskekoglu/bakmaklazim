@@ -2,30 +2,13 @@
 
 @section('content')
     <main id="main-container">
-        <div class="bg-body-light">
-            <div class="content content-full">
-                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                    <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">Category</li>
-                            <li class="breadcrumb-item active" aria-current="page">Create</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- END Hero -->
-
-        <!-- Page Content -->
+        @include('Dawnstar::layouts.breadcrumb')
         <div class="content">
             <div class="block block-rounded block-bordered">
                 <div class="block-content">
                     <div class="row">
                         <div class="col-4">
                             <div class="block block-rounded block-bordered">
-                                <div class="block-header block-header-default">
-                                    <h3 class="block-title">Simple</h3>
-                                </div>
                                 <div class="block-content block-content-full">
                                     <div class="js-nestable-connected-simple dd">
                                         <ol class="dd-list">
@@ -68,28 +51,50 @@
                                   enctype="multipart/form-data">
                                 @csrf
                                 <div class="row push">
-                                    <div class="col-2"></div>
-                                    <div class="col-10">
-                                        <div class="form-group row mt-5">
-                                            <label class="col-4"><b>Status</b></label>
-                                            <div class="col-8">
-                                                <div
-                                                    class="custom-control-inline custom-radio custom-control-success custom-control-lg mb-1">
-                                                    <input type="radio" class="custom-control-input" id="active"
-                                                           name="status" value="1" checked>
-                                                    <label class="custom-control-label" for="active">Active</label>
+                                    <div class="col-10 offset-2">
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h4><b>Category Cover Image</b></h4>
+                                                <span id="btnCover" style="cursor: pointer;">
+                                                <img src="{!! 'https://via.placeholder.com/150' !!}"
+                                                     alt="Category Cover Image" class="card p-1" id="imageCover"
+                                                     style="width: 50%; margin-left: auto; margin-right: auto; border: 1px dashed black">
+                                            </span>
+                                                <div class="form-group" style="display: none">
+                                                    <div class="custom-file ">
+                                                        <input type="file" class="form-control" id="cover-file"
+                                                               name="cover" accept="image/*" onchange="loadCover(event)">
+                                                    </div>
                                                 </div>
-                                                <div
-                                                    class="custom-control-inline custom-radio custom-control-warning custom-control-lg mb-1">
-                                                    <input type="radio" class="custom-control-input" id="draft"
-                                                           name="status" value="2">
-                                                    <label class="custom-control-label" for="draft">Draft</label>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group row mt-5">
+                                                    <label class="col-2"><b>Status</b></label>
+                                                    <div class="col-10">
+                                                        <div
+                                                            class="custom-control-inline custom-radio custom-control-success custom-control-lg mb-1">
+                                                            <input type="radio" class="custom-control-input" id="active"
+                                                                   name="status" value="1" checked>
+                                                            <label class="custom-control-label" for="active">Active</label>
+                                                        </div>
+                                                        <div
+                                                            class="custom-control-inline custom-radio custom-control-warning custom-control-lg mb-1">
+                                                            <input type="radio" class="custom-control-input" id="draft"
+                                                                   name="status" value="2">
+                                                            <label class="custom-control-label" for="draft">Draft</label>
+                                                        </div>
+                                                        <div
+                                                            class="custom-control-inline custom-radio custom-control-danger custom-control-lg mb-1">
+                                                            <input type="radio" class="custom-control-input" id="passive"
+                                                                   name="status" value="3">
+                                                            <label class="custom-control-label" for="passive">Passive</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div
-                                                    class="custom-control-inline custom-radio custom-control-danger custom-control-lg mb-1">
-                                                    <input type="radio" class="custom-control-input" id="passive"
-                                                           name="status" value="3">
-                                                    <label class="custom-control-label" for="passive">Passive</label>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="color">Color</label>
+                                                    <input type="text" class="js-colorpicker form-control" id="color" data-format="hex" name="color">
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +132,7 @@
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/nestable2/jquery.nestable.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/sweetalert2/sweetalert2.min.css')}}">
-    <link rel="stylesheet" href="assets/js/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}">
 
     <style>
         .dd-item > span > a {
@@ -141,9 +146,14 @@
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/nestable2/jquery.nestable.min.js')}}"></script>
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('vendor/dawnstar/assets/js/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+    <script>jQuery(function(){ Dashmix.helpers(['colorpicker']); });</script>
     <script>
 
-        CKEDITOR.replace('detail');
+        CKEDITOR.replace('detail', {
+            filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
 
         $('.dd').nestable({'maxDepth': 1});
 
@@ -200,5 +210,17 @@
             })
 
         });
+
+        $('#btnCover').on('click', function () {
+            $('#cover-file').trigger('click');
+        });
+
+        var loadCover = function(event) {
+            var output = document.getElementById('imageCover');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src)
+            }
+        };
     </script>
 @endpush

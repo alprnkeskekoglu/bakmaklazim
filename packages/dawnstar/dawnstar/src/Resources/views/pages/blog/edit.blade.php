@@ -2,29 +2,50 @@
 
 @section('content')
     <main id="main-container">
-        <div class="bg-body-light">
-            <div class="content content-full">
-                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                    <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">Blog</li>
-                            <li class="breadcrumb-item">{!! $blog->name !!}</li>
-                            <li class="breadcrumb-item active" aria-current="page">Create</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- END Hero -->
-
-        <!-- Page Content -->
+        @include('Dawnstar::layouts.breadcrumb')
         <div class="content">
             <div class="block block-rounded block-bordered">
                 <div class="block-content">
                     <form action="{!! route("panel.blog.update", ['id' => $blog->id]) !!}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row push">
-                            <div class="col-lg-2"></div>
+                            <div class="col-lg-3 col-xl-4">
+
+                                <div class="col-sm-6 col-lg-12">
+                                    <h4><b>Blog Cover Image</b></h4>
+                                    <span id="btnCover" style="cursor: pointer;">
+                                        <img src="{!! $blog->cover ? url($blog->cover) : 'https://via.placeholder.com/150' !!}"
+                                             alt="Blog Cover Image" class="card p-1" id="imageCover"
+                                             style="width: 50%; margin-left: auto; margin-right: auto; border: 1px dashed black">
+                                    </span>
+                                    <label>
+                                        Dosya yüklemek için icon'a tıklayınız.
+                                    </label>
+                                    <div class="form-group" style="display: none">
+                                        <div class="custom-file ">
+                                            <input type="file" class="form-control" id="cover-file"
+                                                   name="cover" accept="image/*" onchange="loadCover(event)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-12">
+                                    <h4><b>Blog Image</b></h4>
+                                    <span id="btnImage" style="cursor: pointer;">
+                                        <img src="{!! $blog->image ? url($blog->image) : 'https://via.placeholder.com/150' !!}"
+                                             alt="Blog Image" class="card p-1" id="image"
+                                             style="width: 50%; margin-left: auto; margin-right: auto; border: 1px dashed black">
+                                    </span>
+                                    <label>
+                                        Dosya yüklemek için icon'a tıklayınız.
+                                    </label>
+                                    <div class="form-group" style="display: none">
+                                        <div class="custom-file ">
+                                            <input type="file" class="form-control" id="image-file"
+                                                   name="image" accept="image/*" onchange="loadImage(event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-9 col-xl-8">
                                 <div class="row">
                                     <div class="col-8">
@@ -54,7 +75,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-2 offset-2">
+                                    <div class="col-2">
+                                        <div class="form-group">
+                                            <label>View Count</label>
+                                            <input type="text" class="form-control" disabled value="{{$blog->view_count}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
                                         <div class="form-group">
                                             <label>Useful Rate</label>
                                             <input type="text" class="form-control" disabled value="{{$blog->useful_rate}}">
@@ -113,7 +140,10 @@
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
     <script>
-        CKEDITOR.replace('detail');
+        CKEDITOR.replace('detail', {
+            filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
 
         $("#tags").select2({
             tags: true,
@@ -136,6 +166,31 @@
                     $("#tags").parent().show();
                 }
             })
-        })
+        });
+
+
+        $('#btnCover').on('click', function () {
+            $('#cover-file').trigger('click');
+        });
+
+        var loadCover = function(event) {
+            var output = document.getElementById('imageCover');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src)
+            }
+        };
+
+        $('#btnImage').on('click', function () {
+            $('#image-file').trigger('click');
+        });
+
+        var loadImage = function(event) {
+            var output = document.getElementById('image');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src)
+            }
+        };
     </script>
 @endpush

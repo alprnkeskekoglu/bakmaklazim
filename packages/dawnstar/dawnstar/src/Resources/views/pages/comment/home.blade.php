@@ -2,6 +2,7 @@
 
 @section('content')
     <main id="main-container">
+        @include('Dawnstar::layouts.breadcrumb')
         <div class="content content-full">
             <div class="d-flex justify-content-between align-items-center mt-6 mb-3">
                 <h2 class="font-w300 mb-0">Comments</h2>
@@ -23,7 +24,7 @@
                         </thead>
                         <tbody>
                         @foreach($comments as $data)
-                            <tr>
+                            <tr data-id="{{$data->id}}" data-read="{{$data->read_status}}" onmouseover="setAsRead(this)">
                                 <td class="text-center">{!! $data->id !!}</td>
                                 <td class="d-none d-sm-table-cell text-center">
                                     @if($data->status == 1)
@@ -85,6 +86,17 @@
     </main>
 @endsection
 
+@push('styles')
+    <style>
+        [data-read='0'] {
+            background-color: #e0e0e0 !important;
+        }
+        [data-read='1'] {
+            background-color: #fff !important;
+        }
+    </style>
+@endpush
+
 @push('scripts')
     <script src="{!! asset("vendor/dawnstar/assets/js/plugins/datatables/jquery.dataTables.min.js") !!}"></script>
     <script src="{!! asset("vendor/dawnstar/assets/js/plugins/datatables/dataTables.bootstrap4.min.js") !!}"></script>
@@ -95,6 +107,19 @@
             $(el).siblings('.text').first().html(message);
             $(el).siblings('button').first().show();
             $(el).hide();
+        }
+
+        function setAsRead(element) {
+            if($(element).attr('data-read') != 1) {
+                $.ajax({
+                    url: "{{route('panel.comment.updateRead')}}",
+                    method: "get",
+                    data: {"id": $(element).attr('data-id')},
+                    success: function(response) {
+                        $(element).attr('data-read', "1");
+                    }
+                })
+            }
         }
 
         var table = $('table').DataTable({

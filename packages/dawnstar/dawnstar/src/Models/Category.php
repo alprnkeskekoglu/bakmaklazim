@@ -22,6 +22,8 @@ class Category extends Model
         'name',
         'slug',
         'detail',
+        'color',
+        'cover',
     ];
 
     public function tags() {
@@ -32,6 +34,7 @@ class Category extends Model
         return $this->hasMany(Blog::class);
     }
 
-
-
+    public function getUrlAttribute() {
+        return route('category.detail', ['slug' => $this->slug]);
+    }
 }

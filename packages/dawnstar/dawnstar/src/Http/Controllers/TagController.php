@@ -27,11 +27,11 @@ class TagController extends Controller
         $data = $request->except('_token');
 
 
-        $category = Tag::firstOrCreate(
+        $tag = Tag::firstOrCreate(
             $data
         );
 
-        if ($category->wasRecentlyCreated) {
+        if ($tag->wasRecentlyCreated) {
             return redirect()->route('panel.tag.index');
         }
         return redirect()->back()->withErrors(['message', 'There is a record in this name and slug'])->withInput();
@@ -65,10 +65,10 @@ class TagController extends Controller
 
     public function delete($id)
     {
-        $category = Category::find($id);
-        if ($category) {
-            $category->delete();
-            if ($category->trashed()) {
+        $tag = Tag::find($id);
+        if ($tag) {
+            $tag->delete();
+            if ($tag->trashed()) {
                 return redirect()->route('panel.tag.create')->with('message', 'Delete Successful');
             }
         }

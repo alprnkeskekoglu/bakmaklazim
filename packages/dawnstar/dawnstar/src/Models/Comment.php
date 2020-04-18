@@ -20,6 +20,7 @@ class Comment extends Model
         'blog_id',
         'status',
         'useful',
+        'read_status',
         'user_ip',
         'user_name',
         'user_email',

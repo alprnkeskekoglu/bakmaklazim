@@ -12,6 +12,9 @@ function getStatusText($status) {
 
     return $text;
 }
+function getUnreadCommentCount() {
+    return \Dawnstar\Models\Comment::where('read_status', 0)->get()->count();
+}
 
 function commentStats() {
 
@@ -36,4 +39,16 @@ function commentStats() {
     }
 
     return implode(',', $data);
+}
+
+function breadcrumb() {
+    $url = request()->segments();
+
+    $hold = [
+        ucfirst($url[0]) => route('panel.'.$url[0]),
+        ucfirst($url[1]) => route('panel.'.strtolower($url[1]) . '.index'),
+        ucfirst($url[count($url) - 1]) => "javascript:void(0);",
+    ];
+
+    return $hold;
 }

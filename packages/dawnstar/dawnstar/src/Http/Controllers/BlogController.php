@@ -7,6 +7,7 @@ use Dawnstar\Models\Blog;
 use Dawnstar\Models\Category;
 use Dawnstar\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -25,8 +26,24 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->except('_token', 'tags');
+        $data = $request->except('_token', 'tags', 'cover', 'image');
 
+
+        $file = request()->file('cover');
+
+        if ($file != null) {
+            $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $file->storeAs('', $fileName);
+            $data['cover'] = Storage::disk('public')->url($fileName);
+        }
+
+        $file = request()->file('image');
+
+        if ($file != null) {
+            $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $file->storeAs('', $fileName);
+            $data['image'] = Storage::disk('public')->url($fileName);
+        }
 
         $data['admin_id'] = auth()->id();
         $data['date'] = date('Y-m-d');
@@ -61,7 +78,24 @@ class BlogController extends Controller
     public function update($id)
     {
         $blog = Blog::find($id);
-        $data = request()->except('_token', 'tags');
+        $data = request()->except('_token', 'tags', 'cover', 'image');
+
+
+        $file = request()->file('cover');
+
+        if ($file != null) {
+            $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $file->storeAs('', $fileName);
+            $data['cover'] = Storage::disk('public')->url($fileName);
+        }
+
+        $file = request()->file('image');
+
+        if ($file != null) {
+            $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $file->storeAs('', $fileName);
+            $data['image'] = Storage::disk('public')->url($fileName);
+        }
 
         $data['admin_id'] = auth()->id();
         $blog->update($data);
@@ -86,10 +120,11 @@ class BlogController extends Controller
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();
     }
 
-    public function getTags(Request $request) {
+    public function getTags(Request $request)
+    {
 
         $category = Category::find($request->category_id);
-        if($category) {
+        if ($category) {
             return $category->tags->toArray();
         }
     }

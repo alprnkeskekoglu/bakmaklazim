@@ -2,6 +2,7 @@
 
 @section('content')
     <main id="main-container">
+        @include('Dawnstar::layouts.breadcrumb')
         <div class="content content-full">
             <div class="d-flex justify-content-between align-items-center mt-6 mb-3">
                 <h2 class="font-w300 mb-0">Categories</h2>

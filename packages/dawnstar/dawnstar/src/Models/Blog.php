@@ -26,6 +26,8 @@ class Blog extends Model
         'name',
         'slug',
         'detail',
+        'cover',
+        'image',
     ];
 
     public function admin() {
@@ -44,4 +46,7 @@ class Blog extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function getUrlAttribute() {
+        return route('blog.detail', ['slug' => $this->slug]);
+    }
 }

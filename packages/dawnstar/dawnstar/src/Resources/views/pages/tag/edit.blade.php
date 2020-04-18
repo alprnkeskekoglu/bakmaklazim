@@ -2,21 +2,7 @@
 
 @section('content')
     <main id="main-container">
-        <div class="bg-body-light">
-            <div class="content content-full">
-                <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                    <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">Tag</li>
-                            <li class="breadcrumb-item">{!! $tag->name !!}</li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <!-- END Hero -->
-        <!-- Page Content -->
+        @include('Dawnstar::layouts.breadcrumb')
         <div class="content">
             <div class="block block-rounded block-bordered">
                 @if(session()->get('message'))

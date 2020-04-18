@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('blog_id');
             $table->tinyInteger('status')->default(2);
             $table->tinyInteger('useful')->default(1);
+            $table->tinyInteger('read_status')->default(0);
             $table->string('user_ip')->nullable();
             $table->string('user_name')->nullable();
             $table->string('user_email')->nullable();

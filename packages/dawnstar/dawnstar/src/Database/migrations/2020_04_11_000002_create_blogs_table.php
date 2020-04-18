@@ -21,9 +21,12 @@ class CreateBlogsTable extends Migration
             $table->tinyInteger('status')->default(2);
             $table->date('date')->nullable();
             $table->float('useful_rate', 3,2)->default(0.00);
+            $table->integer('view_count')->default(0);
             $table->string('name');
             $table->string('slug');
             $table->text('detail');
+            $table->text('cover')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

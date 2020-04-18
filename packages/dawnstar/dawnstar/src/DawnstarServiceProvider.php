@@ -2,8 +2,9 @@
 
 namespace Dawnstar;
 
-use Dawnstar\Http\Kernel;
+use Dawnstar\Console\Kernel;
 use Illuminate\Support\ServiceProvider;
+use App\Console\Kernel as ConsoleKernel;
 
 class DawnstarServiceProvider extends ServiceProvider
 {
@@ -12,9 +13,18 @@ class DawnstarServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    protected $commands = [
+        'Dawnstar\Commands\SearchView',
+    ];
+
+
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+
+        $this->commands($this->commands);
     }
 
     /**

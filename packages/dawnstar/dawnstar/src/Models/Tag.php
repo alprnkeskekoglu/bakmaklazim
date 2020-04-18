@@ -31,5 +31,7 @@ class Tag extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
-
+    public function getUrlAttribute() {
+        return route('category.detail', ['slug' => $this->category->slug, 'tags' => $this->slug]);
+    }
 }

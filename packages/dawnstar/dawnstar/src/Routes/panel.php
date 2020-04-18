@@ -12,8 +12,20 @@ Route::name('panel.')->group(function () {
 
     Route::middleware(['auth'])->group(function () {
 
-        Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/', 'HomeController@index')->name('dawnstar');
 
+
+        Route::prefix('Admin')->name('admin.')->group(function () {
+            Route::get('/', 'AdminController@index')->name('index');
+            Route::get('/create', 'AdminController@create')->name('create');
+            Route::post('/store', 'AdminController@store')->name('store');
+
+            Route::prefix('/{id}')->group(function () {
+                Route::get('/edit', 'AdminController@edit')->name('edit');
+                Route::post('/update', 'AdminController@update')->name('update');
+                Route::get('/delete', 'AdminController@delete')->name('delete');
+            });
+        });
 
         Route::prefix('Category')->name('category.')->group(function () {
             Route::get('/', 'CategoryController@index')->name('index');
@@ -27,7 +39,6 @@ Route::name('panel.')->group(function () {
                 Route::get('/delete', 'CategoryController@delete')->name('delete');
             });
         });
-
 
         Route::prefix('Tag')->name('tag.')->group(function () {
             Route::get('/', 'TagController@index')->name('index');
@@ -57,11 +68,16 @@ Route::name('panel.')->group(function () {
 
         Route::prefix('Comment')->name('comment.')->group(function () {
             Route::get('/', 'CommentController@index')->name('index');
+            Route::get('/updateRead', 'CommentController@updateRead')->name('updateRead');
 
             Route::prefix('/{id}')->group(function () {
                 Route::get('/updateStatus', 'CommentController@updateStatus')->name('updateStatus');
                 Route::get('/delete', 'CommentController@delete')->name('delete');
             });
         });
+
+
+        Route::post('/ckEditorUpload', 'CkEditorController@upload')->name('ckEditorUpload');
+
     });
 });
