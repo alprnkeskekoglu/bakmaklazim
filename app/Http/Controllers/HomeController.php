@@ -12,7 +12,6 @@ class HomeController extends Controller
     {
 
         $categories = Category::where('status', 1)
-            ->whereHas('blogs')
             ->orderBy('order')
             ->get()
             ->take(5);
