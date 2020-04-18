@@ -119,5 +119,18 @@
             filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form'
         });
+
+
+        $('#btnCover').on('click', function () {
+            $('#cover-file').trigger('click');
+        });
+
+        var loadCover = function(event) {
+            var output = document.getElementById('imageCover');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src)
+            }
+        };
     </script>
 @endpush

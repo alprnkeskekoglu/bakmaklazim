@@ -45,7 +45,7 @@
                             <div class="item">
                                 <div class="service_box">
                                     <a href="{!! $category->url !!}">
-                                        <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}" width="250" height="225"/>
+                                        <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}" width="250"/>
                                         <span class="lable">{!! $category->name !!}</span>
                                     </a>
                                 </div>

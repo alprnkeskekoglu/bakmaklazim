@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label for="color">Color</label>
-                                                    <input type="text" class="js-colorpicker form-control" id="color" data-format="hex" name="color">
+                                                    <input type="text" class="js-colorpicker form-control" id="color" data-format="hex" name="color" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>

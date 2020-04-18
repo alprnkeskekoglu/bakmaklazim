@@ -21,9 +21,11 @@ class HomeController extends Controller
         $lastBlog = Blog::orderByDesc('id')->where('status', 1)->first();
 
         $blogs = Blog::where('status', 1)
-            ->orderByDesc('id')
-            ->where('id', '!=', $lastBlog->id)
-            ->paginate(6);
+            ->orderByDesc('id');
+        if ($lastBlog) {
+            $blogs = $blogs->where('id', '!=', $lastBlog->id);
+        }
+        $blogs = $blogs->paginate(6);
 
         return view('pages.home', compact('categories', 'lastBlog', 'blogs'));
     }
