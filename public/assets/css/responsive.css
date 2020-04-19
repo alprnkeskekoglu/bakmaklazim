@@ -550,6 +550,7 @@ header .attr-nav + .social_icons {
 }
 .service_box .lable {
 	font-size: 18px;
+    bottom: -6px;
 }
 .banner_slide_content_bottom .banner_content h2 {
 	margin-bottom: 15px;
@@ -718,6 +719,7 @@ p {
 }
 .service_box .lable {
 	font-size: 10px;
+    bottom: -6px;
 }
 .footer_top {
     padding: 50px 0 20px;
