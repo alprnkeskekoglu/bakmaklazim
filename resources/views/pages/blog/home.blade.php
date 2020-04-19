@@ -40,7 +40,7 @@
                                         <ul class="blog_meta">
                                             <li><i class="ti-calendar"></i> <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span></li>
                                             <li><i class="ti-comments"></i> <span>{!! $blog->comments_count !!} Yorum</span></li>
-                                            <li><i class="ti-comments"></i> <span>{!! $blog->view_count !!} Görüntülenme</span></li>
+                                            <li><i class="ti-eye"></i> <span>{!! $blog->view_count !!} Görüntülenme</span></li>
                                         </ul>
                                         <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
                                         <a href="{!! $blog->url !!}" class="btn btn-dark btn-sm">Devamını Oku</a>

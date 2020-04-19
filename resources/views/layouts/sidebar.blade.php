@@ -4,7 +4,7 @@
     $blogs = getSidebarLatestBlogs();
 @endphp
 
-<div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item" data-margintop="100">
+<div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item d-none d-lg-block" data-margintop="100">
 
     @if($categories->isNotEmpty())
         <div class="widget">

@@ -6,7 +6,7 @@
     <div class="footer_top">
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="https://templatemanja.com/morus/demo/index-6.html"><img src="/assets/images/logo_white.png" alt="logo"></a>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
 
-                <div class="col-4">
+                <div class="col-lg-4 col-md-6 d-none d-lg-block">
 
                     <div class="widget">
                         <h6 class="widget_title">Popüler Tags</h6>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class="col-4">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <h6 class="widget_title">İletişim</h6>
                         <ul class="contact_info contact_info_light">

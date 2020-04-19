@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="single_post">
                         <div class="blog_img">
-                            <img src="{!! image($blog->image) !!}" alt="{!! $blog->name !!}">
+                            <img src="{!! image($blog->image) !!}" alt="{!! $blog->name !!}" style="max-height: 550px">
                             <div class="blog_tags">
                                 <a class="blog_tags_cat"
                                    style="background-color: {{ $blog->category->color ?: "#4382FF" }}"
@@ -43,7 +43,8 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="float-right">
-                                            <img class="author-circle" src="{!! image($blog->admin->image) !!}"
+                                            <img class="author-circle d-none d-sm-inline"
+                                                 src="{!! image($blog->admin->image) !!}"
                                                  alt="{!! $blog->admin->name !!}" height="30">
                                             <span>{!! $blog->admin->name !!}</span>
                                         </div>
@@ -87,23 +88,24 @@
                                 @foreach($comments as $comment)
                                     <li class="comment_info">
                                         <div class="d-flex">
-                                            <div class="comment_user">
-                                                <div
-                                                    class="profile-image">{!! getProfileImage($comment->user_name) !!}</div>
+                                            <div class="comment_user d-none d-lg-block d-md-block">
+                                                <div class="profile-image ">
+                                                    {!! getProfileImage($comment->user_name) !!}
+                                                </div>
                                             </div>
                                             <div class="comment_content">
-                                                <div class="d-flex">
+                                                <div class="d-lg-flex d-md-flex d-sm-block">
                                                     <div class="meta_data">
                                                         <h6>
                                                             {!! $comment->user_name !!}
                                                         </h6>
-                                                        <div
-                                                            class="comment-time">{!! \Carbon\Carbon::parse($comment->created_at)->formatLocalized('%d %B %Y') !!}</div>
+                                                        <div class="comment-time">
+                                                            {!! \Carbon\Carbon::parse($comment->created_at)->formatLocalized('%d %B %Y') !!}
+                                                        </div>
                                                     </div>
                                                     <div class="ml-auto">
                                                         <p style="font-size: 85%">
-                                                            <strong>{!! $comment->user_name !!}</strong> adlı kullanıcı
-                                                            bu yazıyı
+                                                            Bu yazıyı
                                                             {!! $comment->useful == 1 ? "<span class='text-success'>faydalı buldu.</span>" : "<span class='text-danger'>faydalı bulmadı.</span>" !!}
                                                         </p>
                                                     </div>
@@ -116,39 +118,39 @@
                             </ul>
                         @endif
 
-                        <div class="content_title">
-                            <h5>Mesajını Gönder</h5>
-                        </div>
                         <div class="alert" style="display: none"></div>
                         <form class="field_form">
                             @csrf
-                            <input type="hidden" name="blog_id" value="{{$blog->id}}">
-                            <div class="row">
-                                <div class="form-group col-md-4">
-                                    <input name="user_name" class="form-control" placeholder="Adınız" type="text">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <input name="user_email" class="form-control" placeholder="E-posta Adresiniz"
-                                           type="email">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <div class="row">
-                                        <div class="col-4 mt-2">
-                                            <span>Faydalı mı?</span>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="btn-group float-right">
-                                                <label class="btn btn-sm btn-success active"
-                                                       style="border-top-left-radius: 1.25rem; border-bottom-left-radius: 1.25rem; !important">
-                                                    <input type="radio" name="useful" value="1" checked> Evet
-                                                </label>
-                                                <label class="btn btn-sm btn-light"
-                                                       style="border-top-right-radius: 1.25rem; border-bottom-right-radius: 1.25rem; !important">
-                                                    <input type="radio" name="useful" value="0"> Hayır
-                                                </label>
-                                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 mt-2">
+                                        <div class="content_title">
+                                            <h5>Mesajını Gönder</h5>
                                         </div>
                                     </div>
+                                    <div class="offset-lg-2 offset-md-2 col-lg-6 col-md-6">
+                                        <div class="btn-group float-lg-right">
+                                            <span class="mr-5 mt-2">Faydalı mı?</span>
+                                            <label class="btn btn-sm btn-success active"
+                                                   style="border-top-left-radius: 1.25rem; border-bottom-left-radius: 1.25rem; !important">
+                                                <input type="radio" name="useful" value="1" checked> Evet
+                                            </label>
+                                            <label class="btn btn-sm btn-light"
+                                                   style="border-top-right-radius: 1.25rem; border-bottom-right-radius: 1.25rem; !important">
+                                                <input type="radio" name="useful" value="0"> Hayır
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <input name="user_name" class="form-control" placeholder="Adınız" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input name="user_email" class="form-control" placeholder="E-posta Adresiniz"
+                                           type="email">
                                 </div>
                                 <div class="form-group col-md-12">
                                         <textarea rows="5" name="detail" class="form-control" style="resize: none;"
@@ -280,6 +282,7 @@
 "datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
        "dateModified":"{{ \Carbon\Carbon::parse($blog->updated_at)->format('Y-m-d') }}"
     }
+
 
     </script>
 @endpush

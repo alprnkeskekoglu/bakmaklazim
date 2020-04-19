@@ -23,7 +23,7 @@
             <div class="row">
 
                 @foreach($categories as $category)
-                    <div class="blog_post col-4">
+                    <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                         <div class="blog_img">
                             <a href="{!! $category->url !!}">
                                 <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}"

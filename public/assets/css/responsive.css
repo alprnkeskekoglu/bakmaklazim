@@ -545,8 +545,11 @@ header .attr-nav + .social_icons {
 .banner_section.slide_medium, .banner_section.slide_medium .item, .banner_section.slide_medium .banner_content_wrap, .banner_section.slide_medium .banner_content_wrap .item {
 	height: 400px;
 }
+.service_box {
+	height: 200px;
+}
 .service_box .lable {
-	font-size: 20px;
+	font-size: 18px;
 }
 .banner_slide_content_bottom .banner_content h2 {
 	margin-bottom: 15px;
@@ -710,8 +713,11 @@ p {
 .footer_logo {
 	margin-bottom: 15px;
 }
+.service_box {
+	height: 95px;
+}
 .service_box .lable {
-	font-size: 16px;
+	font-size: 10px;
 }
 .footer_top {
     padding: 50px 0 20px;

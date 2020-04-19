@@ -29,10 +29,10 @@
             </div>
             <div class="row">
 
-                <div class="col-8">
+                <div class="col-lg-8 col-md-8 col-sm-12">
                     <div class="row">
                         @foreach($blogs as $blog)
-                            <div class="blog_post col-6">
+                            <div class="blog_post col-lg-6 col-md-12 col-sm-12">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
                                         <img src="{!! image($blog->cover) !!}" alt="{!! $blog->name !!}"
@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-4 d-none d-lg-block d-md-block">
                     <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item" data-margintop="100">
 
                         <div class="widget">

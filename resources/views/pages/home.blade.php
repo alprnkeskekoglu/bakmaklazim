@@ -40,13 +40,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="30" data-dots="false"
-                         data-nav="true" data-loop="true" data-autoplay="true">
+                         data-nav="true">
                         @foreach($categories as $category)
                             <div class="item">
                                 <div class="service_box">
                                     <a href="{!! $category->url !!}">
-                                        <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}" width="250"/>
-                                        <span class="lable">{!! $category->name !!}</span>
+                                        <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}"/>
+                                        <span class="lable">{!! ucwords(strtolower($category->name)) !!}</span>
                                     </a>
                                 </div>
                             </div>
@@ -62,17 +62,13 @@
         <div class="container">
             <div class="justify-content-between align-items-center">
                 <div class="col-12">
-                    <p class="text-white h6 font-italic font-size-h6">
-                        {!! $inspire['text'] !!}
-                    </p>
-                    <div class="heading_light float-right mt-3">
-                        <h6>{!! $inspire['author'] !!}</h6>
-                    </div>
+                    <blockquote class="blockquote ">
+                        <p class="mb-0 text-white">{!! $inspire['text'] !!}</p>
+                        <footer class="blockquote-footer text-right text-white"> <cite title="Source Title">{!! $inspire['author'] !!}</cite></footer>
+                    </blockquote>
                 </div>
             </div>
         </div>
-        <div class="row_holder_left" data-parallax='{"x": -50, "smoothness": 10}'></div>
-        <div class="row_holder_right" data-parallax='{"x": 50, "smoothness": 10}'></div>
     </div>
 
     <div class="section">
@@ -81,7 +77,7 @@
                 <div class="col-12">
                     <div class="blog_article row">
                         @foreach($blogs as $blog)
-                            <div class="blog_post col-4">
+                            <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
                                         <img src="{!! image($blog->cover) !!}" alt="{!! $blog->name !!}"

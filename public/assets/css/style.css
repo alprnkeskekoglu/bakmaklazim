@@ -2396,6 +2396,7 @@ header.vertical_menu .navbar-collapse .navbar-nav {
   04. START SERVICES STYLE
 *===================================*/
 .service_box {
+    height: 290px;
 	position: relative;
 	overflow: hidden;
 }
@@ -2406,7 +2407,6 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	font-family: "Prata", sans-serif;
 	font-size: 26px;
 	line-height: 1;
-	text-transform: uppercase;
 	z-index: 1;
 	color: #fff;
 	text-align: center;
@@ -2627,6 +2627,10 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	overflow: hidden;
 }
 .blog_img img {
+	width: 100%;
+	transition: all 0.5s ease-in-out;
+}
+.blog_img_search img {
 	width: 100%;
 	transition: all 0.5s ease-in-out;
 }
