@@ -408,7 +408,7 @@ header.vertical_menu .navbar-collapse {
     float: right;
 }
 .header_wrap.dark_skin .navbar-collapse {
-    background-color: #fff;
+    background-color: #fffa70;
 }
 .navbar-collapse .navbar-nav {
     max-height: 80vh;

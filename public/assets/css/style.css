@@ -855,7 +855,7 @@ button:focus {
 	padding: 0;
 }
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]) {
-	background-color: #fff;
+	background-color: #ded70b;
 }
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).transparent_header {
 	background-color: transparent;

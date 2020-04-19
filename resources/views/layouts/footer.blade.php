@@ -18,7 +18,7 @@
                 <div class="col-lg-4 col-md-6 d-none d-lg-block">
 
                     <div class="widget">
-                        <h6 class="widget_title">Popüler Tags</h6>
+                        <h6 class="widget_title">Popüler Etiketler</h6>
                         <div class="tags">
                             @foreach($tags as $tag)
                                 <a href="{!! $tag->url !!}">{!! $tag->name !!}</a>

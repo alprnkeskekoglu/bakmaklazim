@@ -69,7 +69,7 @@
                     <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item" data-margintop="100">
 
                         <div class="widget">
-                            <h5 class="widget_title">Tagler</h5>
+                            <h5 class="widget_title">Etiketler</h5>
                             <ul class="widget_categories">
                                 @foreach($tags as $tag)
                                     <li>

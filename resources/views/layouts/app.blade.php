@@ -48,6 +48,7 @@
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
 <script src="{!! asset('/assets/owlcarousel/js/owl.carousel.min.js') !!}"></script>
 <script src="{!! asset('/assets/js/magnific-popup.min.js') !!}"></script>
+<script src="{!! asset('/assets/js/isotope.min.js') !!}"></script>
 <script src="{!! asset('/assets/js/jquery.appear.js') !!}"></script>
 <script src="{!! asset('/assets/js/jquery.parallax-scroll.js') !!}"></script>
 <script src="{!! asset('/assets/js/sticky-kit.min.js') !!}"></script>

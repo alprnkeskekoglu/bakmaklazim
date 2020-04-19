@@ -25,7 +25,7 @@
     @endif
 
     <div class="widget">
-        <h5 class="widget_title">Tagler</h5>
+        <h5 class="widget_title">Etiketler</h5>
         <div class="tags">
             @foreach($tags as $tag)
                 <a href="{!! $tag->url !!}">{!! $tag->name !!}</a>
