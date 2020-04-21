@@ -860,7 +860,7 @@ button:focus {
 	padding: 0;
 }
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]) {
-	background-color: #ded70b;
+	background-color: #f4ed29;
 }
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).transparent_header {
 	background-color: transparent;
@@ -897,7 +897,7 @@ button:focus {
 	background-color: #303537;
 }
 .dark_skin .navbar-nav .dropdown-menu {
-	background-color: #fff;
+	background-color: #f4ed29;
 	box-shadow: 0 13px 42px 11px rgba(0,0,0,.05);
 }
 .dark_skin .mega-menu-col,
