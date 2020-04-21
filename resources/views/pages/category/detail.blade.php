@@ -51,11 +51,16 @@
                                                 href="{!! $blog->url !!}">{!! $blog->name !!}</a>
                                         </h5>
                                         <ul class="blog_meta">
-                                            <li><i class="ti-calendar"></i>
+                                            <li>
+                                                <i class="ti-calendar"></i>
                                                 <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span>
                                             </li>
-                                            <li><i class="ti-comments"></i>
-                                                <span>{!! $blog->comments_count !!} Yorum</span></li>
+                                            @if($blog->comments_count > 0)
+                                                <li>
+                                                    <i class="ti-comments"></i>
+                                                    <span>{!! $blog->comments_count !!} Yorum</span>
+                                                </li>
+                                            @endif
                                         </ul>
                                         <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
                                     </div>

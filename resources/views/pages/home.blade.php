@@ -7,34 +7,41 @@
 @endphp
 
 @section('content')
-    <div class="section breadcrumb_section background_bg overlay_bg_50 page_title_light"
-         data-img-src="{!! image($lastBlog->cover) !!}">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-md-8 col-sm-12">
-                    <div class="banner_content">
-                        <div class="blog_tags">
-                            <a class="blog_tags_cat"
-                               style="background-color: {{$lastBlog->category->color ?: "#4382FF"}}"
-                               href="{!! $lastBlog->category->url !!}">
-                                {!! $lastBlog->category->name !!}
-                            </a>
+    @if($lastBlog)
+        <div class="section breadcrumb_section background_bg overlay_bg_50 page_title_light"
+             data-img-src="{!! image($lastBlog->cover) !!}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-md-8 col-sm-12">
+                        <div class="banner_content">
+                            <div class="blog_tags">
+                                <a class="blog_tags_cat"
+                                   style="background-color: {{$lastBlog->category->color ?: "#4382FF"}}"
+                                   href="{!! $lastBlog->category->url !!}">
+                                    {!! $lastBlog->category->name !!}
+                                </a>
+                            </div>
+                            <h2 class="blog_heading"><a
+                                    href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a>
+                            </h2>
+                            <ul class="blog_meta">
+                                <li>
+                                    <i class="ti-calendar"></i>
+                                    <span>{!! \Carbon\Carbon::parse($lastBlog->date)->formatLocalized('%d %B %Y') !!}</span>
+                                </li>
+                                @if($lastBlog->comments_count > 0)
+                                    <li>
+                                        <i class="ti-comments"></i>
+                                        <span>{!! $lastBlog->comments_count !!} Yorum</span>
+                                    </li>
+                                @endif
+                            </ul>
                         </div>
-                        <h2 class="blog_heading"><a
-                                href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a>
-                        </h2>
-                        <ul class="blog_meta">
-                            <li><i class="ti-calendar"></i>
-                                <span>{!! \Carbon\Carbon::parse($lastBlog->date)->formatLocalized('%d %B %Y') !!}</span>
-                            </li>
-                            <li><i class="ti-comments"></i> <span>{!! $lastBlog->comments_count !!} Yorum</span></li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    @endif
     <div class="section">
         <div class="container">
             <div class="row">
@@ -64,7 +71,8 @@
                 <div class="col-12">
                     <blockquote class="blockquote ">
                         <p class="mb-0 text-white">{!! $inspire['text'] !!}</p>
-                        <footer class="blockquote-footer text-right text-white"> <cite title="Source Title">{!! $inspire['author'] !!}</cite></footer>
+                        <footer class="blockquote-footer text-right text-white"><cite
+                                title="Source Title">{!! $inspire['author'] !!}</cite></footer>
                     </blockquote>
                 </div>
             </div>
@@ -95,11 +103,16 @@
                                         </div>
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>
                                         <ul class="blog_meta">
-                                            <li><i class="ti-calendar"></i>
+                                            <li>
+                                                <i class="ti-calendar"></i>
                                                 <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span>
                                             </li>
-                                            <li><i class="ti-comments"></i>
-                                                <span>{!! $blog->comments_count !!} Yorum</span></li>
+                                            @if($blog->comments_count > 0)
+                                                <li>
+                                                    <i class="ti-comments"></i>
+                                                    <span>{!! $blog->comments_count !!} Yorum</span>
+                                                </li>
+                                            @endif
                                         </ul>
                                         <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
                                         <a href="{!! $blog->url !!}"

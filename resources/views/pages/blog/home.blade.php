@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') {!! env('APP_NAME') !!} @endsection
+@section('title') Blog Yazıları | {!! env('APP_NAME') !!} @endsection
 
 @section('content')
     <div class="section breadcrumb_section bg_gray">
@@ -38,9 +38,20 @@
                                         </div>
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>
                                         <ul class="blog_meta">
-                                            <li><i class="ti-calendar"></i> <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span></li>
-                                            <li><i class="ti-comments"></i> <span>{!! $blog->comments_count !!} Yorum</span></li>
-                                            <li><i class="ti-eye"></i> <span>{!! $blog->view_count !!} Görüntülenme</span></li>
+                                            <li>
+                                                <i class="ti-calendar"></i>
+                                                <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span>
+                                            </li>
+                                            @if($blog->comments_count > 0)
+                                                <li>
+                                                    <i class="ti-comments"></i>
+                                                    <span>{!! $blog->comments_count !!} Yorum</span>
+                                                </li>
+                                            @endif
+                                            <li>
+                                                <i class="ti-eye"></i>
+                                                <span>{!! $blog->view_count !!} Görüntülenme</span>
+                                            </li>
                                         </ul>
                                         <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
                                         <a href="{!! $blog->url !!}" class="btn btn-dark btn-sm">Devamını Oku</a>

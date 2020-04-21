@@ -71,12 +71,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-2 offset-2">
-                                        <div class="form-group">
-                                            <label>Useful Rate</label>
-                                            <input type="text" class="form-control" disabled value="">
-                                        </div>
-                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-group">
