@@ -37,7 +37,7 @@ function image($path)
     if ($path && file_exists(public_path($path))) {
         return url($path);
     }
-    return "https://via.placeholder.com/220x200";
+    return asset('assets/images/default.png');
 }
 
 function getIp()
