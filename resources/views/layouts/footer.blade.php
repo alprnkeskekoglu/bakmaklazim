@@ -9,7 +9,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="https://templatemanja.com/morus/demo/index-6.html"><img src="/assets/images/logo_white.png" alt="logo"></a>
+                            <a href="{{ route('index') }}"><img src="{{ asset("/assets/images/logo-white.png") }}" alt="{{ env('APP_NAME') }}"></a>
                         </div>
                         <p>If you are going to use a passage of Lorem Ipsum you need to be sure there isn't anything embarrassing hidden in the middle of text</p>
                     </div>
@@ -41,6 +41,7 @@
                             </li>
                         </ul>
                     </div>
+                    {{--
                     <div class="widget">
                         <ul class="widget_social social_icons rounded_social">
                             <li><a href="index.html#" class="sc_facebook"><i class="ion-social-facebook"></i></a></li>
@@ -51,6 +52,7 @@
                             <li><a href="index.html#" class="sc_pinterest"><i class="ion-social-pinterest-outline"></i></a></li>
                         </ul>
                     </div>
+                    --}}
                 </div>
             </div>
         </div>
@@ -59,7 +61,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p class="copyright m-0 text-center">© 2020 All Rights Reserved By <a href="index.html" class="text_default">Morus.</a></p>
+                    <p class="copyright m-0 text-center">© {{ date('Y') }} All Rights Reserved By <a href="{{ route('index') }}" class="text_default">{{ env('APP_NAME') }}.</a></p>
                 </div>
             </div>
         </div>
