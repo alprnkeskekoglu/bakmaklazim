@@ -58,7 +58,7 @@
     </div>
 
     <div class="section background_bg overlay_bg_70 overflow-hidden fixed_bg"
-         data-img-src="/assets/images/newsletters_bg.jpg">
+         data-img-src="{{ asset("/assets/images/inspire.jpg") }}">
         <div class="container">
             <div class="justify-content-between align-items-center">
                 <div class="col-12">
