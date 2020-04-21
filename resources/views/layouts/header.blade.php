@@ -7,8 +7,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="{{ route('index') }}">
-                <img class="logo_light" src="/assets/images/logo_white.png" alt="logo" />
-                <img class="logo_dark" src="/assets/images/logo_dark.png" alt="logo" />
+                <img class="logo_dark" src="/assets/images/logo.png" alt="logo" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">

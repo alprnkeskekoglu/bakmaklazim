@@ -851,6 +851,11 @@ button:focus {
 .light_skin .navbar-toggler {
 	color: #ffffff;
 }
+
+.logo_dark {
+    width: 40%;
+}
+
 .navbar {
 	padding: 0;
 }

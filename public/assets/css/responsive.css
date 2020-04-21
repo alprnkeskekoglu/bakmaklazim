@@ -596,6 +596,10 @@ header .attr-nav + .social_icons {
 p {
 	margin-bottom: 15px;
 }
+
+.logo_dark {
+    width: 25%;
+}
 .section,
 .top_footer {
     padding: 50px 0;
@@ -968,6 +972,10 @@ p {
 }
 .h6, h6 {
     font-size: 14px;
+}
+
+.logo_dark {
+    width: 75%;
 }
 section,
 .top_footer {
