@@ -53,7 +53,7 @@
                                 <ul class="blog_meta">
                                     <li>
                                         <i class="ti-calendar"></i>
-                                        <span>{!! \Carbon\Carbon::parse($blog->date)->formatLocalized('%d %B %Y') !!}</span>
+                                        <span>{!! localeDate($blog->date) !!}</span>
                                     </li>
                                     <li>
                                         <i class="ti-comments"></i>
@@ -100,7 +100,7 @@
                                                             {!! $comment->user_name !!}
                                                         </h6>
                                                         <div class="comment-time">
-                                                            {!! \Carbon\Carbon::parse($comment->created_at)->formatLocalized('%d %B %Y') !!}
+                                                            {!! localeDate($comment->created_at) !!}
                                                         </div>
                                                     </div>
                                                     <div class="ml-auto">

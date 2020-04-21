@@ -27,7 +27,7 @@
                             <ul class="blog_meta">
                                 <li>
                                     <i class="ti-calendar"></i>
-                                    <span>{!! \Carbon\Carbon::parse($lastBlog->date)->formatLocalized('%d %B %Y') !!}</span>
+                                    <span>{!! localeDate($lastBlog->date) !!}</span>
                                 </li>
                                 @if($lastBlog->comments_count > 0)
                                     <li>
@@ -105,7 +105,7 @@
                                         <ul class="blog_meta">
                                             <li>
                                                 <i class="ti-calendar"></i>
-                                                <span>{!! \Carbon\Carbon::parse($blog->date)->timezone('Europe/Istanbul')->formatLocalized('%d %B %Y') !!}</span>
+                                                <span>{!! localeDate($blog->date) !!}</span>
                                             </li>
                                             @if($blog->comments_count > 0)
                                                 <li>

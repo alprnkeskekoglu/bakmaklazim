@@ -3,7 +3,6 @@
 
 function getSidebarCategories()
 {
-
     return Dawnstar\Models\Category::where('status', 1)
         ->withCount('blogs')
         ->orderByDesc('blogs_count')
@@ -14,7 +13,6 @@ function getSidebarCategories()
 
 function getSidebarTags()
 {
-
     return Dawnstar\Models\Tag::where('status', 1)
         ->withCount('blogs')
         ->orderByDesc('blogs_count')
@@ -25,7 +23,6 @@ function getSidebarTags()
 
 function getSidebarLatestBlogs()
 {
-
     return Dawnstar\Models\Blog::where('status', 1)
         ->orderByDesc('date')
         ->get()
@@ -75,4 +72,28 @@ function getRandomInspire()
     }
 
     return ['author' => "", 'text' => ""];
+}
+
+function localeDate($date) {
+
+    $months = array(
+        'January' => 'Ocak',
+        'February' => 'Şubat',
+        'March' => 'Mart',
+        'April' => 'Nisan',
+        'May' => 'Mayıs',
+        'June' => 'Haziran',
+        'July' => 'Temmuz',
+        'August' => 'Ağustos',
+        'September' => 'Eylül',
+        'October' => 'Ekim',
+        'November' => 'Kasım',
+        'December' => 'Aralık',
+    );
+    $tempDate = \Carbon\Carbon::parse($date)->formatLocalized('%d %B %Y');
+
+    foreach ($months as $en => $tr) {
+        $tempDate = str_replace($en, $tr, $tempDate);
+    }
+    return $tempDate;
 }
