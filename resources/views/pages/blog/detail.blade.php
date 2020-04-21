@@ -211,10 +211,11 @@
                 success: function (response) {
                     content = "" +
                         "<ul>" +
-                        "<li>İlginiz için teşekkür ederim. Mesajınız onaya gönderilmiştir</li>" +
+                        "   <li>İlginiz için teşekkür ederim. Mesajınız onaya gönderilmiştir.</li>" +
                         "</ul>";
 
                     $('div.alert').html(content);
+                    $('div.alert').removeClass('alert-danger');
                     $('div.alert').addClass('alert-success').show();
                     $('.field_form').remove();
                 },

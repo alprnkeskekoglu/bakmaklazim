@@ -52,7 +52,6 @@
                     @endif
                 </a>
             </li>
-
             <li class="nav-main-item">
                 <a class="nav-main-link" href="{!! route('panel.admin.index') !!}">
                     <i class="nav-main-link-icon si si-users"></i>
@@ -60,7 +59,13 @@
                 </a>
             </li>
 
-            <li class="nav-main-item border mt-10">
+            <li class="nav-main-item border mt-8">
+                <a class="nav-main-link badge-danger" href="{!! route('index') !!}">
+                    <i class="nav-main-link-icon fa fa-arrow-circle-right"></i>
+                    <span class="nav-main-link-name">Go Website</span>
+                </a>
+            </li>
+            <li class="nav-main-item border mt-5">
                 <a class="nav-main-link" href="{!! url()->previous() !!}">
                     <i class="nav-main-link-icon si si-arrow-left"></i>
                     <span class="nav-main-link-name">Go Back</span>

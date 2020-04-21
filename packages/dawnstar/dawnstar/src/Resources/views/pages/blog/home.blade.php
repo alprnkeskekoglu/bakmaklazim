@@ -18,9 +18,9 @@
                         <tr>
                             <th class="text-center" style="width: 5%;">#ID</th>
                             <th class="text-center" style="width: 5%;">Status</th>
-                            <th class="text-center">Category Name</th>
                             <th class="text-center">Name</th>
                             <th class="text-center">Slug</th>
+                            <th class="text-center">Category Name</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Created At</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Updated At</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Actions</th>
@@ -40,13 +40,13 @@
                                     @endif
                                 </td>
                                 <td class="font-w600 text-center">
-                                    <a href="{!! route('panel.category.edit', ['id' => $data->category_id]) !!}">{!! $data->category->name !!}</a>
-                                </td>
-                                <td class="font-w600 text-center">
                                     <a href="{!! route('panel.blog.edit', ['id' => $data->id]) !!}">{!! $data->name !!}</a>
                                 </td>
                                 <td class="font-w600 text-center">
                                     <a href="#">{!! $data->slug !!}</a>
+                                </td>
+                                <td class="font-w600 text-center">
+                                    <a href="{!! route('panel.category.edit', ['id' => $data->category_id]) !!}">{!! $data->category->name !!}</a>
                                 </td>
                                 <td class="font-w600 text-center d-none d-sm-table-cell">
                                     {!! $data->created_at !!}
