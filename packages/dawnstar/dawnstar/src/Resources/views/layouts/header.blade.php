@@ -60,7 +60,7 @@
             </li>
 
             <li class="nav-main-item border mt-8">
-                <a class="nav-main-link badge-danger" href="{!! route('index') !!}">
+                <a class="nav-main-link badge-danger" href="{!! route('index') !!}" target="_blank">
                     <i class="nav-main-link-icon fa fa-arrow-circle-right"></i>
                     <span class="nav-main-link-name">Go Website</span>
                 </a>
