@@ -9,7 +9,9 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="{{ route('index') }}"><img src="{{ asset("/assets/images/logo-white.png") }}" alt="{{ env('APP_NAME') }}"></a>
+                            <a href="{{ route('index') }}">
+                                <img class="white_logo" src="{{ asset("/assets/images/logo-white.png") }}" alt="{{ env('APP_NAME') }}">
+                            </a>
                         </div>
                         <p>If you are going to use a passage of Lorem Ipsum you need to be sure there isn't anything embarrassing hidden in the middle of text</p>
                     </div>

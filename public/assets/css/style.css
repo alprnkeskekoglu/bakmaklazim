@@ -838,15 +838,6 @@ button:focus {
 	vertical-align: top;
 	margin: 0;
 }
-.dark_skin .logo_light, .dark_skin .logo_default,
-.light_skin .logo_default, .light_skin .logo_dark,
-.logo_light,.logo_dark {
-	display: none;
-}
-.dark_skin .logo_dark,
-.light_skin .logo_light {
-	display: block;
-}
 .light_skin .navbar-nav a,
 .light_skin .navbar-toggler {
 	color: #ffffff;
@@ -854,6 +845,9 @@ button:focus {
 
 .logo_dark {
     width: 40%;
+}
+.white_logo {
+    width: 60%;
 }
 
 .navbar {
