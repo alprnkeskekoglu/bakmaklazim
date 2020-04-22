@@ -13,6 +13,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::where('status', 1)
+            ->whereHas('category')
             ->orderBy('date')
             ->withCount(['comments' => function ($q) {
                 $q->where('status', 1);

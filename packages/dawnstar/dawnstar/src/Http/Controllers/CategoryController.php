@@ -81,6 +81,12 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if ($category) {
+
+            foreach ($category->blogs as $blog) {
+
+            }
+
+
             $category->delete();
             if ($category->trashed()) {
                 return redirect()->route('panel.category.create')->with('message', 'Delete Successful');

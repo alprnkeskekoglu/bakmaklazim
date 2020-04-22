@@ -16,9 +16,9 @@
                         <div class="banner_content">
                             <div class="blog_tags">
                                 <a class="blog_tags_cat"
-                                   style="background-color: {{$lastBlog->category->color ?: "#4382FF"}}"
-                                   href="{!! $lastBlog->category->url !!}">
-                                    {!! $lastBlog->category->name !!}
+                                   style="background-color: {{optional($lastBlog->category)->color ?: "#4382FF"}}"
+                                   href="{!! optional($lastBlog->category)->url !!}">
+                                    {!! optional($lastBlog->category)->name !!}
                                 </a>
                             </div>
                             <h2 class="blog_heading"><a
@@ -64,8 +64,8 @@
         </div>
     </div>
 
-    <div class="section background_bg overlay_bg_70 overflow-hidden fixed_bg"
-         data-img-src="{{ asset("/assets/images/inspire.jpg") }}">
+    <div class="section background_bg overlay_bg_70 overflow-hidden fixed_bg" style="padding: 60px 0 !important;"
+         data-img-src="{{ asset("/assets/images/inspire2.png") }}">
         <div class="container">
             <div class="justify-content-between align-items-center">
                 <div class="col-12">
@@ -96,9 +96,9 @@
                                     <div class="blog_text">
                                         <div class="blog_tags">
                                             <a class="blog_tags_cat"
-                                               href="{!! $blog->category->url !!}"
-                                               style="background-color: {{$blog->category->color ?: "#4382FF"}}">
-                                                {!! $blog->category->name !!}
+                                               href="{!! optional($blog->category)->url !!}"
+                                               style="background-color: {{optional($blog->category)->color ?: "#4382FF"}}">
+                                                {!! optional($blog->category)->name !!}
                                             </a>
                                         </div>
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>

@@ -14,6 +14,7 @@ function getSidebarCategories()
 function getSidebarTags()
 {
     return Dawnstar\Models\Tag::where('status', 1)
+        ->whereHas('category')
         ->withCount('blogs')
         ->orderByDesc('blogs_count')
         ->having('blogs_count', '>', 0)
@@ -25,6 +26,7 @@ function getSidebarLatestBlogs()
 {
     return Dawnstar\Models\Blog::where('status', 1)
         ->orderByDesc('date')
+        ->whereHas('category')
         ->get()
         ->take(3);
 }

@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{!! asset('/assets/owlcarousel/css/owl.theme.css') !!}">
     <link rel="stylesheet" href="{!! asset('/assets/owlcarousel/css/owl.theme.default.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/magnific-popup.css') !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=1" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=1" !!}">
 
     <style>

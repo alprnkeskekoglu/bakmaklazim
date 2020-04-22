@@ -1099,6 +1099,7 @@ button:focus {
 }
 .search_overlay.open::before {
 	visibility: visible;
+    opacity: .95;
 }
 .search-overlay.open {
     visibility: visible;
@@ -1155,7 +1156,7 @@ button:focus {
 	color: #fff;
 }
 .search_wrap .form-control {
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.5);
 	border: 0;
 	padding: 10px 20px;
 	color: #fff;

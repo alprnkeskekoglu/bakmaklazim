@@ -114,7 +114,7 @@ class BlogController extends Controller
         if ($blog) {
             $blog->delete();
             if ($blog->trashed()) {
-                return redirect()->route('panel.blog.home')->with('message', 'Delete Successful');
+                return redirect()->route('panel.blog.index')->with('message', 'Delete Successful');
             }
         }
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();
