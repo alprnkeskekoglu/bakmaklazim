@@ -64,7 +64,9 @@
                                         <span>{!! $blog->view_count !!} Görüntülenme</span>
                                     </li>
                                 </ul>
-                                {!! $blog->detail !!}
+                                <div class="blog-detail">
+                                    {!! $blog->detail !!}
+                                </div>
                                 <div class="blog_post_footer">
                                     <div class="row justify-content-between align-items-center">
                                         <div class="col-md-8 mb-3 mb-md-0">
@@ -195,6 +197,7 @@
             background: #eee no-repeat center;
             background-size: cover;
         }
+
     </style>
 @endpush
 
@@ -247,7 +250,9 @@
                 el.closest('.btn-group').find('label.active').removeClass('btn-success').removeClass('active').addClass('btn-light')
             }
             el.addClass('active');
-        })
+        });
+
+        $('.blog-detail').find('img').parent().addClass('text-center');
     </script>
 
     @php
