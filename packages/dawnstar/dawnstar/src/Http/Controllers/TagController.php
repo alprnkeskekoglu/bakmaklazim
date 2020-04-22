@@ -69,7 +69,7 @@ class TagController extends Controller
         if ($tag) {
             $tag->delete();
             if ($tag->trashed()) {
-                return redirect()->route('panel.tag.create')->with('message', 'Delete Successful');
+                return redirect()->route('panel.tag.home')->with('message', 'Delete Successful');
             }
         }
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();

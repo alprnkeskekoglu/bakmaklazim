@@ -48,7 +48,7 @@ class CommentController extends Controller
         if ($comment) {
             $comment->delete();
             if ($comment->trashed()) {
-                return redirect()->route('panel.comment.create')->with('message', 'Delete Successful');
+                return redirect()->route('panel.comment.home')->with('message', 'Delete Successful');
             }
         }
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();

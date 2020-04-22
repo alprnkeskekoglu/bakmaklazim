@@ -114,7 +114,7 @@ class BlogController extends Controller
         if ($category) {
             $category->delete();
             if ($category->trashed()) {
-                return redirect()->route('panel.tag.create')->with('message', 'Delete Successful');
+                return redirect()->route('panel.blog.home')->with('message', 'Delete Successful');
             }
         }
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();
@@ -122,7 +122,6 @@ class BlogController extends Controller
 
     public function getTags(Request $request)
     {
-
         $category = Category::find($request->category_id);
         if ($category) {
             return $category->tags->toArray();
