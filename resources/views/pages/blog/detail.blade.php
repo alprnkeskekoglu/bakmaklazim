@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="single_post">
                         <div class="blog_img">
-                            <img src="{!! image($blog->image) !!}" alt="{!! $blog->name !!}" style="max-height: 550px">
+                            <img src="{!! $blog->image ? image($blog->image) : image($blog->cover) !!}" alt="{!! $blog->name !!}" style="max-height: 550px">
                             <div class="blog_tags">
                                 <a class="blog_tags_cat"
                                    style="background-color: {{ $blog->category->color ?: "#4382FF" }}"
