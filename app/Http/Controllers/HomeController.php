@@ -24,6 +24,7 @@ class HomeController extends Controller
             ->first();
 
         $blogs = Blog::where('status', 1)
+            ->whereHas('category')
             ->orderByDesc('id');
 
         if ($lastBlog) {

@@ -9,7 +9,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
 
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset("/assets/images/favicon.png") }}">
 
 
     <link rel="stylesheet" href="{!! asset("assets/css/animate.css") !!}">
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{!! asset('/assets/owlcarousel/css/owl.theme.css') !!}">
     <link rel="stylesheet" href="{!! asset('/assets/owlcarousel/css/owl.theme.default.min.css') !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/magnific-popup.css') !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=2" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=3" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=1" !!}">
 
     <style>

@@ -2441,6 +2441,7 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 }
 .service_box img {
 	transition: all 0.5s ease-in-out;
+    height: 100%
 }
 .service_box:hover img {
 	-moz-transform: scale(1.1);
