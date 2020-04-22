@@ -110,10 +110,10 @@ class BlogController extends Controller
 
     public function delete($id)
     {
-        $category = Category::find($id);
-        if ($category) {
-            $category->delete();
-            if ($category->trashed()) {
+        $blog = Blog::find($id);
+        if ($blog) {
+            $blog->delete();
+            if ($blog->trashed()) {
                 return redirect()->route('panel.blog.home')->with('message', 'Delete Successful');
             }
         }
