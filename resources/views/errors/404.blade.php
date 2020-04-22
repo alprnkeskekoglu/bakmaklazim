@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+
+@section('title') Sayfa Bulunamadı! | {!! env('APP_NAME') !!} @endsection
+
 @section('content')
     <div class="section">
         <div class="container">

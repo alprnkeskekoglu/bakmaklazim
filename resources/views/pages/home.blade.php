@@ -50,12 +50,12 @@
                          data-nav="true">
                         @foreach($categories as $category)
                             <div class="item">
-                                <div class="service_box">
-                                    <a href="{!! $category->url !!}">
+                                <a href="{!! $category->url !!}">
+                                    <div class="service_box">
                                         <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}"/>
                                         <span class="lable">{!! ucwords(strtolower($category->name)) !!}</span>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
