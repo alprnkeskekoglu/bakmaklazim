@@ -32,6 +32,10 @@ class BlogController extends Controller
         $blog = Blog::where('slug', $slug)
             ->first();
 
+        if(is_null($blog)) {
+            abort(404);
+        }
+
         $this->increaseView($blog);
 
         $comments = Comment::where('blog_id', $blog->id)
