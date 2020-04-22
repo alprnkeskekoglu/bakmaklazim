@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-title">
-                        <h1>Blog List</h1>
+                        <h1>Blog Yazıları</h1>
                     </div>
                 </div>
                 <div class="col-md-6">
