@@ -35,7 +35,7 @@
                         <ul class="contact_info contact_info_light">
                             <li>
                                 <i class="ti-location-pin"></i>
-                                <p>Izmir, Turkey</p>
+                                <p>İzmir, Türkiye</p>
                             </li>
                             <li>
                                 <i class="ti-email"></i>
@@ -63,7 +63,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p class="copyright m-0 text-center">© {{ date('Y') }} All Rights Reserved By <a href="{{ route('index') }}" class="text_default">{{ env('APP_NAME') }}.</a></p>
+                    <p class="copyright m-0 text-center">© {{ date('Y') }} All Rights Reserved By <a href="{{ route('index') }}" class="text_default">{{ env('APP_NAME') }}</a>.</p>
                 </div>
             </div>
         </div>
