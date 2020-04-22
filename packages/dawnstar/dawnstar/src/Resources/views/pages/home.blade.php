@@ -108,4 +108,5 @@
 @push('scripts')
 
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
+    <script>jQuery(function(){ Dashmix.helpers(['sparkline']); });</script>
 @endpush

@@ -42,7 +42,7 @@
                                     <a href="{!! route('panel.tag.edit', ['id' => $data->id]) !!}">{!! $data->name !!}</a>
                                 </td>
                                 <td class="font-w600 text-center">
-                                    <a href="{!! route('panel.category.edit', ['id' => $data->category_id]) !!}">{!! $data->category->name !!}</a>
+                                    <a href="{!! route('panel.category.edit', ['id' => $data->category_id]) !!}">{!! optional($data->category)->name !!}</a>
                                 </td>
                                 <td class="font-w600 text-center d-none d-sm-table-cell">
                                     {!! $data->created_at !!}
