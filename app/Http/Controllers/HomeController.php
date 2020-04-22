@@ -12,12 +12,15 @@ class HomeController extends Controller
     {
 
         $categories = Category::where('status', 1)
-            ->orderBy('order')
+            ->withCount('blogs')
+            ->orderByDesc('blogs_count')
+            ->having('blogs_count', '>', 0)
             ->get()
             ->take(5);
 
 
         $lastBlog = Blog::orderByDesc('id')->where('status', 1)
+            ->whereHas('category')
             ->withCount(['comments' => function($q) {
                 $q->where('status', 1);
             }])

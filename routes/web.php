@@ -9,10 +9,16 @@ Route::prefix('blog')->name('blog.')->group(function () {
 });
 
 
-Route::prefix('category')->name('category.')->group(function () {
+Route::prefix('kategori')->name('category.')->group(function () {
     Route::get('/', 'CategoryController@index')->name('index');
     Route::get('/{slug}', 'CategoryController@detail')->name('detail');
 });
 
 
 Route::get('/arama', 'SearchController@index')->name('search');
+
+
+Route::get('/sitemap.xml', 'SitemapXmlController@index')->name('sitemap');
+
+
+
