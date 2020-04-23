@@ -155,7 +155,9 @@
             filebrowserUploadMethod: 'form'
         });
 
-        $('.dd').nestable({'maxDepth': 1});
+        $('.dd').nestable({
+            'maxDepth': 1,
+        });
 
         $('#saveOrder').on('click', function () {
 

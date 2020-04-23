@@ -12,8 +12,7 @@ class TagController extends Controller
 
     public function index()
     {
-        $tags = Tag::orderBy('order')->get();
-        return view('Dawnstar::pages.tag.home', compact('tags'));
+        return redirect()->route('panel.tag.create');
     }
 
     public function create()
@@ -32,7 +31,7 @@ class TagController extends Controller
         );
 
         if ($tag->wasRecentlyCreated) {
-            return redirect()->route('panel.tag.index');
+            return redirect()->route('panel.tag.create');
         }
         return redirect()->back()->withErrors(['message', 'There is a record in this name and slug'])->withInput();
     }
@@ -69,9 +68,34 @@ class TagController extends Controller
         if ($tag) {
             $tag->delete();
             if ($tag->trashed()) {
-                return redirect()->route('panel.tag.index')->with('message', 'Delete Successful');
+                return redirect()->route('panel.tag.create')->with('message', 'Delete Successful');
             }
         }
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();
+    }
+
+    public function orderSave(Request $request) {
+        $orderList = json_decode($request->get('orderList'),1);
+
+        foreach ($orderList as $order) {
+            $category = Category::find($order['id']);
+
+            if($category) {
+                $count = 0;
+                if(isset($order['children'])) {
+                    foreach ($order['children'] as $child) {
+                        $tag = Tag::find($child['id']);
+                        if($tag) {
+                            $tag->update([
+                                'category_id' => $category->id,
+                                'order' => ++$count
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+
+        return response()->json(['status' => true], 200);
     }
 }
