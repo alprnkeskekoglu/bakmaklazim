@@ -51,7 +51,9 @@ class BlogController extends Controller
             $data
         );
 
-        $blog->tags()->sync($request->get('tags'));
+        $tagIds = $this->createTags();
+
+        $blog->tags()->sync($tagIds);
 
 
         if ($blog->wasRecentlyCreated) {
