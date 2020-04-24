@@ -2405,7 +2405,6 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 }
 .blog_tags .blog_tags_cat {
 	color: #fff !important;
-	text-transform: capitalize;
 	font-size: 14px;
 	font-weight: normal;
 	padding: 4px 10px;

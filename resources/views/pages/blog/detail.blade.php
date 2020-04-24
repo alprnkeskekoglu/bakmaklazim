@@ -74,7 +74,7 @@
                                             <div class="artical_tags">
                                                 <i class="fa fa-tags"></i>
                                                 @foreach($blog->tags as $tag)
-                                                    <a href="{!! $tag->category->url . '?tags=' . $tag->slug !!}">{!! $tag->name !!}</a>
+                                                    <a href="{!! $tag->category->url . '?tags=' . $tag->slug !!}">{!! strto('lower', $tag->name) !!}</a>
                                                 @endforeach
                                             </div>
                                         </div>

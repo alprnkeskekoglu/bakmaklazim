@@ -29,7 +29,7 @@
             <h5 class="widget_title">Etiketler</h5>
             <div class="tags">
                 @foreach($tags as $tag)
-                    <a href="{!! $tag->url !!}">{!! strto('lower', $tag->name) !!}</a>
+                    <a href="{!! $tag->url !!}">{!! str_ucwords($tag->name) !!}</a>
                 @endforeach
             </div>
         </div>
