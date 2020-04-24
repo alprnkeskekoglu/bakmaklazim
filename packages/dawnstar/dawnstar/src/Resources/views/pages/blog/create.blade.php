@@ -141,12 +141,6 @@
                     $("#tags").html(content);
                     $("#tags").select2({
                         tags: true,
-                        createTag: function (params) {
-                            if (params.term.indexOf('@') === -1) {
-                                return null;
-                            }
-                        },
-                        tokenSeparators: [',', ' '],
                     });
                     $("#tags").parent().show();
                 }
