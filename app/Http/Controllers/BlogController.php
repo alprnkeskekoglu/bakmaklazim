@@ -99,7 +99,7 @@ class BlogController extends Controller
 
     private function increaseView($blog)
     {
-        $minutes = 60 * 24;
+        $minutes = 60 * 24 * 7;
         $cookie = Cookie::get('blogs') ?: json_encode([]);
 
         $cookie = json_decode($cookie, 1);
