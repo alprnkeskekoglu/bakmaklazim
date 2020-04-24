@@ -45,7 +45,7 @@
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
 <script src="{!! asset('/assets/js/jquery.appear.js') !!}"></script>
 <script src="{!! asset('/assets/js/jquery.parallax-scroll.js') !!}"></script>
-<script src="{!! asset('/assets/js/scripts.js') !!}"></script>
+<script src="{!! asset('/assets/js/scripts.js') . "?v=1" !!}"></script>
 
 @stack('scripts')
 </body>
