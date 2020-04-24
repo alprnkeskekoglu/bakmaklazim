@@ -236,7 +236,7 @@
     {
        "@context": "http://schema.org",
        "@type": "NewsArticle",
-       "author": "{{ env("APP_NAME") }}",
+       "author": "{{ $blog->admin->name }}",
        "url": "{{ $blog->url }}",
        "publisher":{
           "@type":"Organization",
@@ -251,7 +251,7 @@
        },
        "headline": "{{ $blog->name }}",
        "mainEntityOfPage": "{{ $blog->url }}",
-       "articleBody": "{{ \Str::limit(strip_tags($blog->detail), 100) }}",
+       "articleBody": "{{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) }}",
        "image":{
                     "@type"	: "ImageObject",
                     "url"	: "{{ image($blog->image) }}",
