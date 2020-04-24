@@ -9,12 +9,12 @@
     <div class="section breadcrumb_section bg_gray custom_breadcrumb">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-12 mb-3">
                     <div class="page-title">
                         <h1>{!! $blog->name !!}</h1>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     @include('layouts.breadcrumb')
                 </div>
             </div>
@@ -39,10 +39,10 @@
                         <div class="blog_content">
                             <div class="blog_text">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-lg-8 col-md-8 col-sm-12">
                                         <h2 class="blog_title">{!! $blog->name !!}</h2>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="float-right">
                                             <img class="author-circle d-none d-sm-inline"
                                                  src="{!! image($blog->admin->image) !!}"
@@ -56,11 +56,11 @@
                                         <i class="far fa-calendar-alt"></i>
                                         <span>{!! localeDate($blog->date) !!}</span>
                                     </li>
-                                    <li>
+                                    <li class="d-none d-sm-block">
                                         <i class="far fa-comments"></i>
                                         <span>{!! $comments->count() !!} Yorum</span>
                                     </li>
-                                    <li>
+                                    <li class="d-none d-sm-block">
                                         <i class="far fa-eye"></i>
                                         <span>{!! $blog->view_count !!} Görüntülenme</span>
                                     </li>

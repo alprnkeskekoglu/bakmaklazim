@@ -2543,9 +2543,8 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	left: 15px;
 }
 .single_post .blog_title {
-	font-size: 30px;
 	line-height: normal;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 .single_post .blog_meta {
 	padding-bottom: 20px;

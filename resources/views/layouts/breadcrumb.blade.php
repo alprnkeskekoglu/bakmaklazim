@@ -1,4 +1,4 @@
-<ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb justify-content-md-end">
+<ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb float-right">
     <li itemprop="itemListElement" itemscope class="breadcrumb-item"
         itemtype="http://schema.org/ListItem">
         <a itemprop="item" href="{!! route('index') !!}">
@@ -9,7 +9,7 @@
 
     @isset($breadcrumb)
         @foreach($breadcrumb as $name => $url)
-            <li itemprop="itemListElement" itemscope class="breadcrumb-item {{ $loop->last ? 'active' : '' }}"
+            <li itemprop="itemListElement" itemscope class="breadcrumb-item {{ $loop->last ? 'd-none d-sm-block active' : '' }}"
                 itemtype="http://schema.org/ListItem">
                 @if($loop->last)
                     <span itemprop="name">{!! ucwords($name) !!}</span>

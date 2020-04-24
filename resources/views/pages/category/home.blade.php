@@ -7,12 +7,12 @@
     <div class="section breadcrumb_section bg_gray custom_breadcrumb">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-12 mb-3">
                     <div class="page-title">
                         <h1>Kategoriler</h1>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     @include('layouts.breadcrumb')
                 </div>
             </div>

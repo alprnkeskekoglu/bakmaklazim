@@ -367,6 +367,13 @@ header.vertical_menu .navbar-collapse {
   max-width: 991px
 ---------------------------------------------------*/
 @media only screen and (max-width: 991px) {
+
+.h2, h2 {
+    font-size: 22px;
+}
+.page-title h1 {
+    font-size: 28px;
+}
 .padding_eight_all {
 	padding: 8% 15px;
 }
@@ -585,7 +592,7 @@ header .attr-nav + .social_icons {
     font-size: 32px;
 }
 .h2, h2 {
-    font-size: 26px;
+    font-size: 22px;
 }
 .h3, h3 {
     font-size: 24px;
@@ -962,7 +969,7 @@ p {
     font-size: 24px;
 }
 .h2, h2 {
-    font-size: 22px;
+    font-size: 20px;
 }
 .h3, h3 {
     font-size: 20px;
@@ -1087,7 +1094,7 @@ section.pb_70, .pb_70 {
     padding: 15px 0;
 }
 .page-title h1 {
-    font-size: 22px;
+    font-size: 16px;
 }
 .author_img img {
     width: 50px;
@@ -1217,6 +1224,10 @@ blockquote p {
 .comment_user img {
     max-width: 60px;
 }
+.blog_meta li {
+    font-size: 13px;
+    margin-right: 12px;
+}
 }
 /* -------------------------------------------------
   max-width: 380px
@@ -1295,5 +1306,9 @@ blockquote p {
 }
 .comment_user img {
     max-width: 50px;
+}
+.blog_meta li {
+    font-size: 12px;
+    margin-right: 12px;
 }
 }
