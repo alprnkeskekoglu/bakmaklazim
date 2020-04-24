@@ -84,6 +84,7 @@
                         </div>
                     </div>
 
+                    @if($others->isNotEmpty())
                     <div class="blog_detail_others d-none d-sm-block">
                         <div class="container">
                             <h3>Diğer Yazılar</h3>
@@ -120,6 +121,8 @@
                             </div>
                         </div>
                     </div>
+                    @endif
+
                     <div class="comment-area">
                         @if($comments->isNotEmpty())
                             <div class="content_title">

@@ -45,6 +45,7 @@ class BlogController extends Controller
 
         $others = Blog::where('status', 1)
             ->where('category_id', $blog->category_id)
+            ->where('id', '!=', $blog->id)
             ->orderByDesc('view_count')
             ->withCount(['comments' => function ($q) {
                 $q->where('status', 1);
