@@ -25,7 +25,6 @@ class TagController extends Controller
     {
         $data = $request->except('_token');
 
-
         $tag = Tag::firstOrCreate(
             $data
         );

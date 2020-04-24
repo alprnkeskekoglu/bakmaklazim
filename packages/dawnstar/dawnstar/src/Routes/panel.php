@@ -40,6 +40,7 @@ Route::name('panel.')->group(function () {
             });
         });
 
+        /*
         Route::prefix('Tag')->name('tag.')->group(function () {
             Route::get('/', 'TagController@index')->name('index');
             Route::get('/create', 'TagController@create')->name('create');
@@ -52,6 +53,8 @@ Route::name('panel.')->group(function () {
                 Route::get('/delete', 'TagController@delete')->name('delete');
             });
         });
+        */
+
 
         Route::prefix('Blog')->name('blog.')->group(function () {
             Route::get('/', 'BlogController@index')->name('index');

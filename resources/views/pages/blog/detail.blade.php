@@ -83,6 +83,43 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="blog_detail_others d-none d-sm-block">
+                        <div class="container">
+                            <h3>Diğer Yazılar</h3>
+                            <div class="row">
+                                @foreach($others as $other)
+                                    <div class="blog_post col-lg-4 col-md-4">
+                                        <div class="blog_img">
+                                            <a href="{!! $other->url !!}">
+                                                <img src="{!! image($other->cover) !!}" alt="{!! $other->name !!}"
+                                                     width="350" height="230">
+                                            </a>
+                                        </div>
+                                        <div class="blog_content">
+                                            <div class="blog_text">
+                                                <h5 class="blog_heading"><a
+                                                        href="{!! $other->url !!}">{!! $other->name !!}</a>
+                                                </h5>
+                                                <ul class="blog_meta">
+                                                    <li>
+                                                        <i class="far fa-calendar-alt"></i>
+                                                        <span>{!! localeDate($other->date) !!}</span>
+                                                    </li>
+                                                    @if($other->comments_count > 0)
+                                                        <li>
+                                                            <i class="far fa-comments"></i>
+                                                            <span>{!! $blog->comments_count !!} Yorum</span>
+                                                        </li>
+                                                    @endif
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                     <div class="comment-area">
                         @if($comments->isNotEmpty())
                             <div class="content_title">

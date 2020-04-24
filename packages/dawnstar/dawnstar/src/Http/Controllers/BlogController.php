@@ -77,11 +77,12 @@ class BlogController extends Controller
 
     public function update($id)
     {
+        $request = request();
         $blog = Blog::find($id);
-        $data = request()->except('_token', 'tags', 'cover', 'image');
+        $data = $request->except('_token', 'tags', 'cover', 'image');
 
 
-        $file = request()->file('cover');
+        $file = $request->file('cover');
 
         if ($file != null) {
             $fileName = uniqid() . "-" . $file->getClientOriginalName();
@@ -89,7 +90,7 @@ class BlogController extends Controller
             $data['cover'] = Storage::disk('public')->url($fileName);
         }
 
-        $file = request()->file('image');
+        $file = $request->file('image');
 
         if ($file != null) {
             $fileName = uniqid() . "-" . $file->getClientOriginalName();
@@ -100,7 +101,10 @@ class BlogController extends Controller
         $data['admin_id'] = auth()->id();
         $blog->update($data);
 
-        $blog->tags()->sync(request()->get('tags'));
+
+        $tagIds = $this->createTags();
+
+        $blog->tags()->sync($tagIds);
 
         if ($blog->wasChanged()) {
             return redirect()->back()->with('message', 'The update was done successfully.');
@@ -124,8 +128,35 @@ class BlogController extends Controller
     {
         $category = Category::find($request->category_id);
         if ($category) {
-            return $category->tags()->where('status', 1)->toArray();
+            return $category->tags()->where('status', 1)->get()->toArray();
         }
         return [];
+    }
+
+    private function createTags() {
+
+        $tags = request()->get('tags');
+        $tagIds = [];
+
+        foreach ($tags as $tag) {
+            if(is_numeric($tag)) {
+                $tagIds[] = $tag * 1;
+                continue;
+            }
+
+            $tempTag = [
+                'name' => $tag,
+                'slug' => slugify($tag),
+                'category_id' => request()->get('category_id'),
+                'status' => 1,
+            ];
+
+            $hold = Tag::firstOrCreate(
+                $tempTag
+            );
+            $tagIds[] = $hold->id;
+        }
+
+        return $tagIds;
     }
 }

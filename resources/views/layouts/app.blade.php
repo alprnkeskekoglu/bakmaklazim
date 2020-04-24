@@ -19,8 +19,8 @@
 
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=1" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=7" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=2" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=5" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=3" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=6" !!}">
     @stack('styles')
 </head>
 <body>

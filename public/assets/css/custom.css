@@ -49,6 +49,9 @@ textarea {
 .custom_breadcrumb {
     padding: 50px 0 !important;
 }
+.blog_detail_others {
+    padding: 30px 0 0;
+}
 
 @media only screen and (max-width: 480px) {
     .custom_breadcrumb {

@@ -371,6 +371,9 @@ header.vertical_menu .navbar-collapse {
 .h2, h2 {
     font-size: 22px;
 }
+.h5, h5 {
+    font-size: 14px;
+}
 .page-title h1 {
     font-size: 28px;
 }

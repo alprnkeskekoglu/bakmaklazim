@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Dawnstar\Models\Blog;
+use Dawnstar\Models\Category;
 use Dawnstar\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -32,7 +33,7 @@ class BlogController extends Controller
         $blog = Blog::where('slug', $slug)
             ->first();
 
-        if(is_null($blog)) {
+        if (is_null($blog)) {
             abort(404);
         }
 
@@ -42,6 +43,12 @@ class BlogController extends Controller
             ->where('status', 1)
             ->get();
 
+        $others = Blog::where('status', 1)
+            ->where('category_id', $blog->category_id)
+            ->orderByDesc('view_count')
+            ->withCount(['comments' => function ($q) {
+                $q->where('status', 1);
+            }])->get()->take(3);
 
         $breadcrumb = [
             "Blog Yazıları" => route('blog.index'),
@@ -49,7 +56,7 @@ class BlogController extends Controller
         ];
 
 
-        return view('pages.blog.detail', compact('blog', 'comments', 'breadcrumb'));
+        return view('pages.blog.detail', compact('blog', 'comments', 'breadcrumb', 'others'));
     }
 
     public function commentSave(Request $request)

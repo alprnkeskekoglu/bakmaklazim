@@ -9,21 +9,21 @@
                 <div class="row gutters-tiny push invisible" data-toggle="appear">
 
                     <div class="col-6 col-md-4 col-xl-2">
-                        <a class="block text-center bg-image" style="background-image: url('{!! asset("vendor/dawnstar/assets/media/photos/photo20.jpg") !!}');" href="{!! route('panel.category.index') !!}">
-                            <div class="block-content block-content-full bg-gd-sublime-op aspect-ratio-16-9 d-flex justify-content-center align-items-center">
+                        <a class="block text-center bg-image" style="background-image: url('{!! asset("vendor/dawnstar/assets/media/photos/photo16.jpg") !!}');" href="{!! route('index') !!}">
+                            <div class="block-content block-content-full bg-gd-lake-op aspect-ratio-16-9 d-flex justify-content-center align-items-center">
                                 <div>
-                                    <i class="fa fa-2x fa-list text-white"></i>
-                                    <div class="font-w600 mt-3 text-uppercase text-white">Categories</div>
+                                    <i class="fa fa-2x fa-external-link-alt text-white"></i>
+                                    <div class="font-w600 mt-3 text-uppercase text-white">Go Website</div>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col-6 col-md-4 col-xl-2">
-                        <a class="block text-center bg-image" style="background-image: url('{!! asset("vendor/dawnstar/assets/media/photos/photo16.jpg") !!}');" href="{!! route('panel.tag.index') !!}">
-                            <div class="block-content block-content-full bg-gd-lake-op aspect-ratio-16-9 d-flex justify-content-center align-items-center">
+                        <a class="block text-center bg-image" style="background-image: url('{!! asset("vendor/dawnstar/assets/media/photos/photo20.jpg") !!}');" href="{!! route('panel.category.index') !!}">
+                            <div class="block-content block-content-full bg-gd-sublime-op aspect-ratio-16-9 d-flex justify-content-center align-items-center">
                                 <div>
-                                    <i class="fa fa-2x fa-tag text-white"></i>
-                                    <div class="font-w600 mt-3 text-uppercase text-white">Tags</div>
+                                    <i class="fa fa-2x fa-list text-white"></i>
+                                    <div class="font-w600 mt-3 text-uppercase text-white">Categories</div>
                                 </div>
                             </div>
                         </a>

@@ -1,7 +1,6 @@
 @php
     $categories = getSidebarCategories();
     $tags = getSidebarTags();
-    $blogs = getSidebarLatestBlogs();
 @endphp
 
 <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item d-none d-lg-block" data-margintop="100">
