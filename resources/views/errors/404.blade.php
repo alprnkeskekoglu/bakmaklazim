@@ -17,7 +17,7 @@
 
                             <form action="{{ route('search') }}" method="get">
                                 <input type="text" placeholder="Arama" class="form-control" name="q">
-                                <button type="submit" class="btn icon_search"><i class="ion-ios-search-strong"></i>
+                                <button type="submit" class="btn icon_search"><i class="fa fa-search"></i>
                                 </button>
                             </form>
                         </div>

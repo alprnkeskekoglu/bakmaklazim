@@ -16,7 +16,7 @@ class HomeController extends Controller
             ->orderByDesc('blogs_count')
             ->having('blogs_count', '>', 0)
             ->get()
-            ->take(5);
+            ->take(3);
 
 
         $lastBlog = Blog::orderByDesc('id')->where('status', 1)

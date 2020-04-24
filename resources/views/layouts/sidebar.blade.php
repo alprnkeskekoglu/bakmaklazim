@@ -14,7 +14,7 @@
                     <li>
                         <a href="{!! $category->url !!}">
                             <div class="post_category">
-                                <span class="cat_title">{!! $category->name !!}</span>
+                                <span class="cat_title">{!! str_ucwords($category->name) !!}</span>
                                 <span class="cat_num">({!! $category->blogs_count !!})</span>
                             </div>
                         </a>
@@ -29,7 +29,7 @@
             <h5 class="widget_title">Etiketler</h5>
             <div class="tags">
                 @foreach($tags as $tag)
-                    <a href="{!! $tag->url !!}">{!! $tag->name !!}</a>
+                    <a href="{!! $tag->url !!}">{!! strto('lower', $tag->name) !!}</a>
                 @endforeach
             </div>
         </div>

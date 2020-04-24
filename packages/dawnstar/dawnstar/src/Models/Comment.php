@@ -22,6 +22,7 @@ class Comment extends Model
         'useful',
         'read_status',
         'user_ip',
+        'user_agent',
         'user_name',
         'user_email',
         'detail',

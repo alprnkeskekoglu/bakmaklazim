@@ -39,21 +39,21 @@
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>
                                         <ul class="blog_meta">
                                             <li>
-                                                <i class="ti-calendar"></i>
+                                                <i class="far fa-calendar-alt"></i>
                                                 <span>{!! localeDate($blog->date) !!}</span>
                                             </li>
                                             @if($blog->comments_count > 0)
                                                 <li>
-                                                    <i class="ti-comments"></i>
+                                                    <i class="far fa-comments"></i>
                                                     <span>{!! $blog->comments_count !!} Yorum</span>
                                                 </li>
                                             @endif
                                             <li>
-                                                <i class="ti-eye"></i>
+                                                <i class="far fa-eye"></i>
                                                 <span>{!! $blog->view_count !!} Görüntülenme</span>
                                             </li>
                                         </ul>
-                                        <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
+                                        <p>{!! \Str::limit(strip_tags($blog->detail), 90) !!}</p>
                                         <a href="{!! $blog->url !!}" class="btn btn-dark btn-sm">Devamını Oku</a>
                                     </div>
                                 </div>

@@ -35,14 +35,14 @@
                                 <div class="blog_tags">
                                     @foreach($category->tags as $tag)
                                         <a class="blog_tags_cat bg_custom"
-                                           href="{!! $tag->url !!}">{!! strtolower($tag->name) !!}</a>
+                                           href="{!! $tag->url !!}">{!! strto('lower', $tag->name) !!}</a>
                                     @endforeach
                                 </div>
                                 <h5 class="blog_heading"><a
                                         href="{!! $category->url !!}">{!! $category->name !!}</a>
                                 </h5>
                                 <ul class="blog_meta">
-                                    <li><i class="ti-comments"></i>
+                                    <li><i class="far fa-comments"></i>
                                         <span>{!! $category->blogs_count !!} Blog Yazısı</span></li>
                                 </ul>
                                 <p>{!! \Str::limit(strip_tags($category->detail), 50) !!}</p>
@@ -54,12 +54,3 @@
         </div>
     </div>
 @endsection
-
-
-@push('styles')
-    <style>
-        .bg_custom {
-            background-color: #b1b1b1;
-        }
-    </style>
-@endpush

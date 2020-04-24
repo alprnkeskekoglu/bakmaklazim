@@ -15,7 +15,7 @@
                     <span itemprop="name">{!! ucwords($name) !!}</span>
                 @else
                     <a itemprop="item" href="{!! $url !!}">
-                        <span itemprop="name">{!! ucwords($name) !!}</span>
+                        <span itemprop="name">{!! str_ucwords($name) !!}</span>
                     </a>
                 @endif
                 <meta itemprop="position" content="{{ $loop->iteration + 1 }}" />

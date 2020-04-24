@@ -62,6 +62,7 @@ class BlogController extends Controller
         }
 
         $data['user_ip'] = getIp();
+        $data['user_agent'] = getUserAgent();
 
         Comment::firstOrCreate($data);
 

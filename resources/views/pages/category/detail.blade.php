@@ -44,7 +44,7 @@
                                         <div class="blog_tags">
                                             @foreach($blog->tags as $tag)
                                                 <a class="blog_tags_cat bg_custom"
-                                                   href="{!! $tag->url !!}">{!! strtolower($tag->name) !!}</a>
+                                                   href="{!! $tag->url !!}">{!! strto('lower', $tag->name) !!}</a>
                                             @endforeach
                                         </div>
                                         <h5 class="blog_heading"><a
@@ -52,17 +52,17 @@
                                         </h5>
                                         <ul class="blog_meta">
                                             <li>
-                                                <i class="ti-calendar"></i>
+                                                <i class="far fa-calendar-alt"></i>
                                                 <span>{!! localeDate($blog->date) !!}</span>
                                             </li>
                                             @if($blog->comments_count > 0)
                                                 <li>
-                                                    <i class="ti-comments"></i>
+                                                    <i class="far fa-comments"></i>
                                                     <span>{!! $blog->comments_count !!} Yorum</span>
                                                 </li>
                                             @endif
                                         </ul>
-                                        <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
+                                        <p>{!! \Str::limit(strip_tags($blog->detail), 90) !!}</p>
                                     </div>
                                 </div>
                             </div>
@@ -101,14 +101,6 @@
         </div>
     </div>
 @endsection
-
-@push('styles')
-    <style>
-        .bg_custom {
-            background-color: #b1b1b1;
-        }
-    </style>
-@endpush
 
 @push('scripts')
     <script>

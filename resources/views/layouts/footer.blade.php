@@ -13,7 +13,7 @@
                                 <img class="white_logo" src="{{ asset("/assets/images/logo-white.png") }}" alt="{{ env('APP_NAME') }}">
                             </a>
                         </div>
-                        <p>If you are going to use a passage of Lorem Ipsum you need to be sure there isn't anything embarrassing hidden in the middle of text</p>
+                        <p>{{ "Kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." }}</p>
                     </div>
                 </div>
 
@@ -34,11 +34,11 @@
                         <h6 class="widget_title">İletişim</h6>
                         <ul class="contact_info contact_info_light">
                             <li>
-                                <i class="ti-location-pin"></i>
+                                <i class="fa fa-map-marker-alt"></i>
                                 <p>İzmir, Türkiye</p>
                             </li>
                             <li>
-                                <i class="ti-email"></i>
+                                <i class="far fa-envelope"></i>
                                 <a href="mailto:keskekoglualperen@gmail.com">keskekoglualperen@gmail.com</a>
                             </li>
                         </ul>
@@ -70,4 +70,4 @@
     </div>
 </footer>
 
-<a href="javascript:void(0);" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
+<a href="javascript:void(0);" class="scrollup" style="display: none;"><i class="fas fa-chevron-up"></i></a>

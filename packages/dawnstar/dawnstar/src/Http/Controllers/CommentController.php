@@ -18,6 +18,12 @@ class CommentController extends Controller
         return view('Dawnstar::pages.comment.home', compact('comments'));
     }
 
+    public function show($id)
+    {
+        $comment = Comment::find($id);
+        return view('Dawnstar::pages.comment.show', compact('comment'));
+    }
+
 
     public function updateStatus($id)
     {

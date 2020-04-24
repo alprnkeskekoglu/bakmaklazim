@@ -28,12 +28,12 @@
                             </h2>
                             <ul class="blog_meta">
                                 <li>
-                                    <i class="ti-calendar"></i>
+                                    <i class="far fa-calendar-alt"></i>
                                     <span>{!! localeDate($lastBlog->date) !!}</span>
                                 </li>
                                 @if($lastBlog->comments_count > 0)
                                     <li>
-                                        <i class="ti-comments"></i>
+                                        <i class="far fa-comments"></i>
                                         <span>{!! $lastBlog->comments_count !!} Yorum</span>
                                     </li>
                                 @endif
@@ -47,26 +47,21 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="carousel_slider owl-carousel owl-theme nav_style4" data-margin="30" data-dots="false"
-                         data-nav="true">
-                        @foreach($categories as $category)
-                            <div class="item">
-                                <a href="{!! $category->url !!}">
-                                    <div class="service_box">
-                                        <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}"/>
-                                        <span class="lable">{!! ucwords(strtolower($category->name)) !!}</span>
-                                    </div>
-                                </a>
+                @foreach($categories as $category)
+                    <div class="item col-md-4 col-lg-4">
+                        <a href="{!! $category->url !!}">
+                            <div class="service_box">
+                                <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}"/>
+                                <span class="lable">{!! str_ucwords($category->name) !!}</span>
                             </div>
-                        @endforeach
+                        </a>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 
-    <div class="section background_bg overlay_bg_70 overflow-hidden fixed_bg" style="padding: 60px 0 !important;"
+    <div class="section background_bg overlay_bg_70 overflow-hidden fixed_bg inspire"
          data-img-src="{{ asset("/assets/images/inspire2.png") }}">
         <div class="container">
             <div class="justify-content-between align-items-center">
@@ -106,17 +101,17 @@
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>
                                         <ul class="blog_meta">
                                             <li>
-                                                <i class="ti-calendar"></i>
+                                                <i class="far fa-calendar-alt"></i>
                                                 <span>{!! localeDate($blog->date) !!}</span>
                                             </li>
                                             @if($blog->comments_count > 0)
                                                 <li>
-                                                    <i class="ti-comments"></i>
+                                                    <i class="far fa-comments"></i>
                                                     <span>{!! $blog->comments_count !!} Yorum</span>
                                                 </li>
                                             @endif
                                         </ul>
-                                        <p>{!! \Str::limit(strip_tags($blog->detail), 50) !!}</p>
+                                        <p>{!! \Str::limit(strip_tags($blog->detail), 90) !!}</p>
                                         <a href="{!! $blog->url !!}"
                                            class="btn btn-dark btn-sm">Devamını Oku</a>
                                     </div>

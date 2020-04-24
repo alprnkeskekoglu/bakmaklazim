@@ -32,12 +32,12 @@
                 </ul>
             </div>
             <ul class="navbar-nav attr-nav align-items-center">
-                <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
+                <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="fa fa-search"></i></a>
                     <div class="search_wrap">
-                        <span class="close-search"><i class="ion-ios-close-empty"></i></span>
+                        <span class="close-search"><i class="fa fa-times"></i></span>
                         <form action="{{ route('search') }}" method="get">
                             <input type="text" placeholder="Arama" class="form-control" name="q">
-                            <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
+                            <button type="submit" class="search_icon"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                 </li>

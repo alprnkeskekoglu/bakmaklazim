@@ -72,6 +72,7 @@ Route::name('panel.')->group(function () {
             Route::get('/updateRead', 'CommentController@updateRead')->name('updateRead');
 
             Route::prefix('/{id}')->group(function () {
+                Route::get('/show', 'CommentController@show')->name('show');
                 Route::get('/updateStatus', 'CommentController@updateStatus')->name('updateStatus');
                 Route::get('/delete', 'CommentController@delete')->name('delete');
             });

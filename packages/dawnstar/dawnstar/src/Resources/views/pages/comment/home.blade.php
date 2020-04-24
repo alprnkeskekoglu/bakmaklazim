@@ -74,7 +74,11 @@
                                                     <i class="fa fa-hand-point-up"></i>
                                                 </a>
                                         @endif
+
                                     </div>
+                                    <a href="{!! route('panel.comment.show', ['id' => $data->id]) !!}" class="btn btn-sm btn-primary ml-2">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -26,7 +26,8 @@
                 <div class="col-12">
                     <div class="single_post">
                         <div class="blog_img">
-                            <img src="{!! $blog->image ? image($blog->image) : image($blog->cover) !!}" alt="{!! $blog->name !!}" style="max-height: 550px">
+                            <img src="{!! $blog->image ? image($blog->image) : image($blog->cover) !!}"
+                                 alt="{!! $blog->name !!}">
                             <div class="blog_tags">
                                 <a class="blog_tags_cat"
                                    style="background-color: {{ $blog->category->color ?: "#4382FF" }}"
@@ -52,15 +53,15 @@
                                 </div>
                                 <ul class="blog_meta">
                                     <li>
-                                        <i class="ti-calendar"></i>
+                                        <i class="far fa-calendar-alt"></i>
                                         <span>{!! localeDate($blog->date) !!}</span>
                                     </li>
                                     <li>
-                                        <i class="ti-comments"></i>
+                                        <i class="far fa-comments"></i>
                                         <span>{!! $comments->count() !!} Yorum</span>
                                     </li>
                                     <li>
-                                        <i class="ti-eye"></i>
+                                        <i class="far fa-eye"></i>
                                         <span>{!! $blog->view_count !!} Görüntülenme</span>
                                     </li>
                                 </ul>
@@ -71,6 +72,7 @@
                                     <div class="row justify-content-between align-items-center">
                                         <div class="col-md-8 mb-3 mb-md-0">
                                             <div class="artical_tags">
+                                                <i class="fa fa-tags"></i>
                                                 @foreach($blog->tags as $tag)
                                                     <a href="{!! $tag->category->url . '?tags=' . $tag->slug !!}">{!! $tag->name !!}</a>
                                                 @endforeach
@@ -106,7 +108,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="ml-auto">
-                                                        <p style="font-size: 85%">
+                                                        <p>
                                                             Bu yazıyı
                                                             {!! $comment->useful == 1 ? "<span class='text-success'>faydalı buldu.</span>" : "<span class='text-danger'>faydalı bulmadı.</span>" !!}
                                                         </p>
@@ -120,7 +122,7 @@
                             </ul>
                         @endif
 
-                        <div class="alert" style="display: none"></div>
+                        <div class="alert hidden"></div>
                         <form class="field_form">
                             @csrf
                             <div class="form-group">
@@ -155,7 +157,7 @@
                                            type="email">
                                 </div>
                                 <div class="form-group col-md-12">
-                                        <textarea rows="5" name="detail" class="form-control" style="resize: none;"
+                                        <textarea rows="5" name="detail" class="form-control"
                                                   placeholder="Mesajınız"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -171,35 +173,6 @@
         </div>
     </div>
 @endsection
-
-@push('styles')
-    <style>
-        .alert li {
-            list-style-type: none;
-        }
-
-        .profile-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #512DA8;
-            font-size: 35px;
-            color: #fff;
-            text-align: center;
-            line-height: 80px;
-            margin: 20px 0;
-        }
-
-        .author-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 100%;
-            background: #eee no-repeat center;
-            background-size: cover;
-        }
-
-    </style>
-@endpush
 
 
 @push('scripts')
@@ -274,9 +247,9 @@
                     "url"	: "{{ image($blog->cover) }}",
                     "height": {{ $coverImageSize[1] }},
                     "width" : {{ $coverImageSize[0] }}
-        }
-},
-"headline": "{{ $blog->name }}",
+          }
+       },
+       "headline": "{{ $blog->name }}",
        "mainEntityOfPage": "{{ $blog->url }}",
        "articleBody": "{{ \Str::limit(strip_tags($blog->detail), 100) }}",
        "image":{
@@ -284,11 +257,9 @@
                     "url"	: "{{ image($blog->image) }}",
                     "height": {{ $imageImageSize[1] }},
                     "width" : {{ $imageImageSize[0] }}
-        },
-"datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
+       },
+       "datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
        "dateModified":"{{ \Carbon\Carbon::parse($blog->updated_at)->format('Y-m-d') }}"
     }
-
-
     </script>
 @endpush
