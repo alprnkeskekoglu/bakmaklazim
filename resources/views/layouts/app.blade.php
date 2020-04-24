@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=1" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=6" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=1" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=3" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=4" !!}">
     @stack('styles')
 </head>
 <body>

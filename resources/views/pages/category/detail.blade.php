@@ -5,7 +5,7 @@
 @section('keywords') {!! $category->name . ', ' . implode(', ', $category->tags->pluck('name')->toArray()) !!} @endsection
 
 @section('content')
-    <div class="section breadcrumb_section bg_gray">
+    <div class="section breadcrumb_section bg_gray custom_breadcrumb">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
