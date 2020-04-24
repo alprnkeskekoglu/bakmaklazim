@@ -17,7 +17,6 @@ class CreateBlogsTable extends Migration
             $table->increments('id');
             $table->integer('admin_id');
             $table->integer('category_id');
-            $table->integer('order')->default(0);
             $table->tinyInteger('status')->default(2);
             $table->date('date')->nullable();
             $table->float('useful_rate', 3,2)->default(0.00);
