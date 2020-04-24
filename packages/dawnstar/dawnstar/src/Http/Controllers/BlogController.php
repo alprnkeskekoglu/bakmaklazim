@@ -124,7 +124,8 @@ class BlogController extends Controller
     {
         $category = Category::find($request->category_id);
         if ($category) {
-            return $category->tags->toArray();
+            return $category->tags()->where('status', 1)->toArray();
         }
+        return [];
     }
 }

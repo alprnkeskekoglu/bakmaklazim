@@ -116,7 +116,7 @@ function str_ucwords($str)
 function str_ucfirst($str)
 {
     $tmp = preg_split(
-        "//u", strto('lower', $str, $langCode), 2,
+        "//u", strto('lower', $str), 2,
         PREG_SPLIT_NO_EMPTY
     );
     return mb_convert_case(str_replace(array('ı', 'ğ', 'ü', 'ş', 'i', 'ö', 'ç'), array('I', 'Ğ', 'Ü', 'Ş', 'İ', 'Ö', 'Ç'), $tmp[0]), MB_CASE_TITLE, "UTF-8") . $tmp[1];
