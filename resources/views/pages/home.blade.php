@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title'){!! env('APP_NAME') !!}@endsection
-@section('description'){{ "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." }}@endsection
+@section('description'){!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}@endsection
 @section('keywords'){{ "bakmak lazım, blog, teknoloji, gündem" }}@endsection
 
 @php

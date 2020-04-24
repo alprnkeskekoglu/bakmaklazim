@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {!! $blog->name . ' | ' . env('APP_NAME') !!} @endsection
-@section('description') {!!  \Str::limit(strip_tags($blog->detail), 100) !!} @endsection
-@section('keywords') {!! $blog->category->name . ', ' . implode(', ', $blog->tags->pluck('name')->toArray()) !!} @endsection
+@section('title'){!! $blog->name . ' | ' . env('APP_NAME') !!}@endsection
+@section('description'){!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}@endsection
+@section('keywords'){!! $blog->category->name . ', ' . implode(', ', $blog->tags->pluck('name')->toArray()) !!}@endsection
 
 
 @section('content')
