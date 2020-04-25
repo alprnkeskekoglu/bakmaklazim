@@ -42,8 +42,9 @@ class CategoryController extends Controller
 
         $tagSlugs = request()->get('tags');
 
+        $tagSlugs = $tagSlugs ? explode(',', $tagSlugs) : [];
 
-        $data = Cache::remember("CATEGORY_DETAIL" . $tagSlugs, 60 * 60 * 24, function () use ($category, $tagSlugs) {
+        $data = Cache::remember("CATEGORY_DETAIL" . request()->get('tags'), 60 * 60 * 24, function () use ($category, $tagSlugs) {
 
             $blogs = $category->blogs()
                 ->where('status', 1)
@@ -53,7 +54,6 @@ class CategoryController extends Controller
                     $q->where('status', 1);
                 }]);
 
-            $tagSlugs = $tagSlugs ? explode(',', $tagSlugs) : [];
 
             if (count($tagSlugs) > 0) {
                 $blogs = $blogs->whereHas('tags', function ($q) use ($tagSlugs) {
