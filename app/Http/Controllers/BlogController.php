@@ -6,20 +6,24 @@ use Dawnstar\Models\Blog;
 use Dawnstar\Models\Category;
 use Dawnstar\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Validation\Validator;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::where('status', 1)
-            ->whereHas('category')
-            ->orderByDesc('date')
-            ->withCount(['comments' => function ($q) {
-                $q->where('status', 1);
-            }])
-            ->paginate(10);
+
+        $blogs = Cache::remember($request->get('page') . "BLOG_HOMEPAGE", 60 * 60 * 24, function () {
+            return Blog::where('status', 1)
+                ->whereHas('category')
+                ->orderByDesc('date')
+                ->withCount(['comments' => function ($q) {
+                    $q->where('status', 1);
+                }])
+                ->paginate(10);
+        });
 
         $breadcrumb = [
             "Blog Yazıları" => "javascript:void(0);"
@@ -39,17 +43,26 @@ class BlogController extends Controller
 
         $this->increaseView($blog);
 
-        $comments = Comment::where('blog_id', $blog->id)
-            ->where('status', 1)
-            ->get();
 
-        $others = Blog::where('status', 1)
-            ->where('category_id', $blog->category_id)
-            ->where('id', '!=', $blog->id)
-            ->orderByDesc('view_count')
-            ->withCount(['comments' => function ($q) {
-                $q->where('status', 1);
-            }])->get()->take(3);
+        $data = Cache::remember("BLOG_DETAIL", 60 * 60 * 24, function () use($blog) {
+            $hold['comments'] = Comment::where('blog_id', $blog->id)
+                ->where('status', 1)
+                ->get();
+
+            $hold['others'] = Blog::where('status', 1)
+                ->where('category_id', $blog->category_id)
+                ->where('id', '!=', $blog->id)
+                ->orderByDesc('view_count')
+                ->withCount(['comments' => function ($q) {
+                    $q->where('status', 1);
+                }])->get()->take(3);
+
+            return $hold;
+        });
+
+
+        $comments = $data['comments'];
+        $others = $data['others'];
 
         $breadcrumb = [
             "Blog Yazıları" => route('blog.index'),
