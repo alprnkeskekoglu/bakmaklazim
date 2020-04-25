@@ -35,7 +35,7 @@ class HomeController extends Controller
                 $blogs = $blogs->where('id', '!=', $lastBlog->id);
             }
 
-            $hold['blogs'] = $blogs->paginate(6);
+            $hold['blogs'] = $blogs->get()->take(6);
 
             return $hold;
         });

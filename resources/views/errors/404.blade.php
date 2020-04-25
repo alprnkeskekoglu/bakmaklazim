@@ -11,7 +11,7 @@
                     <div class="text-center">
                         <div class="error_txt">Sayfa Bulunamadı!</div>
                         <h5> ¯\_(ツ)_/¯</h5>
-                        <p class="sub_error_txt mb-2 mb-sm-4">Aradığınız sayfa silinmiş ve ya hiç var olmamış
+                        <p class="sub_error_txt mb-2 mb-sm-4">Aradığınız sayfa silinmiş veya hiç var olmamış
                             olabilir.</p>
                         <div class="search_form pb-3 pb-sm-4">
 

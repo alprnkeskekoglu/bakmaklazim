@@ -26,7 +26,7 @@
                         <div class="row push">
                             <div class="col-lg-3 col-xl-4">
                                 <div class="col-sm-6 col-lg-12">
-                                    <h4><b>Blog Cover Image</b></h4>
+                                    <h4><b>Category Cover Image</b></h4>
                                     <span id="btnCover" style="cursor: pointer;">
                                         <img src="{!! $category->cover ? url($category->cover) : 'https://via.placeholder.com/150' !!}"
                                              alt="Blog Cover Image" class="card p-1" id="imageCover"

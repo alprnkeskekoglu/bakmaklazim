@@ -119,7 +119,6 @@
                             </div>
                         @endforeach
                     </div>
-                    {!! $blogs->links('vendor.pagination.custom') !!}
                 </div>
             </div>
         </div>
