@@ -268,7 +268,9 @@
 
         $('.blog-detail').find('img').parent().addClass('text-center');
     </script>
+@endpush
 
+@push('styles')
     @php
         $coverImageSize = getimagesize(asset("/assets/images/logo.png"));
         $imageImageSize = getimagesize(image($blog->image));
@@ -291,9 +293,9 @@
               "url"	: "{{ url("/assets/images/logo.png") }}",
               "height": {{ $coverImageSize[1] }},
               "width" : {{ $coverImageSize[0] }}
-          }
-       },
-       "headline": "{{ $blog->name }}",
+        }
+     },
+     "headline": "{{ $blog->name }}",
        "mainEntityOfPage": "{{ $blog->url }}",
        "articleBody": "{{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 150)) }}",
        "image":{
@@ -301,8 +303,8 @@
            "url"	: "{{ image($blog->cover) }}",
            "height": {{ $coverImageSize[1] }},
            "width" : {{ $coverImageSize[0] }}
-       },
-       "datePublished":"{{ $blog->created_at }}",
+        },
+        "datePublished":"{{ $blog->created_at }}",
        "dateModified":"{{ $blog->updated_at }}"
     }
     </script>

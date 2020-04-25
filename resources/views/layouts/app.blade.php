@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-
     <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,6 @@
     <meta name="keywords" content="@yield('keywords')">
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset("/assets/images/favicon.png") }}">
-
 
     <link rel="stylesheet" href="{!! asset("assets/css/animate.css") !!}">
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
@@ -21,6 +19,16 @@
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=3" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=6" !!}">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "{{ route('index') }}",
+      "logo": "{{ url("/assets/images/logo.png") }}"
+    }
+    </script>
+
     @stack('styles')
 </head>
 <body>
@@ -46,7 +54,6 @@
 <script src="{!! asset('/assets/js/jquery.appear.js') !!}"></script>
 <script src="{!! asset('/assets/js/jquery.parallax-scroll.js') !!}"></script>
 <script src="{!! asset('/assets/js/scripts.js') . "?v=1" !!}"></script>
-
 @stack('scripts')
 </body>
 </html>
