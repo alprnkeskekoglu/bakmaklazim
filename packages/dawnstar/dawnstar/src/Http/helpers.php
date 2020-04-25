@@ -21,17 +21,15 @@ function getUnreadCommentCount()
     return \Dawnstar\Models\Comment::where('read_status', 0)->get()->count();
 }
 
-function uploadFile($key)
+function uploadFile($key, &$data)
 {
     $file = request()->file($key);
 
     if ($file != null) {
-        $fileName = uniqid() . "-" . $file->getClientOriginalName();
-        $fileName = str_replace(' ', '-', $fileName);
+        $fileName = str_replace(' ', '-', uniqid() . "-" . $file->getClientOriginalName());
         $file->storeAs('', $fileName);
-        return Storage::disk('public')->url($fileName);
+        $data[$key] = Storage::disk('public')->url($fileName);
     }
-    return null;
 }
 
 function commentStats()

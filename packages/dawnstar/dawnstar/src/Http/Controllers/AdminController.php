@@ -26,14 +26,7 @@ class AdminController extends Controller
     {
         $data = $request->except('_token', 'image');
 
-        $file = request()->file('image');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['image'] = Storage::disk('public')->url($fileName);
-        }
-
+        uploadFile('image', $data);
 
         $admin = Admin::firstOrCreate(
             $data

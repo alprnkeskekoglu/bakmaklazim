@@ -51,7 +51,7 @@
                     <div class="item col-md-4 col-lg-4">
                         <a href="{!! $category->url !!}">
                             <div class="service_box">
-                                <img src="{!! image($category->cover) !!}" alt="{!! $category->name !!}"/>
+                                <img src="{!! image($category->cover, 350, 198) !!}" alt="{!! $category->name !!}"/>
                                 <span class="lable">{!! str_ucwords($category->name) !!}</span>
                             </div>
                         </a>
@@ -85,7 +85,7 @@
                             <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
-                                        <img src="{!! image($blog->cover) !!}" alt="{!! $blog->name !!}"
+                                        <img src="{!! image($blog->cover, 340, 219) !!}" alt="{!! $blog->name !!}"
                                              height="219">
                                     </a>
                                 </div>

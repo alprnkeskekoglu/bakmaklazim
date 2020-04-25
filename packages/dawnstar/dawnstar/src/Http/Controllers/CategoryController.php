@@ -25,7 +25,7 @@ class CategoryController extends Controller
     {
         $data = $request->except('_token', 'cover');
 
-        $data['cover'] = uploadFile('cover');
+        uploadFile('cover', $data);
 
         $category = Category::firstOrCreate(
             $data
@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
         $data = request()->except('_token', 'cover');
 
-        $data['cover'] = uploadFile('cover');
+        uploadFile('cover', $data);
 
         $category->update($data);
 

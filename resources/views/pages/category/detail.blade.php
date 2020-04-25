@@ -35,7 +35,7 @@
                             <div class="blog_post col-lg-6 col-md-12 col-sm-12">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
-                                        <img src="{!! image($blog->cover) !!}" alt="{!! $blog->name !!}"
+                                        <img src="{!! image($blog->cover, 350, 230) !!}" alt="{!! $blog->name !!}"
                                              width="350" height="230">
                                     </a>
                                 </div>

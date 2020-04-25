@@ -26,7 +26,7 @@
                             <div class="blog_post">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
-                                        <img src="{!! image($blog->cover) !!}" alt="{!! $blog->name !!}" height="219">
+                                        <img src="{!! image($blog->cover, 329, 219) !!}" alt="{!! $blog->name !!}" height="219">
                                     </a>
                                 </div>
                                 <div class="blog_content">

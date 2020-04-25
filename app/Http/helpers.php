@@ -32,11 +32,59 @@ function getSidebarLatestBlogs()
         ->take(3);
 }
 
-function image($path)
+function image($path, $width = null, $height = null)
 {
-    if ($path && file_exists(public_path($path))) {
+    $newPath = "";
+    $newFileName = "";
+    if($width || $height) {
+        $temp = pathinfo($path);
+        $newFileName = $temp['filename'];
+        if($width) {
+            $newFileName = $newFileName . '_w' . $width;
+        }
+        if($height) {
+            $newFileName = $newFileName . '_h' . $height;
+        }
+        $newPath = $temp['dirname'] . '/' . $newFileName . '.' . $temp['extension'];
+    }
+
+
+    if(is_null($path) || !file_exists(public_path($path))) {
+        return asset('assets/images/default.png');
+    }
+
+    if(file_exists($newPath)) {
+        return url($newPath);
+    }
+
+    if(file_exists(public_path($path))) {
+        if($width || $height) {
+
+            $manager = new \Intervention\Image\ImageManager();
+            $image = $manager->make(public_path($path));
+
+            if($width && $height) {
+                $image = $image->resize($width, $height);
+            } else {
+                if($width) {
+                    $image = $image->resize($width, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                if($height) {
+                    $image = $image->resize(null, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            }
+
+            $image->save(public_path($newPath));
+
+            return url($newPath);
+        }
         return url($path);
     }
+
     return asset('assets/images/default.png');
 }
 

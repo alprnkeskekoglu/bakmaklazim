@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="single_post">
                         <div class="blog_img">
-                            <img src="{!! $blog->image ? image($blog->image) : image($blog->cover) !!}"
+                            <img src="{!! $blog->image ? image($blog->image, 1110) : image($blog->cover, 1110) !!}"
                                  alt="{!! $blog->name !!}">
                             <div class="blog_tags">
                                 <a class="blog_tags_cat"
@@ -45,7 +45,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="float-right">
                                             <img class="author-circle d-none d-sm-inline"
-                                                 src="{!! image($blog->admin->image) !!}"
+                                                 src="{!! image($blog->admin->image, 50, 50) !!}"
                                                  alt="{!! $blog->admin->name !!}" height="30">
                                             <span>{!! $blog->admin->name !!}</span>
                                         </div>
@@ -85,42 +85,42 @@
                     </div>
 
                     @if($others->isNotEmpty())
-                    <div class="blog_detail_others d-none d-sm-block">
-                        <div class="container">
-                            <h3>Diğer Yazılar</h3>
-                            <div class="row">
-                                @foreach($others as $other)
-                                    <div class="blog_post col-lg-4 col-md-4">
-                                        <div class="blog_img">
-                                            <a href="{!! $other->url !!}">
-                                                <img src="{!! image($other->cover) !!}" alt="{!! $other->name !!}"
-                                                     width="350" height="230">
-                                            </a>
-                                        </div>
-                                        <div class="blog_content">
-                                            <div class="blog_text">
-                                                <h5 class="blog_heading"><a
-                                                        href="{!! $other->url !!}">{!! $other->name !!}</a>
-                                                </h5>
-                                                <ul class="blog_meta">
-                                                    <li>
-                                                        <i class="far fa-calendar-alt"></i>
-                                                        <span>{!! localeDate($other->date) !!}</span>
-                                                    </li>
-                                                    @if($other->comments_count > 0)
+                        <div class="blog_detail_others d-none d-sm-block">
+                            <div class="container">
+                                <h3>Diğer Yazılar</h3>
+                                <div class="row">
+                                    @foreach($others as $other)
+                                        <div class="blog_post col-lg-4 col-md-4">
+                                            <div class="blog_img">
+                                                <a href="{!! $other->url !!}">
+                                                    <img src="{!! image($other->cover, 340, 230) !!}" alt="{!! $other->name !!}"
+                                                         width="350" height="230">
+                                                </a>
+                                            </div>
+                                            <div class="blog_content">
+                                                <div class="blog_text">
+                                                    <h5 class="blog_heading"><a
+                                                            href="{!! $other->url !!}">{!! $other->name !!}</a>
+                                                    </h5>
+                                                    <ul class="blog_meta">
                                                         <li>
-                                                            <i class="far fa-comments"></i>
-                                                            <span>{!! $blog->comments_count !!} Yorum</span>
+                                                            <i class="far fa-calendar-alt"></i>
+                                                            <span>{!! localeDate($other->date) !!}</span>
                                                         </li>
-                                                    @endif
-                                                </ul>
+                                                        @if($other->comments_count > 0)
+                                                            <li>
+                                                                <i class="far fa-comments"></i>
+                                                                <span>{!! $blog->comments_count !!} Yorum</span>
+                                                            </li>
+                                                        @endif
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
 
                     <div class="comment-area">
@@ -287,9 +287,9 @@
                     "url"	: "{{ image($blog->cover) }}",
                     "height": {{ $coverImageSize[1] }},
                     "width" : {{ $coverImageSize[0] }}
-          }
-       },
-       "headline": "{{ $blog->name }}",
+        }
+     },
+     "headline": "{{ $blog->name }}",
        "mainEntityOfPage": "{{ $blog->url }}",
        "articleBody": "{{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) }}",
        "image":{
@@ -297,9 +297,10 @@
                     "url"	: "{{ image($blog->image) }}",
                     "height": {{ $imageImageSize[1] }},
                     "width" : {{ $imageImageSize[0] }}
-       },
-       "datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
+        },
+        "datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
        "dateModified":"{{ \Carbon\Carbon::parse($blog->updated_at)->format('Y-m-d') }}"
     }
+
     </script>
 @endpush

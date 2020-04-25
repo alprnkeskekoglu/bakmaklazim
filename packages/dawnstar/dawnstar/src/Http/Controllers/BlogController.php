@@ -29,8 +29,8 @@ class BlogController extends Controller
         $data = $request->except('_token', 'tags', 'cover', 'image');
 
 
-        $data['cover'] = uploadFile('cover');
-        $data['image'] = uploadFile('image');
+        uploadFile('cover', $data);
+        uploadFile('image', $data);
 
         $data['admin_id'] = auth()->id();
         $data['date'] = date('Y-m-d');
@@ -71,8 +71,8 @@ class BlogController extends Controller
         $data = $request->except('_token', 'tags', 'cover', 'image');
 
 
-        $data['cover'] = uploadFile('cover');
-        $data['image'] = uploadFile('image');
+        uploadFile('cover', $data);
+        uploadFile('image', $data);
 
         $data['admin_id'] = auth()->id();
         $blog->update($data);
