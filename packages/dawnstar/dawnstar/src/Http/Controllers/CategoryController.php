@@ -5,7 +5,7 @@ namespace Dawnstar\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Dawnstar\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
@@ -30,6 +30,8 @@ class CategoryController extends Controller
         $category = Category::firstOrCreate(
             $data
         );
+
+        Cache::flush();
 
         if ($category->wasRecentlyCreated) {
             return redirect()->route('panel.category.create');
@@ -58,6 +60,8 @@ class CategoryController extends Controller
         uploadFile('cover', $data);
 
         $category->update($data);
+
+        Cache::flush();
 
         if ($category->wasChanged()) {
             return redirect()->back()->with('message', 'The update was done successfully.');

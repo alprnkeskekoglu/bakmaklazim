@@ -8,6 +8,7 @@ use Dawnstar\Models\Category;
 use Dawnstar\Models\Comment;
 use Dawnstar\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class CommentController extends Controller
 {
@@ -32,6 +33,8 @@ class CommentController extends Controller
         if ($comment) {
             $comment->update(['status' => request('status')]);
         }
+
+        Cache::flush();
 
         return redirect()->route('panel.comment.index');
     }

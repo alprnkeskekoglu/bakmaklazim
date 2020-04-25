@@ -7,7 +7,7 @@ use Dawnstar\Models\Blog;
 use Dawnstar\Models\Category;
 use Dawnstar\Models\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class BlogController extends Controller
 {
@@ -41,6 +41,8 @@ class BlogController extends Controller
         $tagIds = $this->createTags();
 
         $blog->tags()->sync($tagIds);
+
+        Cache::flush();
 
 
         if ($blog->wasRecentlyCreated) {
@@ -81,6 +83,8 @@ class BlogController extends Controller
         $tagIds = $this->createTags();
 
         $blog->tags()->sync($tagIds);
+
+        Cache::flush();
 
         if ($blog->wasChanged()) {
             return redirect()->back()->with('message', 'The update was done successfully.');
