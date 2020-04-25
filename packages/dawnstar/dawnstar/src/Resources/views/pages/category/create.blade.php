@@ -75,13 +75,13 @@
                                                         <div
                                                             class="custom-control-inline custom-radio custom-control-success custom-control-lg mb-1">
                                                             <input type="radio" class="custom-control-input" id="active"
-                                                                   name="status" value="1" checked>
+                                                                   name="status" value="1">
                                                             <label class="custom-control-label" for="active">Active</label>
                                                         </div>
                                                         <div
                                                             class="custom-control-inline custom-radio custom-control-warning custom-control-lg mb-1">
                                                             <input type="radio" class="custom-control-input" id="draft"
-                                                                   name="status" value="2">
+                                                                   name="status" value="2" checked>
                                                             <label class="custom-control-label" for="draft">Draft</label>
                                                         </div>
                                                         <div
@@ -102,12 +102,12 @@
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" class="form-control" id="name" name="name"
-                                                   autocomplete="off">
+                                                   autocomplete="off" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Slug</label>
                                             <input type="text" class="form-control" id="slug" name="slug"
-                                                   autocomplete="off">
+                                                   autocomplete="off" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Category Detail</label>

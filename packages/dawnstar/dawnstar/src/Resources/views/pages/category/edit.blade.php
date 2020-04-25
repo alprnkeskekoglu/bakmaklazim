@@ -82,11 +82,11 @@
                                 <hr>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" value="{!! $category->name !!}">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" value="{!! $category->name !!}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Slug</label>
-                                    <input type="text" class="form-control" id="slug" name="slug" autocomplete="off" value="{!! $category->slug !!}">
+                                    <input type="text" class="form-control" id="slug" name="slug" autocomplete="off" value="{!! $category->slug !!}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Category Detail</label>
