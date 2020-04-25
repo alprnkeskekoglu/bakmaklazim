@@ -53,6 +53,8 @@ class CategoryController extends Controller
                     $q->where('status', 1);
                 }]);
 
+            $tagSlugs = $tagSlugs ? explode(',', $tagSlugs) : [];
+
             if (count($tagSlugs) > 0) {
                 $blogs = $blogs->whereHas('tags', function ($q) use ($tagSlugs) {
                     $q->whereIn('slug', $tagSlugs);
