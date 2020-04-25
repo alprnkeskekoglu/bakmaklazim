@@ -17,6 +17,7 @@ class CategoryController extends Controller
                 $q->where('status', 1);
             }])
             ->having('blogs_count', '>', 0)
+            ->orderBy('blogs_count')
             ->with('tags')
             ->get();
 

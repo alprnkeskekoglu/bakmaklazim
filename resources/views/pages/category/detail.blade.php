@@ -43,7 +43,7 @@
                                     <div class="blog_text">
                                         <div class="blog_tags">
                                             @foreach($blog->tags as $tag)
-                                                @if($loop->iteration == 4)
+                                                @if($loop->iteration == 5)
                                                     @break
                                                 @endif
                                                 <a class="blog_tags_cat bg_custom"
@@ -65,7 +65,7 @@
                                                 </li>
                                             @endif
                                         </ul>
-                                        <p>{!! \Str::limit(strip_tags($blog->detail), 90) !!}</p>
+                                        <p>{!! html_entity_decode(\Str::limit(strip_tags($blog->detail), 90)) !!}</p>
                                     </div>
                                 </div>
                             </div>
