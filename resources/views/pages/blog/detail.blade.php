@@ -93,7 +93,8 @@
                                         <div class="blog_post col-lg-4 col-md-4">
                                             <div class="blog_img">
                                                 <a href="{!! $other->url !!}">
-                                                    <img src="{!! image($other->cover, 340, 230) !!}" alt="{!! $other->name !!}"
+                                                    <img src="{!! image($other->cover, 340, 230) !!}"
+                                                         alt="{!! $other->name !!}"
                                                          width="350" height="230">
                                                 </a>
                                             </div>
@@ -269,38 +270,40 @@
     </script>
 
     @php
-        $coverImageSize = getimagesize(image($blog->cover));
+        $coverImageSize = getimagesize(asset("/assets/images/logo.png"));
         $imageImageSize = getimagesize(image($blog->image));
     @endphp
     <script type="application/ld+json">
     {
        "@context": "http://schema.org",
-       "@type": "NewsArticle",
-       "author": "{{ $blog->admin->name }}",
+       "@type": "BlogPosting",
+       "author": {
+            "@type": "Person",
+            "name": "{{ $blog->admin->name }}"
+       },
        "url": "{{ $blog->url }}",
        "publisher":{
           "@type":"Organization",
           "name":"{{ env("APP_NAME") }}",
           "url": "{{ env("APP_URL") }}",
           "logo":{
-                    "@type"	: "ImageObject",
-                    "url"	: "{{ image($blog->cover) }}",
-                    "height": {{ $coverImageSize[1] }},
-                    "width" : {{ $coverImageSize[0] }}
-        }
-     },
-     "headline": "{{ $blog->name }}",
+              "@type"	: "ImageObject",
+              "url"	: "{{ url("/assets/images/logo.png") }}",
+              "height": {{ $coverImageSize[1] }},
+              "width" : {{ $coverImageSize[0] }}
+          }
+       },
+       "headline": "{{ $blog->name }}",
        "mainEntityOfPage": "{{ $blog->url }}",
-       "articleBody": "{{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) }}",
+       "articleBody": "{{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 150)) }}",
        "image":{
-                    "@type"	: "ImageObject",
-                    "url"	: "{{ image($blog->image) }}",
-                    "height": {{ $imageImageSize[1] }},
-                    "width" : {{ $imageImageSize[0] }}
-        },
-        "datePublished":"{{ \Carbon\Carbon::parse($blog->created_at)->format('Y-m-d') }}",
-       "dateModified":"{{ \Carbon\Carbon::parse($blog->updated_at)->format('Y-m-d') }}"
+           "@type"	: "ImageObject",
+           "url"	: "{{ image($blog->cover) }}",
+           "height": {{ $coverImageSize[1] }},
+           "width" : {{ $coverImageSize[0] }}
+       },
+       "datePublished":"{{ $blog->created_at }}",
+       "dateModified":"{{ $blog->updated_at }}"
     }
-
     </script>
 @endpush
