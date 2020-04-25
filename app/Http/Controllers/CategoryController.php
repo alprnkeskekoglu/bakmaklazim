@@ -43,6 +43,7 @@ class CategoryController extends Controller
         $blogs = $category->blogs()
             ->where('status', 1)
             ->orderByDesc('date')
+            ->with('tags')
             ->withCount(['comments' => function($q) {
                 $q->where('status', 1);
             }]);
@@ -57,7 +58,10 @@ class CategoryController extends Controller
 
 
         $tags = $category->tags()
-            ->where('status', 1);
+            ->where('status', 1)
+            ->withCount('blogs')
+            ->orderByDesc('blogs_count')
+            ->having('blogs_count', '>', 0);
 
         if(count($tagSlugs) > 0) {
             $tags = $tags->whereHas('blogs', function($q) use($blogs) {
@@ -65,7 +69,7 @@ class CategoryController extends Controller
             });
         }
 
-        $tags = $tags->get();
+        $tags = $tags->get()->take(8);
 
 
 

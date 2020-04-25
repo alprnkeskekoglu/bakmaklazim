@@ -29,21 +29,8 @@ class BlogController extends Controller
         $data = $request->except('_token', 'tags', 'cover', 'image');
 
 
-        $file = request()->file('cover');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['cover'] = Storage::disk('public')->url($fileName);
-        }
-
-        $file = request()->file('image');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['image'] = Storage::disk('public')->url($fileName);
-        }
+        $data['cover'] = uploadFile('cover');
+        $data['image'] = uploadFile('image');
 
         $data['admin_id'] = auth()->id();
         $data['date'] = date('Y-m-d');
@@ -84,21 +71,8 @@ class BlogController extends Controller
         $data = $request->except('_token', 'tags', 'cover', 'image');
 
 
-        $file = $request->file('cover');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['cover'] = Storage::disk('public')->url($fileName);
-        }
-
-        $file = $request->file('image');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['image'] = Storage::disk('public')->url($fileName);
-        }
+        $data['cover'] = uploadFile('cover');
+        $data['image'] = uploadFile('image');
 
         $data['admin_id'] = auth()->id();
         $blog->update($data);

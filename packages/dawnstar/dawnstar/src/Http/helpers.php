@@ -1,22 +1,41 @@
 <?php
 
-function getStatusText($status) {
+use Illuminate\Support\Facades\Storage;
+
+function getStatusText($status)
+{
     $text = null;
-    if($status == 1) {
+    if ($status == 1) {
         $text = 'Active';
-    } elseif($status == 2) {
+    } elseif ($status == 2) {
         $text = 'Draft';
-    } elseif($status == 3) {
+    } elseif ($status == 3) {
         $text = 'Passive';
     }
 
     return $text;
 }
-function getUnreadCommentCount() {
+
+function getUnreadCommentCount()
+{
     return \Dawnstar\Models\Comment::where('read_status', 0)->get()->count();
 }
 
-function commentStats() {
+function uploadFile($key)
+{
+    $file = request()->file($key);
+
+    if ($file != null) {
+        $fileName = uniqid() . "-" . $file->getClientOriginalName();
+        $fileName = str_replace(' ', '-', $fileName);
+        $file->storeAs('', $fileName);
+        return Storage::disk('public')->url($fileName);
+    }
+    return null;
+}
+
+function commentStats()
+{
 
     $month = \Dawnstar\Models\Comment::all()->groupBy(function ($date) {
         return \Carbon\Carbon::parse($date->created_at)->format('Y-m');
@@ -41,12 +60,13 @@ function commentStats() {
     return implode(',', $data);
 }
 
-function breadcrumb() {
+function breadcrumb()
+{
     $url = request()->segments();
 
     $hold = [
-        ucfirst($url[0]) => route('panel.'.$url[0]),
-        ucfirst($url[1]) => route('panel.'.strtolower($url[1]) . '.index'),
+        ucfirst($url[0]) => route('panel.' . $url[0]),
+        ucfirst($url[1]) => route('panel.' . strtolower($url[1]) . '.index'),
         ucfirst($url[count($url) - 1]) => "javascript:void(0);",
     ];
 
@@ -54,7 +74,8 @@ function breadcrumb() {
 }
 
 
-function slugify($str) {
+function slugify($str)
+{
     $str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());
 
     $defaults = array(

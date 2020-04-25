@@ -18,9 +18,10 @@ class CkEditorController extends Controller
 
         if ($file != null) {
             $fileName = uniqid() . "-" . $file->getClientOriginalName();
+            $fileName = str_replace(' ', '-', $fileName);
+
             $file->storeAs('ckeditor', $fileName);
             $data['cover'] = Storage::disk('public')->url('/ckeditor/' . $fileName);
-
 
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
             $url = Storage::disk('public')->url('/ckeditor/' . $fileName);;

@@ -91,7 +91,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <label for="category">Category</label>
-                                    <select class="form-control" name="category_id" id="category">
+                                    <select class="form-control" name="category_id" id="category" required>
                                         <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option {{$category->id == $blog->category_id ? 'selected' : ''}} value="{{ $category->id }}">{!! $category->name !!}</option>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tags">Tags</label>
-                                    <select class="js-select2 form-control" id="tags" name="tags[]" style="width: 100%;" data-placeholder="Choose many.." multiple>
+                                    <select class="js-select2 form-control" id="tags" name="tags[]" style="width: 100%;" data-placeholder="Choose many.." multiple required>
                                         @foreach($blog->category->tags as $tag)
                                             <option value="{{$tag->id}}" {{ in_array($tag->id, $tagsId) ? 'selected' : '' }}> {{ $tag->name }} </option>
                                         @endforeach
@@ -108,12 +108,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" value="{{ $blog->name }}">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" value="{{ $blog->name }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Slug</label>
-                                    <input type="text" class="form-control" id="slug" name="slug" autocomplete="off" value="{{ $blog->slug }}">
+                                    <input type="text" class="form-control" id="slug" name="slug" autocomplete="off" value="{{ $blog->slug }}" required>
                                 </div>
+                            </div>
+                            <div class="col-lg-12 mt-5">
                                 <div class="form-group">
                                     <label>Category Detail</label>
                                     <textarea name="detail">{{ $blog->detail }}</textarea>
@@ -142,7 +144,9 @@
     <script>
         CKEDITOR.replace('detail', {
             filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
+            filebrowserUploadMethod: 'form',
+            language: "tr",
+            height: "400"
         });
 
         $("#tags").select2({

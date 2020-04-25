@@ -34,6 +34,9 @@
                             <div class="blog_text">
                                 <div class="blog_tags">
                                     @foreach($category->tags as $tag)
+                                        @if($loop->iteration == 5)
+                                            @break
+                                        @endif
                                         <a class="blog_tags_cat bg_custom"
                                            href="{!! $tag->url !!}">{!! strto('lower', $tag->name) !!}</a>
                                     @endforeach

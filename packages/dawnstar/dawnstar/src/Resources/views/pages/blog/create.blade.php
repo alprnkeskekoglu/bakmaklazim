@@ -34,9 +34,6 @@
                                              alt="Blog Image" class="card p-1" id="image"
                                              style="width: 50%; margin-left: auto; margin-right: auto; border: 1px dashed black">
                                     </span>
-                                    <label>
-                                        Dosya yüklemek için icon'a tıklayınız.
-                                    </label>
                                     <div class="form-group" style="display: none">
                                         <div class="custom-file ">
                                             <input type="file" class="form-control" id="image-file"
@@ -75,7 +72,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <label for="category">Category</label>
-                                    <select class="form-control" name="category_id" id="category">
+                                    <select class="form-control" name="category_id" id="category" required>
                                         <option value="">Select Category</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{!! $category->name !!}</option>
@@ -84,17 +81,19 @@
                                 </div>
                                 <div class="form-group" style="display: none">
                                     <label for="tags">Tags</label>
-                                    <select class="js-select2 form-control" id="tags" name="tags[]" style="width: 100%;" data-placeholder="Choose many.." multiple>
+                                    <select class="js-select2 form-control" id="tags" name="tags[]" style="width: 100%;" data-placeholder="Choose many.." multiple required>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Slug</label>
-                                    <input type="text" class="form-control" id="slug" name="slug" autocomplete="off">
+                                    <input type="text" class="form-control" id="slug" name="slug" autocomplete="off" required>
                                 </div>
+                            </div>
+                            <div class="col-lg-12 mt-5">
                                 <div class="form-group">
                                     <label>Category Detail</label>
                                     <textarea name="detail"></textarea>
@@ -123,7 +122,9 @@
     <script>
         CKEDITOR.replace('detail', {
             filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
+            filebrowserUploadMethod: 'form',
+            language: "tr",
+            height: "400"
         });
 
 

@@ -25,13 +25,7 @@ class CategoryController extends Controller
     {
         $data = $request->except('_token', 'cover');
 
-        $file = request()->file('cover');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['cover'] = Storage::disk('public')->url($fileName);
-        }
+        $data['cover'] = uploadFile('cover');
 
         $category = Category::firstOrCreate(
             $data
@@ -61,13 +55,7 @@ class CategoryController extends Controller
 
         $data = request()->except('_token', 'cover');
 
-        $file = request()->file('cover');
-
-        if ($file != null) {
-            $fileName = uniqid() . "-" . $file->getClientOriginalName();
-            $file->storeAs('', $fileName);
-            $data['cover'] = Storage::disk('public')->url($fileName);
-        }
+        $data['cover'] = uploadFile('cover');
 
         $category->update($data);
 
