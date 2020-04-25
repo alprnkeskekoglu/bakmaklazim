@@ -18,7 +18,7 @@ class BlogController extends Controller
         $blogs = Cache::remember($request->get('page') . "BLOG_HOMEPAGE", 60 * 60 * 24, function () {
             return Blog::where('status', 1)
                 ->whereHas('category')
-                ->orderByDesc('date')
+                ->orderByDesc('created_at')
                 ->withCount(['comments' => function ($q) {
                     $q->where('status', 1);
                 }])

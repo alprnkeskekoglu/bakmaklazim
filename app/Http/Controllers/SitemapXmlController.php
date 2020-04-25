@@ -52,20 +52,6 @@ class SitemapXmlController extends Controller
             ];
         }
 
-
-        $tags = Tag::where('status', 1)
-            ->whereHas('category')
-            ->get();
-
-
-        foreach ($tags as $tag) {
-            $urls[] = [
-                'url' => $tag->url,
-                'lastmod' => Carbon::parse($tag->updated_at)->format('Y-m-d'),
-                'priority' => "0.80"
-            ];
-        }
-
         return view('pages.sitemap', compact('urls'));
     }
 }
