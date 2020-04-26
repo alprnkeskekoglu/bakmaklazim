@@ -35,7 +35,7 @@ function getSidebarLatestBlogs()
 function image($path, $width = null, $height = null)
 {
     $temp = pathinfo($path);
-    $newPath = "";
+    $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.webp';
     if($width || $height) {
         $newFileName = $temp['filename'];
         if($width) {
@@ -61,7 +61,6 @@ function image($path, $width = null, $height = null)
         $manager = new \Intervention\Image\ImageManager();
         $image = $manager->make(public_path($path));
         $image = $image->encode('webp', 75);
-
         if($width || $height) {
 
             if($width && $height) {
@@ -83,7 +82,8 @@ function image($path, $width = null, $height = null)
 
             return url($newPath);
         }
-        return url($path);
+        $image->save(public_path($newPath));
+        return url($newPath);
     }
 
     return asset('assets/images/default.png');

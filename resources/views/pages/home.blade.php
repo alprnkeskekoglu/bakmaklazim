@@ -62,7 +62,7 @@
     </div>
 
     <div class="section background_bg overlay_bg_70 overflow-hidden fixed_bg inspire"
-         data-img-src="{{ asset("/assets/images/inspire.png") }}">
+         data-img-src="{{ image("/assets/images/inspire.png") }}">
         <div class="container">
             <div class="justify-content-between align-items-center">
                 <div class="col-12">
