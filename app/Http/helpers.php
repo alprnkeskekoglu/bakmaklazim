@@ -34,8 +34,10 @@ function getSidebarLatestBlogs()
 
 function image($path, $width = null, $height = null)
 {
+    $browser = getBrowser();
     $temp = pathinfo($path);
-    $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.webp';
+    $extension = $browser == 'Safari' ? $temp['extension'] : 'webp';
+    $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.' . $extension;
     if($width || $height) {
         $newFileName = $temp['filename'];
         if($width) {
@@ -44,7 +46,7 @@ function image($path, $width = null, $height = null)
         if($height) {
             $newFileName = $newFileName . '_h' . $height;
         }
-        $newPath = $temp['dirname'] . '/' . $newFileName . '.webp';
+        $newPath = $temp['dirname'] . '/' . $newFileName . '.' . $extension;
     }
 
 
@@ -61,7 +63,7 @@ function image($path, $width = null, $height = null)
         $manager = new \Intervention\Image\ImageManager();
         $image = $manager->make(public_path($path));
 
-        if(getBrowser() != "Safari") {
+        if($browser != "Safari") {
             $image = $image->encode('webp', 75);
         }
 
