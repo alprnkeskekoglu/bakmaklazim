@@ -92,6 +92,11 @@
                                     <label>Slug</label>
                                     <input type="text" class="form-control" id="slug" name="slug" autocomplete="off" required>
                                 </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label>Keywords <small>(Seperate the keywords with a comma.)</small></label>
+                                    <input type="text" class="form-control" id="keywords" name="keywords" autocomplete="off" required>
+                                </div>
                             </div>
                             <div class="col-lg-12 mt-5">
                                 <div class="form-group">

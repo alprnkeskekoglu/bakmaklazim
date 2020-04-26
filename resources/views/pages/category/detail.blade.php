@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title') {!! $category->name . ' | ' . env('APP_NAME') !!} @endsection
-@section('description') {!!  \Str::limit(strip_tags($category->detail), 100) !!} @endsection
-@section('keywords') {!! $category->name . ', ' . implode(', ', $category->tags->pluck('name')->toArray()) !!} @endsection
+@section('title'){!! $category->name . ' - ' . env('APP_NAME') !!}@endsection
+@section('description'){!!  \Str::limit(strip_tags($category->detail), 100) !!}@endsection
+@section('keywords'){!! $category->name . ', ' . implode(', ', $category->tags->pluck('name')->toArray()) !!}@endsection
 
 @section('content')
     <div class="section breadcrumb_section bg_gray custom_breadcrumb">

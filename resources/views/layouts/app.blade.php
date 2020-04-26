@@ -4,9 +4,17 @@
     <title>@yield('title')</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="robots" content="index, follow, noodp, noydir" />
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
+
+    <link href="{{ request()->fullUrl() }}" hreflang="tr" rel="alternate" />
+    <meta name="author" content="Bakmak Lazım">
+    <meta name="geo.a3" content="İzmir">
+    <meta name="geo.country" content="tr">
+    <meta name="geo.placename" content="Bornova İzmir">
+    <link rel="canonical" href="{{ request()->fullUrl() }}" />
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset("/assets/images/favicon.png") }}">
 

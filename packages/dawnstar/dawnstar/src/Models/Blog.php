@@ -28,6 +28,7 @@ class Blog extends Model
         'detail',
         'cover',
         'image',
+        'keywords',
     ];
 
     public function admin() {

@@ -26,6 +26,7 @@ class CreateBlogsTable extends Migration
             $table->text('detail');
             $table->text('cover')->nullable();
             $table->text('image')->nullable();
+            $table->text('keywords')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Blog Yazıları | {!! env('APP_NAME') !!} @endsection
+@section('title'){!! "Blog Yazıları - " . env('APP_NAME') !!}@endsection
 
 @section('content')
     <div class="section breadcrumb_section bg_gray custom_breadcrumb">
