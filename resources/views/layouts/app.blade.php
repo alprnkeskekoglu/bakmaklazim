@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=1" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=8" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=3" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=7" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=8" !!}">
 
     <script type="application/ld+json">
     {

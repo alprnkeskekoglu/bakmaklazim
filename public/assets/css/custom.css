@@ -38,6 +38,10 @@ textarea {
     background-size: cover;
 }
 
+h5, .h5 {
+   font-size: 1.2rem;
+}
+
 .bg_custom {
     background-color: #b1b1b1;
 }
