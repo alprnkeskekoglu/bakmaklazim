@@ -108,7 +108,7 @@
                                                     </a>
                                                 </li>
                                                 <li style="display: none;" class="mobile_wp">
-                                                    <a href="whatsapp://send?text={{ url($blog->url) }}" target="_blank" class="sc_whatsapp">
+                                                    <a href="https://wa.me/?text={{ url($blog->url) }}" target="_blank" class="sc_whatsapp">
                                                         <i class="fab fa-whatsapp"></i>
                                                     </a>
                                                 </li>
