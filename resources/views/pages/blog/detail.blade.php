@@ -102,8 +102,13 @@
                                                         <i class="fab fa-linkedin-in"></i>
                                                     </a>
                                                 </li>
-                                                <li>
+                                                <li style="display: none;" class="desktop_wp">
                                                     <a href="https://web.whatsapp.com/send?text={{ url($blog->url) }}" target="_blank" class="sc_whatsapp">
+                                                        <i class="fab fa-whatsapp"></i>
+                                                    </a>
+                                                </li>
+                                                <li style="display: none;" class="mobile_wp">
+                                                    <a href="whatsapp://send?text={{ url($blog->url) }}" target="_blank" class="sc_whatsapp">
                                                         <i class="fab fa-whatsapp"></i>
                                                     </a>
                                                 </li>
@@ -297,6 +302,13 @@
         });
 
         $('.blog-detail').find('img').parent().addClass('text-center');
+
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            $('li.mobile_wp').show();
+        } else {
+            $('li.desktop_wp').show();
+        }
     </script>
 @endpush
 
