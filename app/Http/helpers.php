@@ -60,7 +60,11 @@ function image($path, $width = null, $height = null)
 
         $manager = new \Intervention\Image\ImageManager();
         $image = $manager->make(public_path($path));
-        $image = $image->encode('webp', 75);
+
+        if(getBrowser() != "Safari") {
+            $image = $image->encode('webp', 75);
+        }
+
         if($width || $height) {
 
             if($width && $height) {
@@ -87,6 +91,22 @@ function image($path, $width = null, $height = null)
     }
 
     return asset('assets/images/default.png');
+}
+
+function getBrowser() {
+    $arr_browsers = ["Opera", "Edge", "Chrome", "Safari", "Firefox", "MSIE", "Trident"];
+
+    $agent = $_SERVER['HTTP_USER_AGENT'];
+
+    $user_browser = '';
+    foreach ($arr_browsers as $browser) {
+        if (strpos($agent, $browser) !== false) {
+            $user_browser = $browser;
+            break;
+        }
+    }
+
+    return $user_browser;
 }
 
 function getIp()

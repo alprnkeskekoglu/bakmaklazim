@@ -4,6 +4,23 @@
 @section('description'){!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}@endsection
 @section('keywords'){{ "bakmak lazım, blog, teknoloji, gündem, eğitim, iş" }}@endsection
 
+
+@section('metas')
+    <meta data-rh="true" name="title" content="{!! env('APP_NAME') !!}"/>
+
+    <meta data-rh="true" property="og:type" content="website"/>
+    <meta data-rh="true" property="og:title" content="{{ env('APP_NAME')}}"/>
+    <meta data-rh="true" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta data-rh="true" property="og:url" content="{!! route('index') !!}"/>
+    <meta data-rh="true" property="og:image" content="{!! asset("/assets/images/logo.png") !!}"/>
+
+
+    <meta data-rh="true" name="twitter:card" content="summary_large_image"/>
+    <meta data-rh="true" property="twitter:title" content="{{ env('APP_NAME')}}"/>
+    <meta data-rh="true" property="twitter:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta data-rh="true" name="twitter:image:src" content="{!! asset("/assets/images/logo.png") !!}"/>
+@endsection
+
 @php
     $inspire = getRandomInspire();
 @endphp

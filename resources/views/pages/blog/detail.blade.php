@@ -4,12 +4,26 @@
 @section('description'){!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}@endsection
 @section('keywords'){!! $blog->name . ',' . $blog->keywords !!}@endsection
 
-@section('og_title'){!! $blog->name . ' - ' . env('APP_NAME') !!}@endsection
-@section('og_image'){!! image($blog->cover) !!}@endsection
-@section('og_url'){!! url($blog->url) !!}@endsection
+@section('metas')
+    <meta data-rh="true" property="article:published_time" content="{{ $blog->created_at }}"/>
+    <meta data-rh="true" name="title" content="{!! $blog->name . ' - ' . env('APP_NAME') !!}"/>
 
-@section('twitter_title'){!! $blog->name . ' - ' . env('APP_NAME') !!}@endsection
-@section('twitter_image'){!! image($blog->cover) !!}@endsection
+    <meta data-rh="true" name="author" content="{!! $blog->admin->name !!}"/>
+
+    <meta data-rh="true" property="og:site_name" content="{{ env('APP_NAME')}}"/>
+    <meta data-rh="true" property="og:type" content="article"/>
+    <meta data-rh="true" property="og:title" content="{!! $blog->name !!}"/>
+    <meta data-rh="true" property="og:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
+    <meta data-rh="true" property="og:url" content="{!! url($blog->url) !!}"/>
+    <meta data-rh="true" property="og:image" content="{!! image($blog->cover) !!}"/>
+
+
+    <meta data-rh="true" name="twitter:card" content="summary_large_image"/>
+    <meta data-rh="true" property="twitter:title" content="{!! $blog->name !!}"/>
+    <meta data-rh="true" name="twitter:site" content="@"{{ env('APP_NAME')}}/>
+    <meta data-rh="true" property="twitter:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
+    <meta data-rh="true" name="twitter:image:src" content="{!! image($blog->cover) !!}"/>
+@endsection
 
 
 @section('content')
@@ -98,7 +112,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url($blog->url) }}" target="_blank" class="sc_linkedin">
+                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ url($blog->url) }}&title={{$blog->name}}" target="_blank" class="sc_linkedin">
                                                         <i class="fab fa-linkedin-in"></i>
                                                     </a>
                                                 </li>
