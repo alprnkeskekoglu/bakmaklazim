@@ -44,7 +44,7 @@ class BlogController extends Controller
         $this->increaseView($blog);
 
 
-        $data = Cache::remember("BLOG_DETAIL" . $blog->id, 60 * 60 * 24, function () use($blog) {
+        $data = Cache::remember("BLOG_DETAIL" . $blog->id, 60 * 60 * 24 * 7, function () use($blog) {
             $hold['comments'] = Comment::where('blog_id', $blog->id)
                 ->where('status', 1)
                 ->get();
