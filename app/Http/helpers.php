@@ -88,7 +88,9 @@ function image($path, $width = null, $height = null)
 
             return url($newPath);
         }
-        $image->save(public_path($newPath));
+        if($browser != "Safari") {
+            $image->save(public_path($newPath));
+        }
         return url($newPath);
     }
 
