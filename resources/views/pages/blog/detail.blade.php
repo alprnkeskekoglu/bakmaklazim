@@ -102,17 +102,17 @@
                                         <div class="col-md-4">
                                             <ul class="social_icons rounded_social text-md-right">
                                                 <li>
-                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url($blog->url) }}" target="_blank" class="sc_facebook">
+                                                    <a href="javascript:void(0)" class="sc_facebook">
                                                         <i class="fab fa-facebook-f"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://twitter.com/share?url={{ url($blog->url) }}&text={{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) }}" target="_blank" class="sc_twitter">
+                                                    <a href="javascript:void(0)" class="sc_twitter">
                                                         <i class="fab fa-twitter"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ url($blog->url) }}&title={{$blog->name}}" target="_blank" class="sc_linkedin">
+                                                    <a href="javascript:void(0)" class="sc_linkedin">
                                                         <i class="fab fa-linkedin-in"></i>
                                                     </a>
                                                 </li>
@@ -323,6 +323,31 @@
         } else {
             $('li.desktop_wp').show();
         }
+
+        function socialWindow(url) {
+            var left = (screen.width - 570) / 2;
+            var top = (screen.height - 570) / 2;
+            var params = "menubar=no,toolbar=no,status=no,width=570,height=570,top=" + top + ",left=" + left;
+            window.open(url,"NewWindow",params);
+        }
+
+        var pageUrl = encodeURIComponent(document.URL);
+        var tweet = encodeURIComponent(jQuery("meta[property='og:description']").attr("content"));
+
+        jQuery(".sc_facebook").on("click", function() {
+            url = "https://www.facebook.com/sharer.php?u=" + pageUrl;
+            socialWindow(url);
+        });
+
+        jQuery(".sc_twitter").on("click", function() {
+            url = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + tweet;
+            socialWindow(url);
+        });
+
+        jQuery(".sc_linkedin").on("click", function() {
+            url = "https://www.linkedin.com/shareArticle?mini=true&url=" + pageUrl;
+            socialWindow(url);
+        })
     </script>
 @endpush
 
