@@ -9,12 +9,26 @@
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
 
-    <link href="{{ request()->fullUrl() }}" hreflang="tr" rel="alternate" />
     <meta name="author" content="Bakmak Lazım">
     <meta name="geo.a3" content="İzmir">
     <meta name="geo.country" content="tr">
     <meta name="geo.placename" content="Bornova İzmir">
+
+    <meta name="og:title" content="@yield('og_title')">
+    <meta name="og:image" content="@yield('og_image')">
+    <meta name="og:url" content="@yield('og_url')">
+    <meta name="og:site_name" content="{{ env("APP_NAME") }}">
+    <meta name="og:locale" content="tr_TR">
+    <meta name="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="@yield('twitter_title')"/>
+    <meta name="twitter:site" content="{{ env("APP_NAME") }}" />
+    <meta name="twitter:image" content="@yield('twitter_image')"/>
+
+
     <link rel="canonical" href="{{ request()->fullUrl() }}" />
+    <link href="{{ request()->fullUrl() }}" hreflang="tr" rel="alternate" />
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset("/assets/images/favicon.png") }}">
 

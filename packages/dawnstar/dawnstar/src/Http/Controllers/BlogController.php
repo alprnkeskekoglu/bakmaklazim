@@ -76,9 +76,7 @@ class BlogController extends Controller
         uploadFile('cover', $data);
         uploadFile('image', $data);
 
-        $data['admin_id'] = auth()->id();
         $blog->update($data);
-
 
         $tagIds = $this->createTags();
 

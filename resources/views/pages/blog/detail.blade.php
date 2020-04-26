@@ -4,6 +4,13 @@
 @section('description'){!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}@endsection
 @section('keywords'){!! $blog->name . ',' . $blog->keywords !!}@endsection
 
+@section('og_title'){!! $blog->name . ' - ' . env('APP_NAME') !!}@endsection
+@section('og_image'){!! image($blog->cover) !!}@endsection
+@section('og_url'){!! url($blog->url) !!}@endsection
+
+@section('twitter_title'){!! $blog->name . ' - ' . env('APP_NAME') !!}@endsection
+@section('twitter_image'){!! image($blog->cover) !!}@endsection
+
 
 @section('content')
     <div class="section breadcrumb_section bg_gray custom_breadcrumb">
