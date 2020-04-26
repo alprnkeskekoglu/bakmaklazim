@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
         $tagSlugs = $tagSlugs ? explode(',', $tagSlugs) : [];
 
-        $data = Cache::remember("CATEGORY_DETAIL" . request()->get('tags'), 60 * 60 * 24, function () use ($category, $tagSlugs) {
+        $data = Cache::remember("CATEGORY_DETAIL" . request()->get('tags') . $category->id, 60 * 60 * 24, function () use ($category, $tagSlugs) {
 
             $blogs = $category->blogs()
                 ->where('status', 1)
