@@ -10,15 +10,16 @@
                 <img class="logo_dark" src="{{ asset("/assets/images/logo.png") }}" alt="{{env('APP_NAME')}}"/>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="ion-android-menu"></span></button>
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fas fa-bars"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li><a class="nav-link nav_item" href="{{ route('index') }}">Anasayfa</a></li>
                     <li><a class="nav-link nav_item" href="{{ route('blog.index') }}">Blog Yazıları</a></li>
                     @if($categories->isNotEmpty())
                         <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="{{ route('category.index') }}">Kategoriler</a>
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="{{ route('category.index') }}">Kategoriler</a>
                             <div class="dropdown-menu">
                                 <ul>
                                     @foreach($categories as $category)

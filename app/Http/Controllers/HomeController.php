@@ -15,7 +15,6 @@ class HomeController extends Controller
             $hold['categories'] = Category::where('status', 1)
                 ->withCount('blogs')
                 ->orderByDesc('blogs_count')
-                ->having('blogs_count', '>', 0)
                 ->get()
                 ->take(3);
 

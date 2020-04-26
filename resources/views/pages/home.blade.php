@@ -9,46 +9,46 @@
 @endphp
 
 @section('content')
-        <div class="banner_section staggered-animation-wrap slide_medium">
-            <div class="item background_bg overlay_bg_60" data-img-src="{!! image($lastBlog->cover) !!}">
-                <div class="banner_slide_content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-md-8 col-sm-12">
-                                <div class="banner_content">
-                                    <div class="blog_tags">
-                                        <a class="blog_tags_cat"
-                                           style="background-color: {{optional($lastBlog->category)->color ?: "#4382FF"}}"
-                                           href="{!! optional($lastBlog->category)->url !!}">
-                                            {!! optional($lastBlog->category)->name !!}
-                                        </a>
-                                    </div>
-                                    <h2 class="blog_heading">
-                                        <a href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a></h2>
-                                    <ul class="blog_meta text-white">
-                                        <li>
-                                            <i class="far fa-calendar-alt"></i>
-                                            <span>{!! localeDate($lastBlog->date) !!}</span>
-                                        </li>
-                                        @if($lastBlog->comments_count > 0)
-                                            <li>
-                                                <i class="far fa-comments"></i>
-                                                <span>{!! $lastBlog->comments_count !!} Yorum</span>
-                                            </li>
-                                        @endif
-                                    </ul>
+    <div class="banner_section staggered-animation-wrap slide_small">
+        <div class="item background_bg overlay_bg_60" data-img-src="{!! image($lastBlog->cover) !!}">
+            <div class="banner_slide_content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-8 col-sm-12">
+                            <div class="banner_content">
+                                <div class="blog_tags">
+                                    <a class="blog_tags_cat"
+                                       style="background-color: {{optional($lastBlog->category)->color ?: "#4382FF"}}"
+                                       href="{!! optional($lastBlog->category)->url !!}">
+                                        {!! optional($lastBlog->category)->name !!}
+                                    </a>
                                 </div>
+                                <h2 class="blog_heading">
+                                    <a href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a></h2>
+                                <ul class="blog_meta text-white">
+                                    <li>
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>{!! localeDate($lastBlog->date) !!}</span>
+                                    </li>
+                                    @if($lastBlog->comments_count > 0)
+                                        <li>
+                                            <i class="far fa-comments"></i>
+                                            <span>{!! $lastBlog->comments_count !!} Yorum</span>
+                                        </li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <div class="section">
         <div class="container">
-            <div class="row">
+            <div class="row home_categories">
                 @foreach($categories as $category)
-                    <div class="item col-md-4 col-lg-4">
+                    <div class="col-4">
                         <a href="{!! $category->url !!}">
                             <div class="service_box">
                                 <img src="{!! image($category->cover, 350, 198) !!}" alt="{!! $category->name !!}"/>
