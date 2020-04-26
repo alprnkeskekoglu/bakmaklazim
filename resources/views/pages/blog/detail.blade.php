@@ -78,6 +78,30 @@
                                                 @endforeach
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <ul class="social_icons rounded_social text-md-right">
+                                                <li>
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url($blog->url) }}" target="_blank" class="sc_facebook">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://twitter.com/share?url={{ url($blog->url) }}&text={{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) }}" target="_blank" class="sc_twitter">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url($blog->url) }}" target="_blank" class="sc_linkedin">
+                                                        <i class="fab fa-linkedin-in"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://web.whatsapp.com/send?text={{ url($blog->url) }}" target="_blank" class="sc_whatsapp">
+                                                        <i class="fab fa-whatsapp"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -94,8 +118,7 @@
                                             <div class="blog_img">
                                                 <a href="{!! $other->url !!}">
                                                     <img src="{!! image($other->cover, 340, 230) !!}"
-                                                         alt="{!! $other->name !!}"
-                                                         width="350" height="230">
+                                                         alt="{!! $other->name !!}">
                                                 </a>
                                             </div>
                                             <div class="blog_content">
