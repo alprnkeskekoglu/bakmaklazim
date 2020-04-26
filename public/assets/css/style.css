@@ -1,28 +1,9 @@
-/*=========================================================
-Author       : Templatemanja.
-Template Name: Morus - Personal Blog & Magazine HTML Template
-Version      : 1.0
-==============================================================*/
-
-/*=============================================================
-    CSS INDEX
-    =============================
-    01. GENERAL STYLE (body, link color, section-title, overlay, section-padding etc)
-    02. START HEADER STYLE
-	03. START BANNER,SLIDER STYLE
-	04. START SERVICES STYLE
-	05. START MASONRY & GRID STYLE
-	06. START BLOG STYLE
-	07. START NEWLETTER STYLE
-	08. START FOOTER STYLE
-	09. START BREADCRUMB STYLE
-	10. START CONTACT STYLE
-	11. START DIVIDER STYLE
-	12. START 404 ERROR STYLE
-	13. START LOGIN REGISTER STYLE
-	14. START ELEMENT DESIGN
-
-*=============================================================*/
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('../fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*===================================*
   01. GENERAL STYLE
@@ -45,7 +26,7 @@ body {
 }
 h1,h2,h3,h4,h5,h6 {
 	color: #000000;
-	font-family: "Prata", sans-serif;
+	font-family: "RobotoSlab", sans-serif;
 }
 p {
 	color: #666;
@@ -1959,7 +1940,6 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 .banner_content h2 {
 	margin-bottom: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
 }
 .banner_content p {
 	margin-bottom: 30px;
@@ -2105,7 +2085,7 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	position: absolute;
 	left: 0;
 	bottom: 20px;
-	font-family: "Prata", sans-serif;
+	font-family: "RobotoSlab", sans-serif;
 	font-size: 26px;
 	line-height: 1;
 	z-index: 1;
