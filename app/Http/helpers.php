@@ -34,6 +34,10 @@ function getSidebarLatestBlogs()
 
 function image($path, $width = null, $height = null)
 {
+    if(is_null($path) || !file_exists(public_path($path))) {
+        return asset('assets/images/default.png');
+    }
+
     $browser = getBrowser();
     $temp = pathinfo($path);
     $extension = $browser == 'Safari' ? $temp['extension'] : 'webp';
@@ -47,11 +51,6 @@ function image($path, $width = null, $height = null)
             $newFileName = $newFileName . '_h' . $height;
         }
         $newPath = $temp['dirname'] . '/' . $newFileName . '.' . $extension;
-    }
-
-
-    if(is_null($path) || !file_exists(public_path($path))) {
-        return asset('assets/images/default.png');
     }
 
     if(file_exists($newPath)) {

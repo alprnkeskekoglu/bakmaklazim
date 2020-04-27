@@ -26,13 +26,13 @@
                             <div class="blog_post">
                                 <div class="blog_img_search">
                                     <a href="{!! $page->model->url !!}">
-                                        <img src="{!! image($page->cover) !!}" alt="{!! $page->name !!}">
+                                        <img src="{!! $page->cover ? image($page->cover) : image($page->image) !!}" alt="{!! $page->name !!}">
                                     </a>
                                 </div>
                                 <div class="blog_content">
                                     <div class="blog_text">
                                         <h5 class="blog_heading">{!! $page->name !!}</h5>
-                                        <p>{!! \Str::limit(strip_tags($page->detail), 150) !!}</p>
+                                        <p>{!! \Str::limit(strip_tags($page->detail), 200) !!}</p>
                                         <a href="{!! $page->model->url !!}" class="btn btn-dark btn-sm">Sayfaya Git</a>
                                     </div>
                                 </div>
