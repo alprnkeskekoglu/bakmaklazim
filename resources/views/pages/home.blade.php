@@ -18,7 +18,7 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{{ env('APP_NAME')}}"/>
     <meta property="twitter:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
-    <meta name="twitter:image" content="{!! image("/assets/images/square_logo.png", 1000, 100, false) !!}"/>
+    <meta name="twitter:image" content="{!! image("/assets/images/twitter_logo.png", 1000, 1000, false) !!}"/>
 @endsection
 
 @php
