@@ -12,13 +12,13 @@
     <meta name="title" property="og:title" content="{{ env('APP_NAME')}}"/>
     <meta name="description" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="url" property="og:url" content="{!! route('index') !!}"/>
-    <meta name="image" property="og:image" content="{!! asset("/assets/images/full_logo.png") !!}"/>
+    <meta name="image" property="og:image" content="{!! image("/assets/images/full_logo.png", 1200, 630, false) !!}"/>
 
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{{ env('APP_NAME')}}"/>
     <meta property="twitter:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
-    <meta name="twitter:image:src" content="{!! asset("/assets/images/full_logo.png") !!}"/>
+    <meta name="twitter:image" content="{!! image("/assets/images/square_logo.png", 1000, 100, false) !!}"/>
 @endsection
 
 @php

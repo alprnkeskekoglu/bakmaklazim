@@ -10,7 +10,7 @@
                     <div class="widget">
                         <div class="footer_logo">
                             <a href="{{ route('index') }}">
-                                <img class="white_logo" src="{{ asset("/assets/images/logo-white.png") }}" alt="{{ env('APP_NAME') }}">
+                                <img class="white_logo" src="{{ image("/assets/images/logo-white.png", 200, false) }}" alt="{{ env('APP_NAME') }}">
                             </a>
                         </div>
                         <p>{{ "Kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." }}</p>

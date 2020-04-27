@@ -48,7 +48,7 @@
                                     <li><i class="far fa-comments"></i>
                                         <span>{!! $category->blogs_count !!} Blog Yazısı</span></li>
                                 </ul>
-                                <p>{!! \Str::limit(strip_tags($category->detail), 50) !!}</p>
+                                <p>{!! html_entity_decode(\Str::limit(strip_tags($category->detail), 50)) !!}</p>
                             </div>
                         </div>
                     </div>
