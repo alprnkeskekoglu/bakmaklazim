@@ -15,7 +15,7 @@ class BlogController extends Controller
     public function index(Request $request)
     {
 
-        $blogs = Cache::remember($request->get('page') . "BLOG_HOMEPAGE", 60 * 60 * 24, function () {
+        $blogs = Cache::remember($request->get('page') . "BLOG_HOMEPAGE" . getBrowser(), 60 * 60 * 24, function () {
             return Blog::where('status', 1)
                 ->whereHas('category')
                 ->orderByDesc('created_at')
@@ -44,7 +44,7 @@ class BlogController extends Controller
         $this->increaseView($blog);
 
 
-        $data = Cache::remember("BLOG_DETAIL" . $blog->id, 60 * 60 * 24 * 7, function () use($blog) {
+        $data = Cache::remember("BLOG_DETAIL" . $blog->id . getBrowser(), 60 * 60 * 24 * 7, function () use($blog) {
             $hold['comments'] = Comment::where('blog_id', $blog->id)
                 ->where('status', 1)
                 ->get();

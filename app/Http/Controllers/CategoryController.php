@@ -13,7 +13,7 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $categories = Cache::remember($request->get('page') . "CATEGORY_HOMEPAGE", 60 * 60 * 24, function () {
+        $categories = Cache::remember($request->get('page') . "CATEGORY_HOMEPAGE" . getBrowser(), 60 * 60 * 24, function () {
             return Category::where('status', 1)
                 ->withCount(['blogs' => function ($q) {
                     $q->where('status', 1);
@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
         $tagSlugs = $tagSlugs ? explode(',', $tagSlugs) : [];
 
-        $data = Cache::remember("CATEGORY_DETAIL" . request()->get('tags') . $category->id, 60 * 60 * 24 * 7, function () use ($category, $tagSlugs) {
+        $data = Cache::remember("CATEGORY_DETAIL" . request()->get('tags') . $category->id . getBrowser(), 60 * 60 * 24 * 7, function () use ($category, $tagSlugs) {
 
             $blogs = $category->blogs()
                 ->where('status', 1)

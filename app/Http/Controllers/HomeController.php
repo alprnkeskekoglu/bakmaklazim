@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data = Cache::remember("HOMEPAGE", 60 * 60 * 24 * 7, function () {
+        $data = Cache::remember("HOMEPAGE" . getBrowser(), 60 * 60 * 24 * 7, function () {
             $hold['categories'] = Category::where('status', 1)
                 ->withCount('blogs')
                 ->orderByDesc('blogs_count')
