@@ -40,7 +40,7 @@ function image($path, $width = null, $height = null, $webp = true)
 
     $browser = getBrowser();
     $temp = pathinfo($path);
-    $extension = $browser == 'Safari' && $webp == false ? $temp['extension'] : 'webp';
+    $extension = $browser == 'Safari' || $webp == false ? $temp['extension'] : 'webp';
     $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.' . $extension;
     if($width || $height) {
         $newFileName = $temp['filename'];
@@ -62,7 +62,7 @@ function image($path, $width = null, $height = null, $webp = true)
         $manager = new \Intervention\Image\ImageManager();
         $image = $manager->make(public_path($path));
 
-        if($browser != "Safari" && $webp == false) {
+        if($browser != "Safari" || $webp == false) {
             $image = $image->encode('webp', 80);
         }
 
