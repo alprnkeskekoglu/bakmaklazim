@@ -5,24 +5,23 @@
 @section('keywords'){!! $blog->name . ',' . $blog->keywords !!}@endsection
 
 @section('metas')
-    <meta data-rh="true" property="article:published_time" content="{{ $blog->created_at }}"/>
-    <meta data-rh="true" name="title" content="{!! $blog->name . ' - ' . env('APP_NAME') !!}"/>
+    <meta property="article:published_time" content="{{ $blog->created_at }}"/>
+    <meta name="title" content="{!! $blog->name . ' - ' . env('APP_NAME') !!}"/>
+    <meta name="author" content="{!! $blog->admin->name !!}"/>
 
-    <meta data-rh="true" name="author" content="{!! $blog->admin->name !!}"/>
-
-    <meta data-rh="true" property="og:site_name" content="{{ env('APP_NAME')}}"/>
-    <meta data-rh="true" property="og:type" content="article"/>
-    <meta data-rh="true" property="og:title" content="{!! $blog->name !!}"/>
-    <meta data-rh="true" property="og:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
-    <meta data-rh="true" property="og:url" content="{!! url($blog->url) !!}"/>
-    <meta data-rh="true" property="og:image" content="{!! image($blog->cover) !!}"/>
+    <meta property="og:site_name" content="{{ env('APP_NAME')}}"/>
+    <meta property="og:type" content="article"/>
+    <meta name="title" property="og:title" content="{!! $blog->name !!}"/>
+    <meta name="description" property="og:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 120)) !!}"/>
+    <meta name="url" property="og:url" content="{!! url($blog->url) !!}"/>
+    <meta name="image" property="og:image" content="{!! image($blog->cover) !!}"/>
 
 
-    <meta data-rh="true" name="twitter:card" content="summary_large_image"/>
-    <meta data-rh="true" property="twitter:title" content="{!! $blog->name !!}"/>
-    <meta data-rh="true" name="twitter:site" content="@"{{ env('APP_NAME')}}/>
-    <meta data-rh="true" property="twitter:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
-    <meta data-rh="true" name="twitter:image:src" content="{!! image($blog->cover) !!}"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:title" content="{!! $blog->name !!}"/>
+    <meta name="twitter:site" content="@"{{ env('APP_NAME')}}/>
+    <meta property="twitter:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
+    <meta name="twitter:image:src" content="{!! image($blog->cover) !!}"/>
 @endsection
 
 

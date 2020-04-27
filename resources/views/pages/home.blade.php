@@ -8,17 +8,17 @@
 @section('metas')
     <meta data-rh="true" name="title" content="{!! env('APP_NAME') !!}"/>
 
-    <meta data-rh="true" property="og:type" content="website"/>
-    <meta data-rh="true" property="og:title" content="{{ env('APP_NAME')}}"/>
-    <meta data-rh="true" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
-    <meta data-rh="true" property="og:url" content="{!! route('index') !!}"/>
-    <meta data-rh="true" property="og:image" content="{!! asset("/assets/images/full_logo.png") !!}"/>
+    <meta property="og:type" content="website"/>
+    <meta name="title" property="og:title" content="{{ env('APP_NAME')}}"/>
+    <meta name="description" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta name="url" property="og:url" content="{!! route('index') !!}"/>
+    <meta name="image" property="og:image" content="{!! asset("/assets/images/full_logo.png") !!}"/>
 
 
-    <meta data-rh="true" name="twitter:card" content="summary_large_image"/>
-    <meta data-rh="true" property="twitter:title" content="{{ env('APP_NAME')}}"/>
-    <meta data-rh="true" property="twitter:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
-    <meta data-rh="true" name="twitter:image:src" content="{!! asset("/assets/images/full_logo.png") !!}"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:title" content="{{ env('APP_NAME')}}"/>
+    <meta property="twitter:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta name="twitter:image:src" content="{!! asset("/assets/images/full_logo.png") !!}"/>
 @endsection
 
 @php
