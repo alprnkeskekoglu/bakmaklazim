@@ -26,7 +26,7 @@
                             <div class="blog_post">
                                 <div class="blog_img_search">
                                     <a href="{!! $page->model->url !!}">
-                                        <img src="{!! $page->cover ? image($page->cover) : image($page->image) !!}" alt="{!! $page->name !!}">
+                                        <img src="{!! $page->model->cover ? image($page->model->cover) : image($page->model->image) !!}" alt="{!! $page->name !!}">
                                     </a>
                                 </div>
                                 <div class="blog_content">
