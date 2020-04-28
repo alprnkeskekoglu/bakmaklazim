@@ -251,7 +251,7 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <button class="btn btn-default" id="senderBtn"
-                                            title="Yorumunu Gönder!">Gönder
+                                            title="Mesajını Gönder!">Gönder
                                     </button>
                                 </div>
                             </div>
@@ -276,7 +276,7 @@
                 success: function (response) {
                     content = "" +
                         "<ul>" +
-                        "   <li>İlginiz için teşekkür ederim. Mesajınız onaya gönderilmiştir.</li>" +
+                        "   <li>İlginiz için teşekkür ederiz. Mesajınız onaya gönderilmiştir.</li>" +
                         "</ul>";
 
                     $('div.alert').html(content);
@@ -352,8 +352,8 @@
 
 @push('styles')
     @php
-        $coverImageSize = getimagesize(asset("/assets/images/logo.png"));
-        $imageImageSize = getimagesize(image($blog->image));
+        $imageImageSize = getimagesize(asset("/assets/images/logo.png"));
+        $coverImageSize = getimagesize(image($blog->cover));
     @endphp
     <script type="application/ld+json">
     {
@@ -370,9 +370,9 @@
           "url": "{{ env("APP_URL") }}",
           "logo":{
               "@type"	: "ImageObject",
-              "url"	: "{{ url("/assets/images/logo.png") }}",
-              "height": {{ $coverImageSize[1] }},
-              "width" : {{ $coverImageSize[0] }}
+              "url"	: "{{ image("/assets/images/twitter_logo.png", 300, 300, false) }}",
+              "height": {{ $imageImageSize[1] }},
+              "width" : {{ $imageImageSize[0] }}
         }
      },
      "headline": "{{ $blog->name }}",

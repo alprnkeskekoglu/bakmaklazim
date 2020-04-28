@@ -99,7 +99,7 @@ function image($path, $width = null, $height = null, $webp = true)
 function getBrowser() {
     $arr_browsers = ["Opera", "Edge", "Chrome", "Safari", "Firefox", "MSIE", "Trident"];
 
-    $agent = $_SERVER['HTTP_USER_AGENT'];
+    $agent = $_SERVER['HTTP_USER_AGENT'] ?? "";
 
     $user_browser = '';
     foreach ($arr_browsers as $browser) {
