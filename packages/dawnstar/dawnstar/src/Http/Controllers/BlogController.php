@@ -102,9 +102,13 @@ class BlogController extends Controller
         return redirect()->back()->withErrors(['message', 'Delete Failed!'])->withInput();
     }
 
-    public function getTags()
+    public function getTags(Request $request)
     {
-        return Tag::where('status', 1)->get()->toArray();
+        $category = Tag::find($request->category_id);
+        if ($category) {
+            return $category->tags()->where('status', 1)->get()->toArray();
+        }
+        return [];
     }
 
     private function createTags() {
