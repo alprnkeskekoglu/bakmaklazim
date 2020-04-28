@@ -352,7 +352,6 @@
 
 @push('styles')
     @php
-        $imageImageSize = getimagesize(asset("/assets/images/logo.png"));
         $coverImageSize = getimagesize(image($blog->cover));
     @endphp
     <script type="application/ld+json">
@@ -369,10 +368,10 @@
           "name":"{{ env("APP_NAME") }}",
           "url": "{{ env("APP_URL") }}",
           "logo":{
-              "@type"	: "ImageObject",
+              "@type" : "ImageObject",
               "url"	: "{{ image("/assets/images/twitter_logo.png", 300, 300, false) }}",
-              "height": {{ $imageImageSize[1] }},
-              "width" : {{ $imageImageSize[0] }}
+              "height": 300,
+              "width" : 300
         }
      },
      "headline": "{{ $blog->name }}",
