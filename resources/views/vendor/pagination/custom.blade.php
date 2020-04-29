@@ -4,11 +4,11 @@
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                    <a class="page-link" href="#" tabindex="-1"><i class="linearicons-arrow-left"></i></a>
+                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
                 </li>
             @else
                 <li class="page-item" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"><i class="linearicons-arrow-left"></i></a>
+                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"><i class="fas fa-chevron-left"></i></a>
                 </li>
             @endif
 
@@ -35,13 +35,13 @@
             @if ($paginator->hasMorePages())
                 <li class="page-item">
                     <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">
-                        <i class="linearicons-arrow-right"></i>
+                        <i class="fas fa-chevron-right"></i>
                     </a>
                 </li>
             @else
 
                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                    <a class="page-link" href="#"><i class="linearicons-arrow-right"></i></a>
+                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
                 </li>
             @endif
         </ul>
