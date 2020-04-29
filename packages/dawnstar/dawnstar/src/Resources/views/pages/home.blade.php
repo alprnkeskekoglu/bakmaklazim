@@ -116,7 +116,7 @@
                             <div class="block-content block-content-full d-flex justify-content-center align-items-center">
                                 <div>
                                     <a class="link-fx text-success font-size-h1 font-w700" id="liveUser" href="javascript:void(0)">{{ $liveUser }}</a>
-                                    <div class="font-size-sm font-w700 text-uppercase text-muted mt-1">Live User</div>
+                                    <div class="font-size-sm font-w700 text-uppercase text-muted mt-1">LIVE USER</div>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             <div class="block-content block-content-full d-flex justify-content-center align-items-center">
                                 <div>
                                     <a class="link-fx text-success font-size-h1 font-w700" href="javascript:void(0)">{{ $totalVisitorAndViews->pluck('visitors')->sum() }}</a>
-                                    <div class="font-size-sm font-w700 text-uppercase text-muted mt-1">Total Visitors</div>
+                                    <div class="font-size-sm font-w700 text-uppercase text-muted mt-1">TOTAL VISITORS</div>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                             <div class="block-content block-content-full d-flex align-items-end justify-content-between bg-body-light">
                                 <div class="mr-3">
                                     <p class="font-w600 text-uppercase mb-0">
-                                        Visitors Per Day
+                                        VISITORS PER DAY
                                     </p>
                                 </div>
                                 <div>
@@ -188,7 +188,7 @@
                             <div class="block-content block-content-full d-flex align-items-end justify-content-between bg-body-light">
                                 <div class="mr-3">
                                     <p class="font-w600 text-uppercase mb-0">
-                                        Page View per Day
+                                        PAGE VIEW PER DAY
                                     </p>
                                 </div>
                                 <div>
