@@ -13,6 +13,7 @@ Route::name('panel.')->group(function () {
     Route::middleware(['auth'])->group(function () {
 
         Route::get('/', 'HomeController@index')->name('dawnstar');
+        Route::get('/getLiveUsers', 'HomeController@getLiveUsers')->name('getLiveUsers');
 
 
         Route::prefix('Admin')->name('admin.')->group(function () {
