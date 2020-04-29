@@ -11,9 +11,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        $analyticsData = Analytics::getAnalyticsService()->data_realtime->get(env('ANALYTICS_VIEW_ID'), 'rt:activeUsers');
-
-        dd($analyticsData);
         return view('Dawnstar::pages.home');
     }
 }
