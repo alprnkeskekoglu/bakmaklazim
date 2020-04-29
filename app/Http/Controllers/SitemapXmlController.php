@@ -13,7 +13,7 @@ class SitemapXmlController extends Controller
     public function index()
     {
         $urls[] = [
-            'url' => route('index'),
+            'url' => route('index') . "/",
             'lastmod' => date('Y-m-d'),
             'priority' => "1.00"
         ];
