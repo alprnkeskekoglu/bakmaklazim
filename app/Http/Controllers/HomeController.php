@@ -18,7 +18,7 @@ class HomeController extends Controller
                 ->get()
                 ->take(3);
 
-            $hold['lastBlog'] = $lastBlog = Blog::orderByDesc('id')->where('status', 1)
+            $hold['lastBlog'] = $lastBlog = Blog::orderByDesc('created_at')->where('status', 1)
                 ->whereHas('category')
                 ->withCount(['comments' => function($q) {
                     $q->where('status', 1);
