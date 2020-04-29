@@ -14,7 +14,7 @@
     <meta name="title" property="og:title" content="{!! $blog->name !!}"/>
     <meta name="description" property="og:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 120)) !!}"/>
     <meta name="url" property="og:url" content="{!! url($blog->url) !!}"/>
-    <meta name="image" property="og:image" content="{!! image($blog->cover, null, null, false) !!}"/>
+    <meta name="image" property="og:image" content="{!! image($blog->cover) !!}"/>
 
 
     <meta name="twitter:card" content="summary_large_image"/>
@@ -352,7 +352,7 @@
 
 @push('styles')
     @php
-        $coverImageSize = getimagesize(image($blog->cover, null, null, false));
+        $coverImageSize = getimagesize(image($blog->cover));
     @endphp
     <script type="application/ld+json">
     {
