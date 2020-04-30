@@ -20,13 +20,13 @@ function getSidebarTags()
         ->orderByDesc('blogs_count')
         ->having('blogs_count', '>', 0)
         ->get()
-        ->take(8);
+        ->take(10);
 }
 
-function getSidebarLatestBlogs()
+function getSidebarBlogs()
 {
     return Dawnstar\Models\Blog::where('status', 1)
-        ->orderByDesc('date')
+        ->orderByDesc('view_count')
         ->whereHas('category')
         ->get()
         ->take(3);

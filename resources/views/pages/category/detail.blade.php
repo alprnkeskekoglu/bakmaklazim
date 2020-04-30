@@ -75,7 +75,6 @@
 
                 <div class="col-lg-4 col-md-4 d-none d-lg-block d-md-block">
                     <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item" data-margintop="100">
-
                         <div class="widget">
                             <h5 class="widget_title">Etiketler</h5>
                             <ul class="widget_categories">

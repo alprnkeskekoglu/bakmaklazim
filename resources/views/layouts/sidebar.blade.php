@@ -3,6 +3,7 @@
     $data = Cache::remember("SIDEBAR" . getBrowser(), 60 * 60 * 24 * 7, function () {
         $hold['categories'] = getSidebarCategories();
         $hold['tags'] = getSidebarTags();
+        $hold['blogs'] = getSidebarBlogs();
 
         return $hold;
     });
@@ -41,4 +42,26 @@
             </div>
         </div>
     @endif
+
+
+        <div class="widget">
+            <h5 class="widget_title">En Çok Okunanlar</h5>
+            <ul class="recent_post">
+                @foreach($data['blogs'] as $blog)
+                    <li>
+                        <div class="post_footer">
+                            <div class="post_img">
+                                <img src="{!! $blog->image ? image($blog->image, 100) : image($blog->cover, 100) !!}"
+                                     class="rounded-circle"
+                                     alt="{!! $blog->name !!}">
+                            </div>
+                            <div class="post_content">
+                                <h6><a href="{{ $blog->url }}">{{ $blog->name }}</a></h6>
+                                <p class="small m-0">{!! localeDate($blog->date) !!}</p>
+                            </div>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
 </div>
