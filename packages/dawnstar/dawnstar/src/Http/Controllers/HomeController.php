@@ -11,7 +11,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $liveUser = Analytics::getAnalyticsService()->data_realtime->get('ga:' . env('ANALYTICS_VIEW_ID'), 'rt:activeUsers')['totalResults'];
+        $liveUser = Analytics::getAnalyticsService()->data_realtime->get('ga:' . env('ANALYTICS_VIEW_ID'), 'rt:activeUsers')->totalsForAllResults['rt:activeUsers'];
 
         $mostVisitedPages = Analytics::fetchMostVisitedPages(Period::days(7), 10);
 
@@ -44,6 +44,6 @@ class HomeController extends Controller
 
 
     public function getLiveUsers() {
-        return Analytics::getAnalyticsService()->data_realtime->get('ga:' . env('ANALYTICS_VIEW_ID'), 'rt:activeUsers')['totalResults'];
+        return Analytics::getAnalyticsService()->data_realtime->get('ga:' . env('ANALYTICS_VIEW_ID'), 'rt:activeUsers')->totalsForAllResults['rt:activeUsers'];
     }
 }
