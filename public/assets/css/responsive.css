@@ -123,6 +123,11 @@
 .nav_style2.owl-theme .owl-nav .owl-next {
 	right: 20px;
 }
+
+.blog_heading {
+    font-size: 17px;
+}
+
 }
 /* -------------------------------------------------
   min-width: 992px
@@ -296,6 +301,10 @@
 }
 .sidebar {
 	padding-left: 30px;
+}
+
+.blog_heading {
+    font-size: 15px;
 }
 header.header_wrap.vertical_menu {
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);

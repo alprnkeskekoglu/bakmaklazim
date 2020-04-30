@@ -2373,6 +2373,7 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 .blog_heading {
 	font-weight: 700;
 	line-height: normal;
+    font-size: 18px;
 }
 .blog_tags {
 	margin-bottom: 10px;

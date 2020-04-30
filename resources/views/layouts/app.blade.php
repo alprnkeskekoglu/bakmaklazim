@@ -28,8 +28,8 @@
 
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=2" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/style.min.css'). "?v=2" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/responsive.min.css'). "?v=1" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/style.min.css'). "?v=3" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/responsive.min.css'). "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=8" !!}">
 
     <script type="application/ld+json">
