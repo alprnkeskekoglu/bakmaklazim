@@ -51,7 +51,7 @@
                     <li>
                         <div class="post_footer">
                             <div class="post_img">
-                                <img src="{!! $blog->image ? image($blog->image, 100) : image($blog->cover, 100) !!}"
+                                <img src="{!! $blog->image ? image($blog->image, 100, 100) : image($blog->cover, 100, 100) !!}"
                                      class="rounded-circle"
                                      alt="{!! $blog->name !!}">
                             </div>
