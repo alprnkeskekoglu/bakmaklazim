@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title'){!! $category->name . ' - ' . env('APP_NAME') !!}@endsection
-@section('description'){!!  \Str::limit(strip_tags($category->detail), 100) !!}@endsection
+@section('description'){!! \Str::limit(html_entity_decode(strip_tags($category->detail)), 90) !!}@endsection
 @section('keywords'){!! $category->name . ', ' . implode(', ', $category->tags->pluck('name')->toArray()) !!}@endsection
 
 @section('content')
@@ -65,7 +65,7 @@
                                                 </li>
                                             @endif
                                         </ul>
-                                        <p>{!! html_entity_decode(\Str::limit(strip_tags($blog->detail), 90)) !!}</p>
+                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 90) !!}</p>
                                     </div>
                                 </div>
                             </div>

@@ -2421,15 +2421,6 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 .blog_small_grid .blog_post {
 	margin-bottom: 20px;
 }
-.blog_article .blog_post:nth-child(3n),
-.blog_grid_module .blog_post:nth-child(1) {
-	float: none;
-	width: 100%;
-}
-.blog_article.blog_grid_module .blog_post:nth-child(3n) {
-	width: 50%;
-	float: left;
-}
 .cat_bg {
 	padding: 12px 20px;
 	border-radius: 5px;

@@ -104,7 +104,7 @@ class BlogController extends Controller
 
     public function getTags(Request $request)
     {
-        $category = Tag::find($request->category_id);
+        $category = Category::find($request->category_id);
         if ($category) {
             return $category->tags()->where('status', 1)->get()->toArray();
         }

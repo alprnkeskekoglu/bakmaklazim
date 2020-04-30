@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title'){!! $blog->name . ' - ' . env('APP_NAME') !!}@endsection
-@section('description'){!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}@endsection
+@section('description'){!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 120) !!}@endsection
 @section('keywords'){!! $blog->name . ',' . $blog->keywords !!}@endsection
 
 @section('metas')
@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="{{ env('APP_NAME')}}"/>
     <meta property="og:type" content="article"/>
     <meta name="title" property="og:title" content="{!! $blog->name !!}"/>
-    <meta name="description" property="og:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 120)) !!}"/>
+    <meta name="description" property="og:description" content="{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 120) !!}"/>
     <meta name="url" property="og:url" content="{!! url($blog->url) !!}"/>
     <meta name="image" property="og:image" content="{!! image($blog->cover, null, null, false) !!}"/>
 
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{!! $blog->name !!}"/>
     <meta name="twitter:site" content="@"{{ env('APP_NAME')}}/>
-    <meta property="twitter:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
+    <meta property="twitter:description" content="{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 100) !!}"/>
     <meta name="twitter:image:src" content="{!! image($blog->cover, null, null, false) !!}"/>
 @endsection
 
@@ -376,7 +376,7 @@
      },
      "headline": "{{ $blog->name }}",
        "mainEntityOfPage": "{{ $blog->url }}",
-       "articleBody": "{{ html_entity_decode(\Str::limit(strip_tags($blog->detail), 150)) }}",
+       "articleBody": "{{ \Str::limit(html_entity_decode(strip_tags($blog->detail)), 150) }}",
        "image":{
            "@type"	: "ImageObject",
            "url"	: "{{ image($blog->cover) }}",

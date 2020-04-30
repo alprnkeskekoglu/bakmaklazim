@@ -32,7 +32,7 @@
                                 <div class="blog_content">
                                     <div class="blog_text">
                                         <h5 class="blog_heading">{!! $page->name !!}</h5>
-                                        <p>{!! html_entity_decode(\Str::limit(strip_tags($page->detail), 200)) !!}</p>
+                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($page->detail)), 200) !!}</p>
                                         <a href="{!! $page->model->url !!}" class="btn btn-dark btn-sm">Sayfaya Git</a>
                                     </div>
                                 </div>

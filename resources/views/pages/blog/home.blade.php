@@ -53,7 +53,7 @@
                                                 <span>{!! $blog->view_count !!} Görüntülenme</span>
                                             </li>
                                         </ul>
-                                        <p>{!! html_entity_decode(\Str::limit(strip_tags($blog->detail), 90)) !!}</p>
+                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 90) !!}</p>
                                         <a href="{!! $blog->url !!}" class="btn btn-dark btn-sm">Devamını Oku</a>
                                     </div>
                                 </div>

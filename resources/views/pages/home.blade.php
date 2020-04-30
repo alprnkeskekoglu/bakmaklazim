@@ -40,8 +40,8 @@
                                         {!! optional($lastBlog->category)->name !!}
                                     </a>
                                 </div>
-                                <h2 class="blog_heading">
-                                    <a href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a></h2>
+                                <h2>
+                                    <a class="text-white" href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a></h2>
                                 <ul class="blog_meta text-white">
                                     <li>
                                         <i class="far fa-calendar-alt"></i>
@@ -128,7 +128,7 @@
                                                 </li>
                                             @endif
                                         </ul>
-                                        <p>{!! html_entity_decode(\Str::limit(strip_tags($blog->detail), 75)) !!}</p>
+                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 75) !!}</p>
                                         <a href="{!! $blog->url !!}"
                                            class="btn btn-dark btn-sm">Devamını Oku</a>
                                     </div>
