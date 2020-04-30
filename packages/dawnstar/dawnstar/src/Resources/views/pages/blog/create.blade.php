@@ -123,7 +123,7 @@
 
 @push('scripts')
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/select2/js/select2.full.min.js')}}"></script>
-    <script src="{{asset('vendor/dawnstar/assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('vendor/dawnstar/assets/js/plugins/ckeditor/ckeditor.js?v=1')}}"></script>
     <script>
         CKEDITOR.replace('detail', {
             filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
