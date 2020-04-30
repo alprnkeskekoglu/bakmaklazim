@@ -100,7 +100,7 @@
                             </div>
                             <div class="col-lg-12 mt-5">
                                 <div class="form-group">
-                                    <label>Category Detail</label>
+                                    <label>Blog Detail</label>
                                     <textarea name="detail"></textarea>
                                 </div>
                             </div>
@@ -129,7 +129,37 @@
             filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
             language: "tr",
-            height: "400"
+            height: "400",
+            toolbar: [
+                {
+                    name: 'clipboard',
+                    groups: ['clipboard', 'undo'],
+                    items: ['PasteFromWord', '-', 'Undo', 'Redo']
+                },
+                {
+                    name: 'editing',
+                    groups: ['find', 'selection', 'spellchecker'],
+                    items: ['Find', 'Replace']
+                },
+                {
+                    name: 'paragraph',
+                    groups: ['list', 'indent', 'blocks', 'align', 'bidi'],
+                    items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+                },
+                {name: 'insert', items: ['Image', 'Table', 'SpecialChar', 'Iframe', 'Smiley']},
+                {name: 'links', items: ['Link', 'Unlink']},
+                '/',
+                {
+                    name: 'basicstyles',
+                    groups: ['basicstyles', 'cleanup'],
+                    items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat']
+                },
+                {name: 'styles', items: ['Styles', 'Format', 'FontSize']},
+                {name: 'colors', items: ['TextColor', 'BGColor']},
+                {name: 'tools', items: ['Maximize', 'ShowBlocks']},
+                {name: 'document', groups: ['mode', 'document', 'doctools'], items: ['Source', 'Preview']}
+
+            ]
         });
 
 
