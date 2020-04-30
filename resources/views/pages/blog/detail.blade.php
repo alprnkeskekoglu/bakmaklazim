@@ -14,14 +14,14 @@
     <meta name="title" property="og:title" content="{!! $blog->name !!}"/>
     <meta name="description" property="og:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 120)) !!}"/>
     <meta name="url" property="og:url" content="{!! url($blog->url) !!}"/>
-    <meta name="image" property="og:image" content="{!! image($blog->cover) !!}"/>
+    <meta name="image" property="og:image" content="{!! image($blog->cover, null, null, false) !!}"/>
 
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{!! $blog->name !!}"/>
     <meta name="twitter:site" content="@"{{ env('APP_NAME')}}/>
     <meta property="twitter:description" content="{!!  html_entity_decode(\Str::limit(strip_tags($blog->detail), 100)) !!}"/>
-    <meta name="twitter:image:src" content="{!! image($blog->cover) !!}"/>
+    <meta name="twitter:image:src" content="{!! image($blog->cover, null, null, false) !!}"/>
 @endsection
 
 
@@ -65,8 +65,8 @@
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="float-right">
                                             <img class="author-circle d-none d-sm-inline"
-                                                 src="{!! image($blog->admin->image, 50, 50) !!}"
-                                                 alt="{!! $blog->admin->name !!}" height="30">
+                                                 src="{!! image($blog->admin->image, 45, 45) !!}"
+                                                 alt="{!! $blog->admin->name !!}">
                                             <span>{!! $blog->admin->name !!}</span>
                                         </div>
                                     </div>
