@@ -44,11 +44,21 @@
     @stack('styles')
 </head>
 <body>
-@include('layouts.header')
+
+@php
+    echo \Illuminate\Support\Facades\Cache::remember('HEADER' . getBrowser(), 60 * 60 * 24 * 7, function (){
+        return view('layouts.header')->render();
+    });
+@endphp
+
 
 @yield('content')
 
-@include('layouts.footer')
+@php
+    echo \Illuminate\Support\Facades\Cache::remember('FOOTER' . getBrowser(), 60 * 60 * 24 * 7, function (){
+        return view('layouts.footer')->render();
+    });
+@endphp
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

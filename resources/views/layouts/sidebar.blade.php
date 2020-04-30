@@ -1,15 +1,23 @@
 @php
-    $categories = getSidebarCategories();
-    $tags = getSidebarTags();
+
+    $data = Cache::remember("SIDEBAR" . getBrowser(), 60 * 60 * 24 * 7, function () {
+        $hold['categories'] = getSidebarCategories();
+        $hold['tags'] = getSidebarTags();
+
+        return $hold;
+    });
+
+
+
 @endphp
 
 <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item d-none d-lg-block" data-margintop="100">
 
-    @if($categories->isNotEmpty())
+    @if($data['categories']->isNotEmpty())
         <div class="widget">
             <h5 class="widget_title">Kategoriler</h5>
             <ul class="widget_categories">
-                @foreach($categories as $category)
+                @foreach($data['categories'] as $category)
                     <li>
                         <a href="{!! $category->url !!}">
                             <div class="post_category">
@@ -23,11 +31,11 @@
         </div>
     @endif
 
-    @if($tags->isNotEmpty())
+    @if($data['tags']->isNotEmpty())
         <div class="widget">
             <h5 class="widget_title">Etiketler</h5>
             <div class="tags">
-                @foreach($tags as $tag)
+                @foreach($data['tags'] as $tag)
                     <a href="{!! $tag->url !!}">{!! str_ucwords($tag->name) !!}</a>
                 @endforeach
             </div>
