@@ -61,15 +61,17 @@
 @endphp
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164252543-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+@if(env('APP_ENV') == 'prod')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164252543-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'UA-164252543-1');
-</script>
+        gtag('config', 'UA-164252543-1');
+    </script>
+@endif
 
 <script src="{!! asset('/assets/js/jquery-1.12.4.min.js') !!}"></script>
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
