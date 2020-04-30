@@ -128,7 +128,7 @@
                                                 </li>
                                             @endif
                                         </ul>
-                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 75) !!}</p>
+                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 65) !!}</p>
                                         <a href="{!! $blog->url !!}"
                                            class="btn btn-dark btn-sm">Devamını Oku</a>
                                     </div>
