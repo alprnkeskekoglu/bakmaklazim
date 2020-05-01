@@ -40,7 +40,7 @@
                                         <ul class="blog_meta">
                                             <li>
                                                 <i class="far fa-calendar-alt"></i>
-                                                <span>{!! localeDate($blog->date) !!}</span>
+                                                <span>{!! localeDate($blog->created_at) !!}</span>
                                             </li>
                                             @if($blog->comments_count > 0)
                                                 <li>
