@@ -128,6 +128,7 @@ class BlogController extends Controller
         if (!in_array($blog->id, $cookie)) {
             $cookie[] = $blog->id;
             $blog->increment('view_count');
+            Cache::flush();
         }
 
         Cookie::queue(Cookie::make('blogs', json_encode($cookie), $minutes));
