@@ -97,7 +97,6 @@
                 <div class="col-12">
                     <div class="blog_article row">
                         @foreach($blogs as $blog)
-                            @php($blogCategory = $blog->category)
                             <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
@@ -109,9 +108,9 @@
                                     <div class="blog_text">
                                         <div class="blog_tags">
                                             <a class="blog_tags_cat"
-                                               href="{!! $blogCategory->url !!}"
-                                               style="background-color: {{$blogCategory->color ?: "#4382FF"}}">
-                                                {!! $blogCategory->name !!}
+                                               href="{!! $blog->category->url !!}"
+                                               style="background-color: {{$blog->category->color ?: "#4382FF"}}">
+                                                {!! $blog->category->name !!}
                                             </a>
                                         </div>
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>
@@ -140,7 +139,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{!! asset('/assets/js/jquery.parallax-scroll.js') !!}"></script>
-@endpush
