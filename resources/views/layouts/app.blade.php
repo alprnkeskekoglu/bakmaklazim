@@ -24,13 +24,11 @@
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="{{ image("/assets/images/favicon.png", 16, 16, false) }}">
     <link rel="shortcut icon" type="image/png" sizes="32x32" href="{{ image("/assets/images/favicon.png", 32, 32, false) }}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=2" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/style.min.css'). "?v=4" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/style.min.css'). "?v=5" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.min.css'). "?v=2" !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=8" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/custom.min.css'). "?v=1" !!}">
 
     <script type="application/ld+json">
     {
@@ -75,8 +73,6 @@
 
 <script src="{!! asset('/assets/js/jquery-1.12.4.min.js') !!}"></script>
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src="{!! asset('/assets/js/jquery.appear.js') !!}"></script>
-<script src="{!! asset('/assets/js/jquery.parallax-scroll.js') !!}"></script>
 <script src="{!! asset('/assets/js/scripts.js') . "?v=1" !!}"></script>
 @stack('scripts')
 </body>

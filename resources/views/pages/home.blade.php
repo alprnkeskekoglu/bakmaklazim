@@ -2,7 +2,7 @@
 
 @section('title'){!! env('APP_NAME') !!}@endsection
 @section('description'){!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}@endsection
-@section('keywords'){{ "bakmak lazım, blog, teknoloji, gündem, eğitim, iş" }}@endsection
+@section('keywords'){{ "bakmak lazım,blog,nedir,teknoloji,gündem,eğitim" }}@endsection
 
 
 @section('metas')
@@ -11,7 +11,6 @@
     <meta name="description" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="url" property="og:url" content="{!! route('index') !!}"/>
     <meta name="image" property="og:image" content="{!! image("/assets/images/full_logo.png", 1200, 630, false) !!}"/>
-
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{{ env('APP_NAME')}}"/>
@@ -140,3 +139,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{!! asset('/assets/js/jquery.parallax-scroll.js') !!}"></script>
+@endpush
