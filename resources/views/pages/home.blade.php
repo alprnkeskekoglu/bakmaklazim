@@ -6,8 +6,6 @@
 
 
 @section('metas')
-    <meta data-rh="true" name="title" content="{!! env('APP_NAME') !!}"/>
-
     <meta property="og:type" content="website"/>
     <meta name="title" property="og:title" content="{{ env('APP_NAME')}}"/>
     <meta name="description" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
@@ -26,6 +24,7 @@
 @endphp
 
 @section('content')
+    <h1 hidden>Bakmak Lazım</h1>
     <div class="banner_section staggered-animation-wrap slide_small">
         <div class="item background_bg overlay_bg_60" data-img-src="{!! image($lastBlog->cover) !!}">
             <div class="banner_slide_content">
