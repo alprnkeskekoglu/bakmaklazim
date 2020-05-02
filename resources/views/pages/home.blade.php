@@ -97,6 +97,7 @@
                 <div class="col-12">
                     <div class="blog_article row">
                         @foreach($blogs as $blog)
+                            @php($blogCategory = $blog->category)
                             <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                 <div class="blog_img">
                                     <a href="{!! $blog->url !!}">
@@ -108,9 +109,9 @@
                                     <div class="blog_text">
                                         <div class="blog_tags">
                                             <a class="blog_tags_cat"
-                                               href="{!! optional($blog->category)->url !!}"
-                                               style="background-color: {{optional($blog->category)->color ?: "#4382FF"}}">
-                                                {!! optional($blog->category)->name !!}
+                                               href="{!! $blogCategory->url !!}"
+                                               style="background-color: {{$blogCategory->color ?: "#4382FF"}}">
+                                                {!! $blogCategory->name !!}
                                             </a>
                                         </div>
                                         <h5 class="blog_heading">{!! $blog->name !!}</h5>

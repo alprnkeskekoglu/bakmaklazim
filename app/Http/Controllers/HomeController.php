@@ -20,6 +20,7 @@ class HomeController extends Controller
 
             $hold['lastBlog'] = $lastBlog = Blog::orderByDesc('created_at')->where('status', 1)
                 ->whereHas('category')
+                ->with('category')
                 ->withCount(['comments' => function($q) {
                     $q->where('status', 1);
                 }])
@@ -28,6 +29,7 @@ class HomeController extends Controller
 
             $blogs = Blog::where('status', 1)
                 ->whereHas('category')
+                ->with('category')
                 ->orderByDesc('id');
 
             if ($lastBlog) {
