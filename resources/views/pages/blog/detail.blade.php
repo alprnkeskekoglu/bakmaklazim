@@ -6,13 +6,12 @@
 
 @section('metas')
     <meta property="article:published_time" content="{{ $blog->created_at }}"/>
-    <meta name="title" content="{!! $blog->name . ' - ' . env('APP_NAME') !!}"/>
     <meta name="author" content="{!! $blog->admin->name !!}"/>
 
     <meta property="og:site_name" content="{{ env('APP_NAME')}}"/>
     <meta property="og:type" content="article"/>
-    <meta name="title" property="og:title" content="{!! $blog->name !!}"/>
-    <meta name="description" property="og:description" content="{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 120) !!}"/>
+    <meta property="og:title" content="{!! $blog->name !!}"/>
+    <meta  property="og:description" content="{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 120) !!}"/>
     <meta name="url" property="og:url" content="{!! url($blog->url) !!}"/>
     <meta name="image" property="og:image" content="{!! image($blog->cover, null, null, false) !!}"/>
 

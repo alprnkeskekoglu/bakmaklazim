@@ -7,8 +7,8 @@
 
 @section('metas')
     <meta property="og:type" content="website"/>
-    <meta name="title" property="og:title" content="{{ env('APP_NAME')}}"/>
-    <meta name="description" property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta property="og:title" content="{{ env('APP_NAME')}}"/>
+    <meta property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="url" property="og:url" content="{!! route('index') !!}"/>
     <meta name="image" property="og:image" content="{!! image("/assets/images/full_logo.png", 1200, 630, false) !!}"/>
 
