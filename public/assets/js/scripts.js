@@ -1,24 +1,7 @@
-/*===================================
-Author       : TEMPLATEMANJA.
-Template Name: Morus - Personal Blog & Magazine HTML Template
-Version      : 1.0
-===================================*/
-
-/*===================================*
-PAGE JS
-*===================================*/
 
 (function($) {
 	'use strict';
 
-	/*===================================*
-	01. LOADING JS
-	/*===================================*/
-	$(window).on('load', function() {
-		setTimeout(function () {
-			$("#preloader").delay(600).fadeOut(600).addClass('loaded');
-		}, 700);
-	});
 
 	/*===================================*
 	02. MENU JS

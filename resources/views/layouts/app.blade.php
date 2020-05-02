@@ -79,9 +79,9 @@
     </script>
 @endif
 
-<script src="{!! asset('/assets/js/jquery-1.12.4.min.js') !!}"></script>
+<script src="{!! asset('/assets/js/jquery-3.5.0.min.js') !!}"></script>
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src="{!! asset('/assets/js/scripts.js') . "?v=1" !!}"></script>
+<script src="{!! asset('/assets/js/scripts.min.js') . "?v=1" !!}"></script>
 @stack('scripts')
 </body>
 </html>

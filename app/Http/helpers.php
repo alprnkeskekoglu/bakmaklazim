@@ -34,7 +34,7 @@ function getSidebarBlogs()
 
 function image($path, $width = null, $height = null, $webp = true)
 {
-    if(is_null($path) || !file_exists(public_path($path))) {
+    if (is_null($path) || !file_exists(public_path($path))) {
         return asset('assets/images/default.png');
     }
 
@@ -42,61 +42,61 @@ function image($path, $width = null, $height = null, $webp = true)
     $temp = pathinfo($path);
     $extension = $browser == 'Safari' || $webp == false ? $temp['extension'] : 'webp';
     $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.' . $extension;
-    if($width || $height) {
+
+    if ($width || $height) {
         $newFileName = $temp['filename'];
-        if($width) {
+        if ($width) {
             $newFileName = $newFileName . '_w' . $width;
         }
-        if($height) {
+        if ($height) {
             $newFileName = $newFileName . '_h' . $height;
         }
         $newPath = $temp['dirname'] . '/' . $newFileName . '.' . $extension;
     }
 
-    if(file_exists($newPath)) {
+    if (file_exists(public_path($newPath))) {
         return url($newPath);
     }
 
-    if(file_exists(public_path($path))) {
 
-        $manager = new \Intervention\Image\ImageManager();
-        $image = $manager->make(public_path($path));
+    $image = \Intervention\Image\Facades\Image::make(public_path($path));
 
-        if($browser != "Safari" || $webp == false) {
-            $image = $image->encode('webp', 80);
-        }
+    if ($browser != "Safari" || $webp == false) {
+        $image = $image->encode('webp', 80);
+    }
 
-        if($width || $height) {
+    if ($width || $height) {
 
-            if($width && $height) {
-                $image = $image->resize($width, $height);
-            } else {
-                if($width) {
-                    $image = $image->resize($width, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                }
-                if($height) {
-                    $image = $image->resize(null, $height, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                }
+        if ($width && $height) {
+            $image = $image->resize($width, $height);
+        } else {
+            if ($width) {
+                $image = $image->resize($width, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
             }
-
-            $image->save(public_path($newPath));
-
-            return url($newPath);
+            if ($height) {
+                $image = $image->resize(null, $height, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
         }
-        if($browser != "Safari") {
-            $image->save(public_path($newPath));
-        }
+
+        $image->save(public_path($newPath));
+
         return url($newPath);
     }
 
-    return asset('assets/images/default.png');
+    if ($browser != "Safari") {
+        $image->save(public_path($newPath));
+    }
+
+    return url($newPath);
+
 }
 
-function getBrowser() {
+function getBrowser()
+{
     $arr_browsers = ["Opera", "Edge", "Chrome", "Safari", "Firefox", "MSIE", "Trident"];
 
     $agent = $_SERVER['HTTP_USER_AGENT'] ?? "";
