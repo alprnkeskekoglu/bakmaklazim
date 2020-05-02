@@ -35,7 +35,7 @@ function getSidebarBlogs()
 function image($path, $width = null, $height = null, $webp = true)
 {
     if (is_null($path) || !file_exists(public_path($path))) {
-        return asset('assets/images/default.png');
+        return image('assets/images/default.png', $width, $height, false);
     }
 
     $browser = getBrowser();
