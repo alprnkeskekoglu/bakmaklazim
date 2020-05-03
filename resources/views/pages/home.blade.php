@@ -206,7 +206,7 @@
                                                     </li>
                                                     <li>
                                                         <i class="far fa-eye"></i>
-                                                        <span>{!! $mpBlog->view_count !!} Görüntüleme</span>
+                                                        <span>{!! $lBlog->view_count !!} Görüntüleme</span>
                                                     </li>
                                                     @if($lBlog->comments_count > 0)
                                                         <li>
