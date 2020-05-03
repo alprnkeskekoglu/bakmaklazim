@@ -37,7 +37,8 @@ class HomeController extends Controller
 
             $tempBlog = clone $blogs;
             $hold['mostPopularBlogs'] = $tempBlog->orderByDesc('view_count')->get()->take(6);
-            $hold['lastBlogs'] = $blogs->orderByDesc('date')->get()->take(6);
+            $hold['lastBlogs'] = $blogs->orderByDesc('date')
+                ->orderByDesc('created_at')->get()->take(6);
 
             return $hold;
         });

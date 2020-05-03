@@ -19,6 +19,7 @@ class BlogController extends Controller
             return Blog::where('status', 1)
                 ->whereHas('category')
                 ->orderByDesc('date')
+                ->orderByDesc('created_at')
                 ->withCount(['comments' => function ($q) {
                     $q->where('status', 1);
                 }])

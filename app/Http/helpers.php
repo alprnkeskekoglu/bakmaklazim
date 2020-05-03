@@ -19,6 +19,7 @@ function getSidebarTags()
         ->withCount('blogs')
         ->orderByDesc('blogs_count')
         ->having('blogs_count', '>', 0)
+        ->groupBy('name')
         ->get()
         ->take(10);
 }
