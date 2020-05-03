@@ -761,11 +761,11 @@ button:focus {
 	padding-bottom: 15px;
 	position: relative;
 }
-.heading_s2::before {
+.heading_s2.active::before {
 	content: "";
 	position: absolute;
-	left: 0;
-	width: 50px;
+	left: 20px;
+	width: 50%;
 	height: 2px;
 	background-color: #FF324D;
 	bottom: 0;
@@ -3635,24 +3635,6 @@ footer .widget_recent_post .post_img img {
 	text-align: center;
 	text-transform: capitalize;
 	padding: 5px 20px;
-}
-.tab-content > .tab-pane {
-	display: block;
-	height: 0;
-	visibility: hidden;
-}
-.tab-content > .active {
-	height: auto;
-	display: block;
-	-webkit-animation-name: moveUp;
-	animation-name: moveUp;
-	-webkit-animation-duration: .5s;
-	animation-duration: .5s;
-	-webkit-animation-timing-function: cubic-bezier(.26,.69,.37,.96);
-	animation-timing-function: cubic-bezier(.26,.69,.37,.96);
-	-webkit-animation-play-state: running;
-	animation-play-state: running;
-	visibility: visible;
 }
 @-webkit-keyframes moveUp {
 	0% {

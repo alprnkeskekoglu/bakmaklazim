@@ -29,14 +29,15 @@ class HomeController extends Controller
 
             $blogs = Blog::where('status', 1)
                 ->whereHas('category')
-                ->with('category')
-                ->orderByDesc('id');
+                ->with('category');
 
             if ($lastBlog) {
                 $blogs = $blogs->where('id', '!=', $lastBlog->id);
             }
 
-            $hold['blogs'] = $blogs->get()->take(6);
+            $tempBlog = clone $blogs;
+            $hold['mostPopularBlogs'] = $tempBlog->orderByDesc('view_count')->get()->take(6);
+            $hold['lastBlogs'] = $blogs->orderByDesc('date')->get()->take(6);
 
             return $hold;
         });
@@ -44,9 +45,10 @@ class HomeController extends Controller
 
         $categories = $data['categories'];
         $lastBlog = $data['lastBlog'];
-        $blogs = $data['blogs'];
+        $lastBlogs = $data['lastBlogs'];
+        $mostPopularBlogs = $data['mostPopularBlogs'];
 
-        return view('pages.home', compact('categories', 'lastBlog', 'blogs'));
+        return view('pages.home', compact('categories', 'lastBlog', 'lastBlogs', 'mostPopularBlogs'));
     }
 
 }

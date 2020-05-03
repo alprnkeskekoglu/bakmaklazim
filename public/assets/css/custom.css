@@ -59,6 +59,9 @@ h5, .h5 {
 
 .blog-detail span.marker {background-color: Yellow;}
 
+.nav-tabs {
+    border: 0;
+}
 
 @media only screen and (max-width: 480px) {
     .custom_breadcrumb {
@@ -77,6 +80,10 @@ h5, .h5 {
     .blog-detail p > img {
         width: auto !important;
         height: auto !important;
+    }
+
+    .heading_s2 h4{
+        font-size: 14px;
     }
 }
 @media only screen and (max-width: 768px) {

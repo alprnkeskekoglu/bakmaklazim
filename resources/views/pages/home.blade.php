@@ -8,13 +8,15 @@
 @section('metas')
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="{{ env('APP_NAME')}}"/>
-    <meta property="og:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta property="og:description"
+          content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="url" property="og:url" content="{!! route('index') !!}"/>
     <meta name="image" property="og:image" content="{!! image("/assets/images/full_logo.png", 1200, 630, false) !!}"/>
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{{ env('APP_NAME')}}"/>
-    <meta property="twitter:description" content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+    <meta property="twitter:description"
+          content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="twitter:image" content="{!! image("/assets/images/twitter_logo.png", 1000, 1000, false) !!}"/>
 @endsection
 
@@ -119,44 +121,105 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="blog_article row">
-                        @foreach($blogs as $blog)
-                            <div class="blog_post col-lg-4 col-md-6 col-sm-12">
-                                <div class="blog_img">
-                                    <a href="{!! $blog->url !!}">
-                                        <img src="{!! image($blog->cover, 340, 219) !!}" alt="{!! $blog->name !!}"
-                                             height="219">
-                                    </a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_text">
-                                        <div class="blog_tags">
-                                            <a class="blog_tags_cat"
-                                               href="{!! $blog->category->url !!}"
-                                               style="background-color: {{$blog->category->color ?: "#4382FF"}}">
-                                                {!! $blog->category->name !!}
+
+                    <ul class="nav nav-tabs"role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link heading_s2 active" id="most-tab" data-toggle="tab" href="#most" role="tab"
+                               aria-controls="most" aria-selected="true"><h4>En Çok Okunanlar</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link heading_s2" id="last-tab" data-toggle="tab" href="#last" role="tab"
+                               aria-controls="last" aria-selected="false"><h4>Son Eklenenler</h4></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-5">
+                        <div class="tab-pane fade show active" id="most" role="tabpanel" aria-labelledby="most-tab">
+                            <div class="mt-5 blog_article row">
+                                @foreach($mostPopularBlogs as $mpBlog)
+                                    <div class="blog_post col-lg-4 col-md-6 col-sm-12">
+                                        <div class="blog_img">
+                                            <a href="{!! $mpBlog->url !!}">
+                                                <img src="{!! image($mpBlog->cover, 340, 219) !!}" alt="{!! $mpBlog->name !!}"
+                                                     height="219">
                                             </a>
                                         </div>
-                                        <h5 class="blog_heading">{!! $blog->name !!}</h5>
-                                        <ul class="blog_meta">
-                                            <li>
-                                                <i class="far fa-calendar-alt"></i>
-                                                <span>{!! localeDate($blog->date) !!}</span>
-                                            </li>
-                                            @if($blog->comments_count > 0)
-                                                <li>
-                                                    <i class="far fa-comments"></i>
-                                                    <span>{!! $blog->comments_count !!} Yorum</span>
-                                                </li>
-                                            @endif
-                                        </ul>
-                                        <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 65) !!}</p>
-                                        <a href="{!! $blog->url !!}"
-                                           class="btn btn-dark btn-sm">Devamını Oku</a>
+                                        <div class="blog_content">
+                                            <div class="blog_text">
+                                                <div class="blog_tags">
+                                                    <a class="blog_tags_cat"
+                                                       href="{!! $mpBlog->category->url !!}"
+                                                       style="background-color: {{$mpBlog->category->color ?: "#4382FF"}}">
+                                                        {!! $mpBlog->category->name !!}
+                                                    </a>
+                                                </div>
+                                                <h5 class="blog_heading">{!! $mpBlog->name !!}</h5>
+                                                <ul class="blog_meta">
+                                                    <li>
+                                                        <i class="far fa-calendar-alt"></i>
+                                                        <span>{!! localeDate($mpBlog->date) !!}</span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="far fa-eye"></i>
+                                                        <span>{!! $mpBlog->view_count !!}</span>
+                                                    </li>
+                                                    @if($mpBlog->comments_count > 0)
+                                                        <li>
+                                                            <i class="far fa-comments"></i>
+                                                            <span>{!! $mpBlog->comments_count !!} Yorum</span>
+                                                        </li>
+                                                    @endif
+                                                </ul>
+                                                <p>{!! \Str::limit(html_entity_decode(strip_tags($mpBlog->detail)), 65) !!}</p>
+                                                <a href="{!! $mpBlog->url !!}"
+                                                   class="btn btn-dark btn-sm">Devamını Oku</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
+                        <div class="tab-pane fade show" id="last" role="tabpanel" aria-labelledby="last-tab">
+
+                            <div class="mt-5 blog_article row">
+                                @foreach($lastBlogs as $lBlog)
+                                    <div class="blog_post col-lg-4 col-md-6 col-sm-12">
+                                        <div class="blog_img">
+                                            <a href="{!! $lBlog->url !!}">
+                                                <img src="{!! image($lBlog->cover, 340, 219) !!}" alt="{!! $lBlog->name !!}"
+                                                     height="219">
+                                            </a>
+                                        </div>
+                                        <div class="blog_content">
+                                            <div class="blog_text">
+                                                <div class="blog_tags">
+                                                    <a class="blog_tags_cat"
+                                                       href="{!! $lBlog->category->url !!}"
+                                                       style="background-color: {{$lBlog->category->color ?: "#4382FF"}}">
+                                                        {!! $lBlog->category->name !!}
+                                                    </a>
+                                                </div>
+                                                <h5 class="blog_heading">{!! $lBlog->name !!}</h5>
+                                                <ul class="blog_meta">
+                                                    <li>
+                                                        <i class="far fa-calendar-alt"></i>
+                                                        <span>{!! localeDate($lBlog->date) !!}</span>
+                                                    </li>
+                                                    @if($lBlog->comments_count > 0)
+                                                        <li>
+                                                            <i class="far fa-comments"></i>
+                                                            <span>{!! $lBlog->comments_count !!} Yorum</span>
+                                                        </li>
+                                                    @endif
+                                                </ul>
+                                                <p>{!! \Str::limit(html_entity_decode(strip_tags($lBlog->detail)), 65) !!}</p>
+                                                <a href="{!! $lBlog->url !!}"
+                                                   class="btn btn-dark btn-sm">Devamını Oku</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

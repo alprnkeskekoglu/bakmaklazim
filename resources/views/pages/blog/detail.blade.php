@@ -5,7 +5,7 @@
 @section('keywords'){!! $blog->name . ',' . $blog->keywords !!}@endsection
 
 @section('metas')
-    <meta property="article:published_time" content="{{ $blog->created_at }}"/>
+    <meta property="article:published_time" content="{{ $blog->date }}"/>
     <meta name="author" content="{!! $blog->admin->name !!}"/>
 
     <meta property="og:site_name" content="{{ env('APP_NAME')}}"/>
@@ -382,7 +382,7 @@
            "height": {{ $coverImageSize[1] }},
            "width" : {{ $coverImageSize[0] }}
         },
-        "datePublished":"{{ $blog->created_at }}",
+        "datePublished":"{{ $blog->date }}",
        "dateModified":"{{ $blog->updated_at }}"
     }
     </script>

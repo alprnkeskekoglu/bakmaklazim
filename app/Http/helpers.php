@@ -29,7 +29,7 @@ function getSidebarBlogs()
         ->orderByDesc('view_count')
         ->whereHas('category')
         ->get()
-        ->take(3);
+        ->take(5);
 }
 
 function image($path, $width = null, $height = null, $webp = true)
