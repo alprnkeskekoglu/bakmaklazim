@@ -47,8 +47,8 @@
                                     </div>
                                     @if(\Str::length($data->detail) > 120)
                                     <br>
-                                    <button class="btn btn-sm btn-secondary float-right hideText" style="display: none;" onclick="showDetail(this, '{!! \Str::limit($data->detail, 120) !!}')"> Hide</button>
-                                    <button class="btn btn-sm btn-secondary float-right showText" onclick="showDetail(this, '{!! \Str::limit($data->detail, 600) !!}')">Show</button>
+                                    <button class="btn btn-sm btn-secondary float-right hideText" style="display: none;" onclick="showDetail(this, '{!! \Str::limit(addslashes($data->detail), 120) !!}')"> Hide</button>
+                                    <button class="btn btn-sm btn-secondary float-right showText" onclick="showDetail(this, '{!! \Str::limit(addslashes($data->detail), 600) !!}')">Show</button>
                                     @endif
                                 </td>
                                 <td class="font-w600 text-center d-none d-sm-table-cell">
