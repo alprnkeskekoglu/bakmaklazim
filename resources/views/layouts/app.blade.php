@@ -37,8 +37,8 @@
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=6" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=1" !!}">
-    <script type="application/ld+json">
     --}}
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
