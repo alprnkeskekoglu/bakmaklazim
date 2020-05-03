@@ -151,6 +151,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/flatpickr/flatpickr.min.css')}}">
 @endpush
 
 @push('scripts')
