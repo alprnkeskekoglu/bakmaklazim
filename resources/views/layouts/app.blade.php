@@ -31,7 +31,7 @@
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ asset("/assets/image/apple-touch-icon.png", 180, 180, false) }}" />
 
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=5" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=6" !!}">
     {{--
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=6" !!}">

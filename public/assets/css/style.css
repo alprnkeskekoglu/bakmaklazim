@@ -4224,38 +4224,6 @@ footer .widget_recent_post .post_img img {
 @-moz-keyframes scroll { 0% {-moz-transform: translateY(-10%);} 50% {-moz-transform: translateY(20%);} 100% {-moz-transform: translateY(-10%);} }
 @keyframes scroll { 0% {transform: translateY(-10%);} 50% {transform: translateY(20%);} 100% {transform: translateY(-10%);} }
 
-
-blockquote {
-	font-size: 20px;
-	line-height: 34px;
-}
-blockquote p {
-	line-height: 34px;
-}
-.blockquote_style1 {
-	text-align: center;
-	padding: 20px;
-	background-color: #f7f7f7;
-	margin-bottom: 20px;
-	font-size: 18px;
-	position: relative;
-}
-.blockquote_style1::before {
-	content: "\f10d";
-	position: absolute;
-	left: 50px;
-	top: 10px;
-	color: #000;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-	font-size: 70px;
-	opacity: 0.05;
-	line-height: normal;
-}
-.blockquote_style1,
-.blockquote_style1 p {
-	color: #222;
-}
 .blog_post_footer {
 	padding-bottom: 30px;
 	padding-top: 15px;

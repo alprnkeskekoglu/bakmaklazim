@@ -63,11 +63,46 @@ h5, .h5 {
     border: 0;
 }
 
+.blog-detail blockquote {
+    font-size: 20px;
+    line-height: 34px;
+}
+.blog-detail blockquote p {
+    line-height: 34px;
+}
+.blog-detail blockquote {
+    text-align: center;
+    padding: 20px;
+    background-color: #f7f7f7;
+    margin-bottom: 20px;
+    font-size: 18px;
+    position: relative;
+}
+.blog-detail blockquote::before {
+    content: "\f10d";
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    color: #000;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 70px;
+    opacity: 0.05;
+    line-height: normal;
+}
+.blog-detail blockquote,
+.blog-detail blockquote p {
+    color: #222;
+}
+
 @media only screen and (max-width: 480px) {
     .custom_breadcrumb {
         padding: 25px 0 !important;
     }
 
+    .blog-detail blockquote p {
+        line-height: 28px;
+    }
 
     .home_categories > .col-4{
         padding-left: 5px;
@@ -93,5 +128,8 @@ h5, .h5 {
     .blog-detail p > img {
         width: auto !important;
         height: auto !important;
+    }
+    .blog-detail blockquote p {
+        line-height: 30px;
     }
 }
