@@ -37,7 +37,7 @@
             <h5 class="widget_title">Etiketler</h5>
             <div class="tags">
                 @foreach($data['tags'] as $tag)
-                    <a href="{!! $tag->url !!}">{!! str_ucwords($tag->name) !!}</a>
+                    <a href="{!! $tag->url !!}">{!! $tag->name !!}</a>
                 @endforeach
             </div>
         </div>
@@ -59,7 +59,17 @@
                             </div>
                             <div class="post_content">
                                 <h6><a href="{{ $blog->url }}">{{ $blog->name }}</a></h6>
-                                <p class="small m-0">{!! localeDate($blog->date) !!}</p>
+
+                                <ul class="blog_meta">
+                                    <li>
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>{!! localeDate($blog->date) !!}</span>
+                                    </li>
+                                    <li>
+                                        <i class="far fa-eye"></i>
+                                        <span>{!! $blog->view_count !!}</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </li>

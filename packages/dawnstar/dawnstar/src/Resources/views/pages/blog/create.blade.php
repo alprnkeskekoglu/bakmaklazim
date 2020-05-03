@@ -70,14 +70,25 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select class="form-control" name="category_id" id="category" required>
-                                        <option value="">Select Category</option>
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{!! $category->name !!}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="row">
+                                    <div class="col-8">
+
+                                        <div class="form-group">
+                                            <label for="category">Category</label>
+                                            <select class="form-control" name="category_id" id="category" required>
+                                                <option value="">Select Category</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{!! $category->name !!}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="date">Date</label>
+                                            <input type="text" class="js-flatpickr form-control bg-white" id="date" name="date" placeholder="Y-m-d">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group" style="display: none">
                                     <label for="tags">Tags</label>
@@ -119,11 +130,16 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/dawnstar/assets/js/plugins/flatpickr/flatpickr.min.css')}}">
 @endpush
 
 @push('scripts')
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('vendor/dawnstar/assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('vendor/dawnstar/assets/js/plugins/flatpickr/flatpickr.min.js')}}"></script>
+
+    <script>jQuery(function(){ Dashmix.helpers(['flatpickr']); });</script>
+
     <script>
         CKEDITOR.replace('detail', {
             filebrowserUploadUrl: "{{route('panel.ckEditorUpload', ['_token' => csrf_token() ])}}",

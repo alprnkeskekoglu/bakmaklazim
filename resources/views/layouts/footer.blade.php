@@ -23,7 +23,7 @@
                         <h6 class="widget_title">Popüler Etiketler</h6>
                         <div class="tags">
                             @foreach($tags as $tag)
-                                <a href="{!! $tag->url !!}">{!! str_ucwords($tag->name) !!}</a>
+                                <a href="{!! $tag->url !!}">{!! $tag->name !!}</a>
                             @endforeach
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             </li>
                             <li>
                                 <i class="far fa-envelope"></i>
-                                <a href="mailto:keskekoglualperen@gmail.com">keskekoglualperen@gmail.com</a>
+                                <a href="mailto:bakmaklazim@hotmail.com">bakmaklazim@hotmail.com</a>
                             </li>
                         </ul>
                     </div>

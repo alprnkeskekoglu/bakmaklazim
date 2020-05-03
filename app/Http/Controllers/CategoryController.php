@@ -48,7 +48,7 @@ class CategoryController extends Controller
 
             $blogs = $category->blogs()
                 ->where('status', 1)
-                ->orderByDesc('created_at')
+                ->orderByDesc('date')
                 ->with('tags')
                 ->withCount(['comments' => function ($q) {
                     $q->where('status', 1);

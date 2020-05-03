@@ -18,7 +18,7 @@ class BlogController extends Controller
         $blogs = Cache::remember($request->get('page') . "BLOG_HOMEPAGE" . getBrowser(), 60 * 60 * 24, function () {
             return Blog::where('status', 1)
                 ->whereHas('category')
-                ->orderByDesc('created_at')
+                ->orderByDesc('date')
                 ->withCount(['comments' => function ($q) {
                     $q->where('status', 1);
                 }])
@@ -96,21 +96,22 @@ class BlogController extends Controller
         $rules = [
             'blog_id' => "required",
             'useful' => "required",
-            'user_name' => "required|min:5|max:100",
+            'user_name' => "required|min:2|max:100",
             'user_email' => "required|email",
             'detail' => "required|min:10|max:600",
         ];
+
         $messages = [
             'blog_id.required' => "Hackerlık deneme istersen!!",
             'useful.required' => "Değerlendirme yapsan güzel olurdu.",
-            'user_name.required' => "Adınızı söylemeden sizi tanıyamam...",
-            'user_name.min' => "Bu kadar az karakterde ad-soyad duymadım hiç...",
-            'user_name.max' => "Bu kadar fazla karakterde ad-soyad duymadım hiç...",
-            'user_email.required' => "Bu formların olmazsa olmazı e-posta adresini unuttun!",
+            'user_name.required' => "Adınızı söylemeden sizi tanıyamayız...",
+            'user_name.min' => "Bu kadar az karakterde ad-soyad duymadık hiç...",
+            'user_name.max' => "Bu kadar fazla karakterde ad-soyad duymadık hiç...",
+            'user_email.required' => "Bu formların olmazsa olmazı e-posta adresini unuttun.",
             'user_email.email' => "Geçerli bir e-posta adresi girdiğine emin misin?",
-            'detail.required' => "Mesaj göndermicektin. Neden doldurdun formu?",
-            'detail.min' => "10 karakterden az mı değerlendirdin bizi...",
-            'detail.max' => "600 karakter bize biraz fazla geldi :(",
+            'detail.required' => "Mesaj eklemeyi unutmuş olabilir misin :)",
+            'detail.min' => "10 karakter biraz kısa değil mi? :(",
+            'detail.max' => "600 karakter biraz fazla değil mi? :(",
         ];
 
         $validator = \Illuminate\Support\Facades\Validator::make($data, $rules, $messages);
