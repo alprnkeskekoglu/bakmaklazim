@@ -47,6 +47,12 @@
                 </a>
             </li>
             <li class="nav-main-item">
+                <a class="nav-main-link" href="{!! route('panel.tag.index') !!}">
+                    <i class="nav-main-link-icon fa fa-tags"></i>
+                    <span class="nav-main-link-name">Tags</span>
+                </a>
+            </li>
+            <li class="nav-main-item">
                 <a class="nav-main-link" href="{!! route('panel.admin.index') !!}">
                     <i class="nav-main-link-icon si si-users"></i>
                     <span class="nav-main-link-name">Admins</span>

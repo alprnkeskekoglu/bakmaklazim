@@ -41,12 +41,14 @@ Route::name('panel.')->group(function () {
             });
         });
 
-        /*
+
         Route::prefix('Tag')->name('tag.')->group(function () {
             Route::get('/', 'TagController@index')->name('index');
             Route::get('/create', 'TagController@create')->name('create');
-            Route::post('/store', 'TagController@store')->name('store');
-            Route::post('/orderSave', 'TagController@orderSave')->name('orderSave');
+            /*
+             * Route::post('/store', 'TagController@store')->name('store');
+             * Route::post('/orderSave', 'TagController@orderSave')->name('orderSave');
+            */
 
             Route::prefix('/{id}')->group(function () {
                 Route::get('/edit', 'TagController@edit')->name('edit');
@@ -54,7 +56,7 @@ Route::name('panel.')->group(function () {
                 Route::get('/delete', 'TagController@delete')->name('delete');
             });
         });
-        */
+
 
 
         Route::prefix('Blog')->name('blog.')->group(function () {

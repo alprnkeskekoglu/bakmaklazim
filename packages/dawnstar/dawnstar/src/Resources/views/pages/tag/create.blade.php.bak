@@ -20,7 +20,7 @@
                 <div class="block-content">
                     <div class="row">
 
-                        <div class="col-6 offset-3">
+                        <div class="col-4">
                             <div class="block block-rounded block-bordered">
                                 <div class="block-content block-content-full">
                                     <div class="dd">
@@ -68,9 +68,69 @@
                                             @endforeach
                                         </ol>
                                     </div>
+                                    <div class="form-group text-right mt-4">
+                                        <button type="submit" class="btn btn-success mr-1 mb-3" id="saveOrder">
+                                            Save Order
+                                        </button>
+                                    </div>
                                 </div>
 
                             </div>
+                        </div>
+                        <div class="col-8">
+                            <form action="{!! route("panel.tag.store") !!}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row push">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-9 col-xl-8">
+                                        <div class="form-group row mt-5">
+                                            <label class="col-4"><b>Status</b></label>
+                                            <div class="col-8">
+                                                <div class="custom-control-inline custom-radio custom-control-success custom-control-lg mb-1">
+                                                    <input type="radio" class="custom-control-input" id="active"
+                                                           name="status" value="1">
+                                                    <label class="custom-control-label" for="active">Active</label>
+                                                </div>
+                                                <div
+                                                    class="custom-control-inline custom-radio custom-control-warning custom-control-lg mb-1">
+                                                    <input type="radio" class="custom-control-input" id="draft"
+                                                           name="status" value="2" checked>
+                                                    <label class="custom-control-label" for="draft">Draft</label>
+                                                </div>
+                                                <div
+                                                    class="custom-control-inline custom-radio custom-control-danger custom-control-lg mb-1">
+                                                    <input type="radio" class="custom-control-input" id="passive"
+                                                           name="status" value="3">
+                                                    <label class="custom-control-label" for="passive">Passive</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="example-select-multiple">Category</label>
+                                            <select class="form-control" name="category_id">
+                                                <option value="">Select Category</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->id }}">{!! $category->name !!}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Slug</label>
+                                            <input type="text" class="form-control" id="slug" name="slug" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button type="submit" class="btn btn-hero-success mr-1 mb-3 ">
+                                        <i class="fa fa-save mr-1"></i> Create
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -107,8 +167,25 @@
                 return !$(p).hasClass('categoryList');
             }
         });
-        $('.dd').nestable('collapseAll');
 
+
+        $('#saveOrder').on('click', function () {
+
+            $.ajax({
+                url: "{{ route('panel.tag.orderSave') }}",
+                method: 'post',
+                data: {'orderList': JSON.stringify($('.dd').nestable('serialize')), '_token': "{{csrf_token()}}"},
+                success: function (response) {
+                    Swal.fire({
+                        title: "Saved!",
+                        text: "Your content has been saved!",
+                        type: "success"
+                    }).then(function() {
+                        window.location.reload();
+                    });
+                }
+            });
+        });
 
         $('.deleteTag').on('click', function (e) {
             e.preventDefault();

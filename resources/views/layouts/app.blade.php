@@ -81,7 +81,7 @@
 
 <script src="{!! asset('/assets/js/jquery-3.4.1.min.js') !!}"></script>
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src="{!! asset('/assets/js/scripts.min.js') . "?v=1" !!}"></script>
+<script src="{!! asset('/assets/js/scripts.min.js') . "?v=2" !!}"></script>
 @stack('scripts')
 </body>
 </html>

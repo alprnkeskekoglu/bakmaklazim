@@ -179,6 +179,14 @@
 		$("body").removeClass('search_open');
 	});
 
+    function focusAndCursor(selector){
+        var input = $(selector);
+        setTimeout(function() {
+            // this focus on last character if input isn't empty
+            var tmp = input.val(); input.focus().val("").blur().focus().val(tmp);
+        }, 500);
+    }
+
 	var removeClass = true;
 	$(".search_wrap").after('<div class="search_overlay"></div>');
 	$(".search_trigger").on('click', function () {
@@ -191,6 +199,8 @@
 			$(".navbar-toggler").addClass('collapsed');
 			$(".navbar-toggler").attr("aria-expanded", false);
 		}
+
+        focusAndCursor('.search_wrap input')
 	});
 	$(".search_wrap form").on('click', function() {
 		removeClass = false;
