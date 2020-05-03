@@ -57,7 +57,7 @@ h5, .h5 {
     padding: 30px 0 0;
 }
 
-span.marker {background-color: Yellow;}
+.blog-detail span.marker {background-color: Yellow;}
 
 
 @media only screen and (max-width: 480px) {
@@ -74,9 +74,17 @@ span.marker {background-color: Yellow;}
     .home_categories .service_box {
         height: 80px;
     }
+    .blog-detail p > img {
+        width: auto !important;
+        height: auto !important;
+    }
 }
 @media only screen and (max-width: 768px) {
     .custom_breadcrumb {
         padding: 35px 0 !important;
+    }
+    .blog-detail p > img {
+        width: auto !important;
+        height: auto !important;
     }
 }

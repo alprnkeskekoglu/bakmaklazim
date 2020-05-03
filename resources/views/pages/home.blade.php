@@ -23,6 +23,30 @@
 @endphp
 
 @section('content')
+
+    @if(1==0)
+        <div id="preloader">
+            <div class="sk-folding-cube">
+                <div class="mb-4">
+                    <span>Yükleniyor...</span>
+                </div>
+                <div class="sk-folding-cube-box">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                </div>
+            </div>
+        </div>
+
+        @push('scripts')
+            <script>
+                setTimeout(function () {
+                    $("#preloader").delay(300).fadeOut(400).addClass('loaded');
+                }, 700);
+            </script>
+        @endpush
+    @endif
     <h1 hidden>Bakmak Lazım</h1>
     <div class="banner_section staggered-animation-wrap slide_small">
         <div class="item background_bg overlay_bg_60" data-img-src="{!! image($lastBlog->cover) !!}">
