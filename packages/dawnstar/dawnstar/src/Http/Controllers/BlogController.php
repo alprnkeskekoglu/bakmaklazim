@@ -20,7 +20,7 @@ class BlogController extends Controller
 
     public function create()
     {
-        $categories = Category::orderBy('order')->get();
+        $categories = Category::orderBy('order')->where('status', 1)->get();
         return view('Dawnstar::pages.blog.create', compact('categories'));
     }
 
