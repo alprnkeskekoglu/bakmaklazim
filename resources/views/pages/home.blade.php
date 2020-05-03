@@ -160,7 +160,7 @@
                                                     </li>
                                                     <li>
                                                         <i class="far fa-eye"></i>
-                                                        <span>{!! $mpBlog->view_count !!}</span>
+                                                        <span>{!! $mpBlog->view_count !!} Görüntüleme</span>
                                                     </li>
                                                     @if($mpBlog->comments_count > 0)
                                                         <li>
@@ -203,6 +203,10 @@
                                                     <li>
                                                         <i class="far fa-calendar-alt"></i>
                                                         <span>{!! localeDate($lBlog->date) !!}</span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="far fa-eye"></i>
+                                                        <span>{!! $mpBlog->view_count !!} Görüntüleme</span>
                                                     </li>
                                                     @if($lBlog->comments_count > 0)
                                                         <li>
