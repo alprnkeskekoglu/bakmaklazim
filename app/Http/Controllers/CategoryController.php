@@ -40,11 +40,12 @@ class CategoryController extends Controller
             abort(404);
         }
 
-        $tagSlugs = request()->get('tags');
+        $tempTagSlugs = request()->get('tags');
+        $tempTagSlugs = str_replace(['"', "'", " "], "", strip_tags($tempTagSlugs));
 
-        $tagSlugs = $tagSlugs ? explode(',', $tagSlugs) : [];
+        $tagSlugs = $tempTagSlugs ? explode(',', $tempTagSlugs) : [];
 
-        $data = Cache::remember("CATEGORY_DETAIL" . request()->get('tags') . $category->id . getBrowser(), 60 * 60 * 24 * 7, function () use ($category, $tagSlugs) {
+        $data = Cache::remember("CATEGORY_DETAIL" . $tempTagSlugs . $category->id . getBrowser(), 60 * 60 * 24 * 7, function () use ($category, $tagSlugs) {
 
             $blogs = $category->blogs()
                 ->where('status', 1)
