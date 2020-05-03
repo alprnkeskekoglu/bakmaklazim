@@ -14,6 +14,8 @@ class SearchController extends Controller
     public function index()
     {
         $query = request()->get('q');
+        
+        $query = strip_tags($query);
 
         if(is_null($query)) {
             abort(404);
