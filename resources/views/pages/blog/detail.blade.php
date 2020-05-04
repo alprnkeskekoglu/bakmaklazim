@@ -179,32 +179,38 @@
                             <ul class="list_none comment_list">
                                 @foreach($comments as $comment)
                                     <li class="comment_info">
-                                        <div class="d-flex">
-                                            <div class="comment_user d-none d-lg-block d-md-block">
-                                                <div class="profile-image ">
-                                                    {!! getProfileImage($comment->user_name) !!}
+
+                                        <div class="row">
+                                            <div class="col-md-1 d-none d-lg-block d-md-block">
+                                                <div class="comment_user">
+                                                    <div class="profile-image" style="background: {{sprintf('#%06X', mt_rand(0, 0xFFFFFF))}}">
+                                                        {!! getProfileImage($comment->user_name) !!}
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="comment_content">
-                                                <div class="d-lg-flex d-md-flex d-sm-block">
-                                                    <div class="meta_data">
-                                                        <h6>
-                                                            {!! $comment->user_name !!}
-                                                        </h6>
-                                                        <div class="comment-time">
-                                                            {!! localeDate($comment->created_at) !!}
+                                            <div class="col-md-11 mt-4">
+                                                <div class="comment_content">
+                                                    <div class="d-lg-inline d-md-inline">
+                                                        <div class="row">
+                                                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                                                <span class="h5">{!! $comment->user_name !!}</span>
+                                                                <div class="comment-time">
+                                                                    {!! localeDate($comment->created_at) !!}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                <p class="float-lg-right float-md-right">
+                                                                    Bu yazıyı
+                                                                    {!! $comment->useful == 1 ? "<span class='text-success'>faydalı buldu.</span>" : "<span class='text-danger'>faydalı bulmadı.</span>" !!}
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="ml-auto">
-                                                        <p>
-                                                            Bu yazıyı
-                                                            {!! $comment->useful == 1 ? "<span class='text-success'>faydalı buldu.</span>" : "<span class='text-danger'>faydalı bulmadı.</span>" !!}
-                                                        </p>
-                                                    </div>
+                                                    {!! $comment->detail !!}
                                                 </div>
-                                                {!! $comment->detail !!}
                                             </div>
                                         </div>
+
                                     </li>
                                 @endforeach
                             </ul>

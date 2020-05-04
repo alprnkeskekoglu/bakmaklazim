@@ -2,6 +2,11 @@
     color: #FF324D
 }
 
+.heading_s2 .h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
 .blog_img > img {
     max-height: 550px;
 }
@@ -117,8 +122,8 @@ h5, .h5 {
         height: auto !important;
     }
 
-    .heading_s2 h4{
-        font-size: 14px;
+    .heading_s2 .h4{
+        font-size: 16px;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -131,5 +136,11 @@ h5, .h5 {
     }
     .blog-detail blockquote p {
         line-height: 30px;
+    }
+
+    .profile-image {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
     }
 }

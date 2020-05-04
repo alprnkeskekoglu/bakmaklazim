@@ -64,8 +64,9 @@
                                         {!! optional($lastBlog->category)->name !!}
                                     </a>
                                 </div>
-                                <h2>
-                                    <a class="text-white" href="{!! $lastBlog->url !!}">{!! $lastBlog->name !!}</a></h2>
+                                <a href="{!! $lastBlog->url !!}">
+                                    <h2 class="text-white">{!! $lastBlog->name !!}</h2>
+                                </a>
                                 <ul class="blog_meta text-white">
                                     <li>
                                         <i class="far fa-calendar-alt"></i>
@@ -90,7 +91,7 @@
             <div class="row home_categories">
                 @foreach($categories as $category)
                     <div class="col-4">
-                        <a href="{!! $category->url !!}">
+                        <a href="{!! $category->url !!}" title="{{ $category->name }}">
                             <div class="service_box">
                                 <img src="{!! image($category->cover, 350, 198) !!}" alt="{!! $category->name !!}"/>
                                 <span class="lable">{!! str_ucwords($category->name) !!}</span>
@@ -125,20 +126,24 @@
                     <ul class="nav nav-tabs"role="tablist">
                         <li class="nav-item">
                             <a class="nav-link heading_s2 active" id="most-tab" data-toggle="tab" href="#most" role="tab"
-                               aria-controls="most" aria-selected="true"><h4>En Çok Okunanlar</h4></a>
+                               aria-controls="most" aria-selected="true">
+                                <span class="h4">En Çok Okunanlar</span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link heading_s2" id="last-tab" data-toggle="tab" href="#last" role="tab"
-                               aria-controls="last" aria-selected="false"><h4>Son Eklenenler</h4></a>
+                               aria-controls="last" aria-selected="false">
+                                <span class="h4">Son Eklenenler</span>
+                            </a>
                         </li>
                     </ul>
-                    <div class="tab-content mt-5">
+                    <div class="tab-content mt-3">
                         <div class="tab-pane fade show active" id="most" role="tabpanel" aria-labelledby="most-tab">
                             <div class="mt-5 blog_article row">
                                 @foreach($mostPopularBlogs as $mpBlog)
                                     <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                         <div class="blog_img">
-                                            <a href="{!! $mpBlog->url !!}">
+                                            <a href="{!! $mpBlog->url !!}" title="{{ $mpBlog->name }}">
                                                 <img src="{!! image($mpBlog->cover, 340, 219) !!}" alt="{!! $mpBlog->name !!}"
                                                      height="219">
                                             </a>
@@ -146,13 +151,13 @@
                                         <div class="blog_content">
                                             <div class="blog_text">
                                                 <div class="blog_tags">
-                                                    <a class="blog_tags_cat"
+                                                    <a class="blog_tags_cat" title="{{ $mpBlog->name }}"
                                                        href="{!! $mpBlog->category->url !!}"
                                                        style="background-color: {{$mpBlog->category->color ?: "#4382FF"}}">
                                                         {!! $mpBlog->category->name !!}
                                                     </a>
                                                 </div>
-                                                <h5 class="blog_heading">{!! $mpBlog->name !!}</h5>
+                                                <div class="blog_heading">{!! $mpBlog->name !!}</div>
                                                 <ul class="blog_meta">
                                                     <li>
                                                         <i class="far fa-calendar-alt"></i>
@@ -170,8 +175,10 @@
                                                     @endif
                                                 </ul>
                                                 <p>{!! \Str::limit(html_entity_decode(strip_tags($mpBlog->detail)), 65) !!}</p>
-                                                <a href="{!! $mpBlog->url !!}"
-                                                   class="btn btn-dark btn-sm">Devamını Oku</a>
+                                                <a href="{!! $mpBlog->url !!}" title="{{ $mpBlog->name }}"
+                                                   class="btn btn-dark btn-sm">
+                                                    Devamını Oku
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +191,7 @@
                                 @foreach($lastBlogs as $lBlog)
                                     <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                         <div class="blog_img">
-                                            <a href="{!! $lBlog->url !!}">
+                                            <a href="{!! $lBlog->url !!}" title="{{ $lBlog->name }}">
                                                 <img src="{!! image($lBlog->cover, 340, 219) !!}" alt="{!! $lBlog->name !!}"
                                                      height="219">
                                             </a>
@@ -192,13 +199,13 @@
                                         <div class="blog_content">
                                             <div class="blog_text">
                                                 <div class="blog_tags">
-                                                    <a class="blog_tags_cat"
+                                                    <a class="blog_tags_cat" title="{{ $lBlog->name }}"
                                                        href="{!! $lBlog->category->url !!}"
                                                        style="background-color: {{$lBlog->category->color ?: "#4382FF"}}">
                                                         {!! $lBlog->category->name !!}
                                                     </a>
                                                 </div>
-                                                <h5 class="blog_heading">{!! $lBlog->name !!}</h5>
+                                                <div class="blog_heading">{!! $lBlog->name !!}</div>
                                                 <ul class="blog_meta">
                                                     <li>
                                                         <i class="far fa-calendar-alt"></i>
@@ -216,8 +223,10 @@
                                                     @endif
                                                 </ul>
                                                 <p>{!! \Str::limit(html_entity_decode(strip_tags($lBlog->detail)), 65) !!}</p>
-                                                <a href="{!! $lBlog->url !!}"
-                                                   class="btn btn-dark btn-sm">Devamını Oku</a>
+                                                <a href="{!! $lBlog->url !!}" title="{{ $lBlog->name }}"
+                                                   class="btn btn-dark btn-sm">
+                                                    Devamını Oku
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

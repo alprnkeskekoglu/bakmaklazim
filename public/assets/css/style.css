@@ -187,7 +187,7 @@ body {
     -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,.h4,.h5 {
 	color: #000000;
 	font-family: "RobotoSlab", sans-serif;
 }
@@ -2536,6 +2536,8 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 	font-weight: 700;
 	line-height: normal;
     font-size: 18px;
+    color: #000000;
+    font-family: "RobotoSlab", sans-serif;
 }
 .blog_tags {
 	margin-bottom: 10px;
