@@ -66,7 +66,9 @@
                                             <img class="author-circle d-none d-sm-inline"
                                                  src="{!! image($blog->admin->image, 45, 45) !!}"
                                                  alt="{!! $blog->admin->name !!}">
-                                            <span>{!! $blog->admin->name !!}</span>
+                                            <a href="{!! $blog->admin->social_media !!}" target="_blank">
+                                                <span>{!! $blog->admin->name !!}</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

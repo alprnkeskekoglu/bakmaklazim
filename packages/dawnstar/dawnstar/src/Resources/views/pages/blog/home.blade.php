@@ -18,8 +18,8 @@
                         <tr>
                             <th class="text-center" style="width: 5%;">#ID</th>
                             <th class="text-center" style="width: 5%;">Status</th>
+                            <th class="text-center">View Count</th>
                             <th class="text-center">Name</th>
-                            <th class="text-center">Slug</th>
                             <th class="text-center">Category Name</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Created At</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Updated At</th>
@@ -40,10 +40,10 @@
                                     @endif
                                 </td>
                                 <td class="font-w600 text-center">
-                                    <a href="{!! route('panel.blog.edit', ['id' => $data->id]) !!}">{!! $data->name !!}</a>
+                                    {!! $data->view_count !!}
                                 </td>
                                 <td class="font-w600 text-center">
-                                    <a href="#">{!! $data->slug !!}</a>
+                                    <a href="{!! route('panel.blog.edit', ['id' => $data->id]) !!}">{!! $data->name !!}</a>
                                 </td>
                                 <td class="font-w600 text-center">
                                     <a href="{!! route('panel.category.edit', ['id' => $data->category_id]) !!}">{!! optional($data->category)->name !!}</a>
@@ -85,7 +85,6 @@
         var table = $('table').DataTable({
             "iDisplayLength": 10,
             "info": false,
-            "ordering": false,
             "dom": '<"top"f>rt<"bottom"lp><"clear">'
         });
     </script>

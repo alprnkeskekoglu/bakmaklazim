@@ -59,19 +59,19 @@
                                         @if($data->status != 1)
                                             <a href="{!! route('panel.comment.updateStatus', ['id' => $data->id, 'status' => 1]) !!}" class="btn btn-sm btn-success mr-1"
                                                data-toggle="tooltip" title="Active">
-                                                <i class="fa fa-hand-point-up"></i>
+                                                <i class="fa fa-check"></i>
                                             </a>
                                         @endif
                                         @if($data->status != 2)
                                                 <a href="{!! route('panel.comment.updateStatus', ['id' => $data->id, 'status' => 2]) !!}" class="btn btn-sm btn-warning mr-1"
                                                    data-toggle="tooltip" title="Draft">
-                                                    <i class="fa fa-hand-point-up"></i>
+                                                    <i class="fas fa-hourglass-start"></i>
                                                 </a>
                                         @endif
                                         @if($data->status != 3)
                                                 <a href="{!! route('panel.comment.updateStatus', ['id' => $data->id, 'status' => 3]) !!}" class="btn btn-sm btn-danger"
                                                    data-toggle="tooltip" title="Passive">
-                                                    <i class="fa fa-hand-point-up"></i>
+                                                    <i class="fas fa-times"></i>
                                                 </a>
                                         @endif
 

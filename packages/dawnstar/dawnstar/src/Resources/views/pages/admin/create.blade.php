@@ -45,6 +45,10 @@
                                     <input type="text" class="form-control" id="name" name="name" autocomplete="off">
                                 </div>
                                 <div class="form-group">
+                                    <label>Social Media</label>
+                                    <input type="text" class="form-control" id="social_media" name="social_media" autocomplete="off">
+                                </div>
+                                <div class="form-group">
                                     <label>E-posta</label>
                                     <input type="text" class="form-control" id="email" name="email" autocomplete="off">
                                 </div>

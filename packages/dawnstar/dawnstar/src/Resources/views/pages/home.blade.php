@@ -1,9 +1,21 @@
 @extends('Dawnstar::layouts.app')
 @php
-    $comment_stats = commentStats();
+    //$comment_stats = commentStats();
+    $commentCount = getUnreadCommentCount()
 @endphp
+
 @section('content')
-    <main id="main-container">
+
+    @if($commentCount > 0)
+        <div class="mt-3 mr-5">
+            <a href="{{ route('panel.comment.index') }}" type="button" class="btn btn-dual float-right" id="page-header-notifications-dropdown">
+                <i class="far fa-fw fa-comments"></i>
+                <span class="badge badge-success badge-pill">{{$commentCount}}</span>
+            </a>
+        </div>
+    @endif
+
+    <main id="main-container" {!! $commentCount > 0 ? 'style="padding-top: 2.375rem; !important;"' : '' !!}>
         <div class="bg-body-dark">
             <div class="content">
                 <div class="row gutters-tiny push invisible" data-toggle="appear">
@@ -200,7 +212,7 @@
                 </div>
 
                 <div class="row mt-4">
-                    <div class="col-sm-6 col-lg-6 invisible" data-toggle="appear">
+                    <div class="col-sm-7 col-lg-7 invisible" data-toggle="appear">
                         <div class="block block-rounded block-fx-pop h-100">
                             <div class="block-header block-header-default text-center">
                                 <h3 class="block-title">Most Visited Pages</h3>
@@ -235,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-6 invisible" data-toggle="appear" data-timeout="150">
+                    <div class="col-sm-5 col-lg-5 invisible" data-toggle="appear" data-timeout="150">
                         <div class="block block-rounded block-fx-pop h-100">
                             <div class="block-header block-header-default text-center">
                                 <h3 class="block-title">Total Referers</h3>
