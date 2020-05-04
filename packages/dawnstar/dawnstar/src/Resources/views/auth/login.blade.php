@@ -43,7 +43,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="login-email" name="email" placeholder="E-mail">
+                                        <input type="text" class="form-control" id="login-email" name="email" placeholder="E-mail" autocomplete="off">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fa fa-user-circle"></i>
