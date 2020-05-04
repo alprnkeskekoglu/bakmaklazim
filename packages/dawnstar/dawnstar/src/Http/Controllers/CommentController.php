@@ -32,6 +32,7 @@ class CommentController extends Controller
 
         if ($comment) {
             $comment->update(['status' => request('status')]);
+            $this->updateBlogUseful($comment->blog_id);
         }
 
         Cache::flush();
