@@ -7,7 +7,7 @@ function getSidebarCategories()
         ->withCount(['blogs' => function($q) {
             $q->where('status', 1);
         }])
-        ->orderByDesc('blogs_count')
+        ->orderBy('order')
         ->having('blogs_count', '>', 0)
         ->get()
         ->take(5);
