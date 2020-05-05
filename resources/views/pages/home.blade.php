@@ -139,7 +139,7 @@
                     </ul>
                     <div class="tab-content mt-3">
                         <div class="tab-pane fade show active" id="most" role="tabpanel" aria-labelledby="most-tab">
-                            <div class="mt-5 blog_article row">
+                            <div class="blog_article row">
                                 @foreach($mostPopularBlogs as $mpBlog)
                                     <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                                         <div class="blog_img">
@@ -157,7 +157,11 @@
                                                         {!! $mpBlog->category->name !!}
                                                     </a>
                                                 </div>
-                                                <div class="blog_heading">{!! $mpBlog->name !!}</div>
+                                                <div class="blog_heading">
+                                                    <a href="{!! $mpBlog->url !!}" title="{{ $mpBlog->name }}">
+                                                        {!! $mpBlog->name !!}
+                                                    </a>
+                                                </div>
                                                 <ul class="blog_meta">
                                                     <li>
                                                         <i class="far fa-calendar-alt"></i>
@@ -175,10 +179,6 @@
                                                     @endif
                                                 </ul>
                                                 <p>{!! \Str::limit(html_entity_decode(strip_tags($mpBlog->detail)), 65) !!}</p>
-                                                <a href="{!! $mpBlog->url !!}" title="{{ $mpBlog->name }}"
-                                                   class="btn btn-dark btn-sm">
-                                                    Devamını Oku
-                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +205,11 @@
                                                         {!! $lBlog->category->name !!}
                                                     </a>
                                                 </div>
-                                                <div class="blog_heading">{!! $lBlog->name !!}</div>
+                                                <div class="blog_heading">
+                                                    <a href="{!! $lBlog->url !!}" title="{{ $lBlog->name }}">
+                                                        {!! $lBlog->name !!}
+                                                    </a>
+                                                </div>
                                                 <ul class="blog_meta">
                                                     <li>
                                                         <i class="far fa-calendar-alt"></i>
@@ -223,10 +227,6 @@
                                                     @endif
                                                 </ul>
                                                 <p>{!! \Str::limit(html_entity_decode(strip_tags($lBlog->detail)), 65) !!}</p>
-                                                <a href="{!! $lBlog->url !!}" title="{{ $lBlog->name }}"
-                                                   class="btn btn-dark btn-sm">
-                                                    Devamını Oku
-                                                </a>
                                             </div>
                                         </div>
                                     </div>
