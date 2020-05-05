@@ -4,7 +4,9 @@
 function getSidebarCategories()
 {
     return Dawnstar\Models\Category::where('status', 1)
-        ->withCount('blogs')
+        ->withCount(['blogs' => function($q) {
+            $q->where('status', 1);
+        }])
         ->orderByDesc('blogs_count')
         ->having('blogs_count', '>', 0)
         ->get()
@@ -16,7 +18,9 @@ function getSidebarTags()
 {
     return Dawnstar\Models\Tag::where('status', 1)
         ->whereHas('category')
-        ->withCount('blogs')
+        ->withCount(['blogs' => function($q) {
+            $q->where('status', 1);
+        }])
         ->orderByDesc('blogs_count')
         ->having('blogs_count', '>', 0)
         ->groupBy('name')
