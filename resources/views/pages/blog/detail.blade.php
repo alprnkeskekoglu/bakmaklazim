@@ -83,7 +83,7 @@
                                     </li>
                                     <li class="d-none d-sm-block">
                                         <i class="far fa-eye"></i>
-                                        <span>{!! $blog->view_count !!} Görüntülenme</span>
+                                        <span>{!! $blog->view_count !!} Okunma</span>
                                     </li>
                                 </ul>
                                 <div class="blog-detail">

@@ -82,6 +82,19 @@
 <script src="{!! asset('/assets/js/jquery-3.4.1.min.js') !!}"></script>
 <script src="{!! asset('/assets/bootstrap/js/bootstrap.min.js') !!}"></script>
 <script src="{!! asset('/assets/js/scripts.min.js') . "?v=2" !!}"></script>
+
+<script>
+    var title = $('title').html();
+
+    document.addEventListener("visibilitychange", function() {
+        if (document.hidden){
+            $('title').html("Okumaya devam edin...")
+        } else {
+            $('title').html(title)
+        }
+    });
+</script>
+
 @stack('scripts')
 </body>
 </html>

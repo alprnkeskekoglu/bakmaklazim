@@ -58,6 +58,10 @@
                                                 <i class="far fa-calendar-alt"></i>
                                                 <span>{!! localeDate($blog->date) !!}</span>
                                             </li>
+                                            <li>
+                                                <i class="far fa-eye"></i>
+                                                <span>{!! $blog->view_count !!} Okunma</span>
+                                            </li>
                                             @if($blog->comments_count > 0)
                                                 <li>
                                                     <i class="far fa-comments"></i>

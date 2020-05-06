@@ -50,7 +50,7 @@
                                             @endif
                                             <li>
                                                 <i class="far fa-eye"></i>
-                                                <span>{!! $blog->view_count !!} Görüntülenme</span>
+                                                <span>{!! $blog->view_count !!} Okunma</span>
                                             </li>
                                         </ul>
                                         <p>{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 90) !!}</p>

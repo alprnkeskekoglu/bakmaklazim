@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title'){!! env('APP_NAME') !!}@endsection
+@section('title'){!! env('APP_NAME') . " - Ulaşılabilir Bilgi Kaynağınız" !!}@endsection
 @section('description'){!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}@endsection
 @section('keywords'){{ "bakmak lazım,blog,nedir,teknoloji,gündem,eğitim" }}@endsection
 
@@ -71,6 +71,10 @@
                                     <li>
                                         <i class="far fa-calendar-alt"></i>
                                         <span>{!! localeDate($lastBlog->date) !!}</span>
+                                    </li>
+                                    <li>
+                                        <i class="far fa-eye"></i>
+                                        <span>{!! $lastBlog->view_count !!} Okunma</span>
                                     </li>
                                     @if($lastBlog->comments_count > 0)
                                         <li>
