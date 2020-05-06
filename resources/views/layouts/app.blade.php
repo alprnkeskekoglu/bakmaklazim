@@ -29,9 +29,10 @@
     <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="{{ asset("/assets/image/apple-touch-icon.png", 152, 152, false) }}" />
     <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="{{ asset("/assets/image/apple-touch-icon.png", 167, 167, false) }}" />
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ asset("/assets/image/apple-touch-icon.png", 180, 180, false) }}" />
-
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=6" !!}">
+
+    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=7" !!}">
+
     {{--
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=6" !!}">
