@@ -321,7 +321,7 @@
             el.addClass('active');
         });
 
-        $('.blog-detail').find('img').parent().addClass('text-center');
+        $('.blog-detail').find('img').parent('p').addClass('text-center');
 
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
