@@ -51,6 +51,30 @@
 </head>
 <body>
 
+@if(isMobile())
+    <div id="preloader">
+        <div class="sk-folding-cube">
+            <div class="mb-4">
+                <span>Yükleniyor...</span>
+            </div>
+            <div class="sk-folding-cube-box">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
+    </div>
+
+    @push('scripts')
+        <script>
+            setTimeout(function () {
+                $("#preloader").delay(300).fadeOut(400).addClass('loaded');
+            }, 700);
+        </script>
+    @endpush
+@endif
+
 @php
     echo \Illuminate\Support\Facades\Cache::remember('HEADER' . getBrowser(), 60 * 60 * 24 * 7, function (){
         return view('layouts.header')->render();
