@@ -88,7 +88,9 @@
 
     document.addEventListener("visibilitychange", function() {
         if (document.hidden){
-            $('title').html("Okumaya devam edin...")
+            setTimeout(function() {
+                $('title').html("Okumaya devam edin...")
+            }, 500)
         } else {
             $('title').html(title)
         }

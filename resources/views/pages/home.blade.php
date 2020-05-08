@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('title'){!! env('APP_NAME') . " - Ulaşılabilir Bilgi Kaynağınız" !!}@endsection
-@section('description'){!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}@endsection
-@section('keywords'){{ "bakmak lazım,blog,nedir,teknoloji,gündem,eğitim" }}@endsection
+@section('description'){!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için ulaşılabilir bilgi kaynağı. Kolayca erişin. Hemen okuyun." !!}@endsection
+@section('keywords'){{ "bakmak lazım,ulaşılabilir,bilgi kaynağı,blog,nedir,teknoloji,bilgi" }}@endsection
 
 
 @section('metas')
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="{{ env('APP_NAME')}}"/>
     <meta property="og:description"
-          content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+          content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için ulaşılabilir bilgi kaynağı. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="url" property="og:url" content="{!! route('index') !!}"/>
     <meta name="image" property="og:image" content="{!! image("/assets/images/full_logo.png", 1200, 630, false) !!}"/>
 
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{{ env('APP_NAME')}}"/>
     <meta property="twitter:description"
-          content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için. Kolayca erişin. Hemen okuyun." !!}"/>
+          content="{!! "Bakmak Lazım, kendine değer katmak ve gündeme dair konularda söz sahibi olmak isteyenler için ulaşılabilir bilgi kaynağı. Kolayca erişin. Hemen okuyun." !!}"/>
     <meta name="twitter:image" content="{!! image("/assets/images/twitter_logo.png", 1000, 1000, false) !!}"/>
 @endsection
 
@@ -25,31 +25,7 @@
 @endphp
 
 @section('content')
-
-    @if(1==0)
-        <div id="preloader">
-            <div class="sk-folding-cube">
-                <div class="mb-4">
-                    <span>Yükleniyor...</span>
-                </div>
-                <div class="sk-folding-cube-box">
-                    <div class="sk-cube1 sk-cube"></div>
-                    <div class="sk-cube2 sk-cube"></div>
-                    <div class="sk-cube4 sk-cube"></div>
-                    <div class="sk-cube3 sk-cube"></div>
-                </div>
-            </div>
-        </div>
-
-        @push('scripts')
-            <script>
-                setTimeout(function () {
-                    $("#preloader").delay(300).fadeOut(400).addClass('loaded');
-                }, 700);
-            </script>
-        @endpush
-    @endif
-    <h1 hidden>Bakmak Lazım</h1>
+    <h1 hidden>{!! env('APP_NAME') . " - Ulaşılabilir Bilgi Kaynağınız" !!}</h1>
     <div class="banner_section staggered-animation-wrap slide_small">
         <div class="item background_bg overlay_bg_60" data-img-src="{!! image($lastBlog->cover) !!}">
             <div class="banner_slide_content">
@@ -59,12 +35,14 @@
                             <div class="banner_content">
                                 <div class="blog_tags">
                                     <a class="blog_tags_cat"
+                                       title="{!! optional($lastBlog->category)->name !!}"
                                        style="background-color: {{optional($lastBlog->category)->color ?: "#4382FF"}}"
                                        href="{!! optional($lastBlog->category)->url !!}">
                                         {!! optional($lastBlog->category)->name !!}
                                     </a>
                                 </div>
                                 <a href="{!! $lastBlog->url !!}">
+                                    title="{!! $lastBlog->name !!}"
                                     <h2 class="text-white">{!! $lastBlog->name !!}</h2>
                                 </a>
                                 <ul class="blog_meta text-white">

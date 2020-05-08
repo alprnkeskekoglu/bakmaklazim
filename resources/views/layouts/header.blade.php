@@ -15,16 +15,19 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li><a class="nav-link nav_item" href="{{ route('index') }}">Anasayfa</a></li>
-                    <li><a class="nav-link nav_item" href="{{ route('blog.index') }}">Blog Yazıları</a></li>
+                    <li><a class="nav-link nav_item" title="Anasayfa" href="{{ route('index') }}">Anasayfa</a></li>
+                    <li><a class="nav-link nav_item" title="Blog Yazıları" href="{{ route('blog.index') }}">Blog Yazıları</a></li>
                     @if($categories->isNotEmpty())
                         <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="{{ route('category.index') }}">Kategoriler</a>
+                            <a class="dropdown-toggle nav-link" title="Kategoriler" data-toggle="dropdown" href="{{ route('category.index') }}">Kategoriler</a>
                             <div class="dropdown-menu">
                                 <ul>
                                     @foreach($categories as $category)
-                                        <li><a class="dropdown-item nav-link nav_item"
-                                               href="{!! $category->url !!}">{!! $category->name !!}</a></li>
+                                        <li>
+                                            <a class="dropdown-item nav-link nav_item"
+                                               title="{!! $category->name !!}"
+                                               href="{!! $category->url !!}">{!! $category->name !!}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>

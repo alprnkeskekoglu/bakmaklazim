@@ -9,7 +9,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="{{ route('index') }}">
+                            <a href="{{ route('index') }}" title="Anasayfa">
                                 <img class="white_logo" src="{{ image("/assets/images/logo-white.png", 200, false) }}" alt="{{ env('APP_NAME') }}">
                             </a>
                         </div>
@@ -23,7 +23,7 @@
                         <div class="widget_title h6 text-white">Popüler Etiketler</div>
                         <div class="tags">
                             @foreach($tags as $tag)
-                                <a href="{!! $tag->url !!}">{!! $tag->name !!}</a>
+                                <a href="{!! $tag->url !!}" title="{!! $tag->name !!}">{!! $tag->name !!}</a>
                             @endforeach
                         </div>
                     </div>

@@ -45,47 +45,39 @@ class CategoryController extends Controller
 
         $tagSlugs = $tempTagSlugs ? explode(',', $tempTagSlugs) : [];
 
-        $data = Cache::remember("CATEGORY_DETAIL" . $tempTagSlugs . $category->id . getBrowser(), 60 * 60 * 24 * 7, function () use ($category, $tagSlugs) {
 
-            $blogs = $category->blogs()
-                ->where('status', 1)
-                ->orderByDesc('date')
-                ->orderByDesc('created_at')
-                ->with('tags')
-                ->withCount(['comments' => function ($q) {
-                    $q->where('status', 1);
-                }]);
-
-
-            if (count($tagSlugs) > 0) {
-                $blogs = $blogs->whereHas('tags', function ($q) use ($tagSlugs) {
-                    $q->whereIn('slug', $tagSlugs);
-                });
-            }
-
-            $hold['blogs'] = $blogs = $blogs->get();
+        $blogs = $category->blogs()
+            ->where('status', 1)
+            ->orderByDesc('date')
+            ->orderByDesc('created_at')
+            ->with('tags')
+            ->withCount(['comments' => function ($q) {
+                $q->where('status', 1);
+            }]);
 
 
-            $tags = $category->tags()
-                ->where('status', 1)
-                ->withCount('blogs')
-                ->orderByDesc('blogs_count')
-                ->having('blogs_count', '>', 0);
+        if (count($tagSlugs) > 0) {
+            $blogs = $blogs->whereHas('tags', function ($q) use ($tagSlugs) {
+                $q->whereIn('slug', $tagSlugs);
+            });
+        }
 
-            if (count($tagSlugs) > 0) {
-                $tags = $tags->whereHas('blogs', function ($q) use ($blogs) {
-                    $q->whereIn('id', $blogs->pluck('id')->toArray());
-                });
-            }
-
-            $hold['tags'] = $tags->get()->take(8);
-
-            return $hold;
-        });
+        $blogs = $blogs = $blogs->get();
 
 
-        $blogs = $data['blogs'];
-        $tags = $data['tags'];
+        $tags = $category->tags()
+            ->where('status', 1)
+            ->withCount('blogs')
+            ->orderBy('name')
+            ->having('blogs_count', '>', 0);
+
+        if (count($tagSlugs) > 0) {
+            $tags = $tags->whereHas('blogs', function ($q) use ($blogs) {
+                $q->whereIn('id', $blogs->pluck('id')->toArray());
+            });
+        }
+
+        $tags = $tags->get()->take(12);
 
 
         $breadcrumb = [
