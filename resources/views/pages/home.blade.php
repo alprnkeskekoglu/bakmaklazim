@@ -41,8 +41,7 @@
                                         {!! optional($lastBlog->category)->name !!}
                                     </a>
                                 </div>
-                                <a href="{!! $lastBlog->url !!}">
-                                    title="{!! $lastBlog->name !!}"
+                                <a href="{!! $lastBlog->url !!}" title="{!! $lastBlog->name !!}">
                                     <h2 class="text-white">{!! $lastBlog->name !!}</h2>
                                 </a>
                                 <ul class="blog_meta text-white">
