@@ -89,7 +89,7 @@
     document.addEventListener("visibilitychange", function() {
         if (document.hidden){
             setTimeout(function() {
-                $('title').html("Okumaya devam edin...")
+                $('title').html("#evdekal | Okumaya devam edin...")
             }, 500)
         } else {
             $('title').html(title)
