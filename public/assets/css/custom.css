@@ -121,6 +121,10 @@ h5, .h5 {
         width: auto !important;
         height: auto !important;
     }
+    .blog-detail p > iframe {
+        width: auto !important;
+        height: auto !important;
+    }
 
     .heading_s2 .h4{
         font-size: 16px;
@@ -134,6 +138,11 @@ h5, .h5 {
         width: auto !important;
         height: auto !important;
     }
+    .blog-detail p > iframe {
+        width: auto !important;
+        height: auto !important;
+    }
+
     .blog-detail blockquote p {
         line-height: 30px;
     }
