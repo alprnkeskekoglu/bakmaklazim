@@ -74,7 +74,7 @@ class CommentController extends Controller
             $commentsCount = $comments->count();
             $usefulCommentCount = $comments->where('useful', 1)->count();
 
-            $usefulRate = 5 * $usefulCommentCount / $commentsCount;
+            $usefulRate = $commentsCount == 0 ? 0 : ( 5 * $usefulCommentCount / $commentsCount );
 
             $blog->update(['useful_rate' => $usefulRate]);
         }
