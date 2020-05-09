@@ -321,7 +321,7 @@
             el.addClass('active');
         });
 
-        $('.blog-detail').find('img:not([alt="smiley"])').css({"margin-left": "auto", "margin-right": "auto", "display": "block"});
+        $('.blog-detail').find('img.blogDetailImage').css({"margin-left": "auto", "margin-right": "auto", "display": "block"});
         $('.blog-detail').find('iframe').css({"margin-left": "auto", "margin-right": "auto", "display": "block"});
 
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

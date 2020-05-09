@@ -175,7 +175,18 @@
                 {name: 'tools', items: ['Maximize', 'ShowBlocks']},
                 {name: 'document', groups: ['mode', 'document', 'doctools'], items: ['Source', 'Preview']}
 
-            ]
+            ],
+            on: {
+                instanceReady: function() {
+                    this.dataProcessor.htmlFilter.addRules( {
+                        elements: {
+                            img: function( el ) {
+                                el.addClass( 'blogDetailImage' );
+                            }
+                        }
+                    } );
+                }
+            }
         });
 
 
