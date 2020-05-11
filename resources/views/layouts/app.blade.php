@@ -25,10 +25,10 @@
     <link rel="shortcut icon" type="image/png" sizes="32x32" href="{{ image("/assets/images/favicon.png", 32, 32, false) }}">
     <link rel="shortcut icon" type="image/png" sizes="96x96" href="{{ image("/assets/images/favicon.png", 96, 96, false) }}">
 
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="{{ asset("/assets/image/apple-touch-icon.png", 120, 120, false) }}" />
-    <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="{{ asset("/assets/image/apple-touch-icon.png", 152, 152, false) }}" />
-    <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="{{ asset("/assets/image/apple-touch-icon.png", 167, 167, false) }}" />
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ asset("/assets/image/apple-touch-icon.png", 180, 180, false) }}" />
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="{{ image("/assets/image/apple-touch-icon.png", 120, 120, false) }}" />
+    <link rel="apple-touch-icon" type="image/png" sizes="152x152" href="{{ image("/assets/image/apple-touch-icon.png", 152, 152, false) }}" />
+    <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="{{ image("/assets/image/apple-touch-icon.png", 167, 167, false) }}" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ image("/assets/image/apple-touch-icon.png", 180, 180, false) }}" />
 
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=9" !!}">
