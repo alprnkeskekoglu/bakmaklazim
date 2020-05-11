@@ -45,7 +45,7 @@ function image($path, $width = null, $height = null, $webp = true)
 
     $browser = getBrowser();
     $temp = pathinfo($path);
-    $extension = $browser == 'Safari' || $webp == false || $temp['extension'] == 'svg' ? $temp['extension'] : 'webp';
+    $extension = $browser == 'Safari' || $webp == false ? $temp['extension'] : 'webp';
     $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.' . $extension;
 
     if ($width || $height) {
@@ -66,7 +66,7 @@ function image($path, $width = null, $height = null, $webp = true)
 
     $image = \Intervention\Image\Facades\Image::make(public_path($path));
 
-    if ($browser != "Safari" || $webp == true || $temp['extension'] != 'svg') {
+    if ($browser != "Safari" || $webp == true) {
         $image = $image->encode('webp', 80);
     }
 
