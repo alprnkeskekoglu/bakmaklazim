@@ -160,7 +160,7 @@
                                                         @if($other->comments_count > 0)
                                                             <li>
                                                                 <i class="far fa-comments"></i>
-                                                                <span>{!! $blog->comments_count !!} Yorum</span>
+                                                                <span>{!! $other->comments_count !!} Yorum</span>
                                                             </li>
                                                         @endif
                                                     </ul>
