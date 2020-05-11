@@ -13,13 +13,13 @@ class HomeController extends Controller
     {
         $liveUser = Analytics::getAnalyticsService()->data_realtime->get('ga:' . env('ANALYTICS_VIEW_ID'), 'rt:activeUsers')->totalsForAllResults['rt:activeUsers'];
 
-        $mostVisitedPages = Analytics::fetchMostVisitedPages(Period::days(7), 10);
+        $mostVisitedPages = Analytics::fetchMostVisitedPages(Period::days(30), 10);
 
-        $visitorAndViews = Analytics::fetchVisitorsAndPageViews(Period::days(7, 1));
+        $visitorAndViews = Analytics::fetchVisitorsAndPageViews(Period::days(30, 1));
 
-        $totalVisitorAndViews = Analytics::fetchTotalVisitorsAndPageViews(Period::days(7));
+        $totalVisitorAndViews = Analytics::fetchTotalVisitorsAndPageViews(Period::days(30));
 
-        $topReferers = Analytics::fetchTopReferrers(Period::days(7))->take(11);
+        $topReferers = Analytics::fetchTopReferrers(Period::days(30))->take(11);
 
         $holder = [];
         foreach ($visitorAndViews as $visit) {
