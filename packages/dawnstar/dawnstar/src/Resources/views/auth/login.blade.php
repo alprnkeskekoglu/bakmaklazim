@@ -26,7 +26,7 @@
                         <div class="block-content block-content-full px-lg-5 px-xl-6 py-4 py-md-5 py-lg-6 bg-white">
                             <div class="mb-2 text-center">
                                 <a class="link-fx font-w700 font-size-h1" href="index.html">
-                                    <span class="text-dark">Dawns</span><span class="text-primary">star</span>
+                                    <span class="text-dark">Dawn</span><span class="text-primary">star</span>
                                 </a>
                                 <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p>
                             </div>
@@ -43,7 +43,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="login-email" name="email" placeholder="E-mail" autocomplete="off">
+                                        <input type="text" class="form-control" id="login-email" name="email" placeholder="E-mail">
                                         <div class="input-group-append">
                                             <span class="input-group-text">
                                                 <i class="fa fa-user-circle"></i>

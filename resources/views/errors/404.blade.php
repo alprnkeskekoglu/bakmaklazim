@@ -37,18 +37,17 @@
         white-space: nowrap;
         border-right: solid 3px #fff;
         overflow: hidden;
+        animation: animated-text 1s steps(50) 1s 1 normal both, animated-cursor 600ms steps(50) infinite;
+        margin-left: 5px;
     }
 
-    .sub_error_txt {
-        animation: animated-text 1s steps(50) 1s 1 normal both, animated-cursor 600ms steps(50) infinite;
-    }
 
     @keyframes animated-text {
         from {
             width: 0;
         }
         to {
-            width: 539px;
+            width: 530px;
         }
     }
 
@@ -72,7 +71,7 @@
                 width: 0;
             }
             to {
-                width: 430px;
+                width: 425px;
             }
         }
     }
@@ -88,7 +87,7 @@
                 width: 0;
             }
             to {
-                width: 485px;
+                width: 478px;
             }
         }
     }
@@ -96,7 +95,7 @@
     @media only screen and (max-width: 480px) {
         .sub_error_txt {
             font-size: 12px;
-            margin-left: 10px;
+            margin-left: 12px;
         }
 
         @keyframes animated-text {
@@ -104,7 +103,7 @@
                 width: 0;
             }
             to {
-                width: 324px;
+                width: 320px;
             }
         }
     }

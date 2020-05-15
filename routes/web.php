@@ -21,4 +21,9 @@ Route::get('/arama', 'SearchController@index')->name('search');
 Route::get('/sitemap.xml', 'SitemapXmlController@index')->name('sitemap');
 
 
+Route::get('/wp-admin', function() {
+    return view('errors.wp');
+});
+
+
 
