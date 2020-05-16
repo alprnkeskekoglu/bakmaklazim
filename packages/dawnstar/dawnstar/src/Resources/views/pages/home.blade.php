@@ -305,7 +305,7 @@
                 'method': 'get',
                 success: function(response) {
                     $('#liveUser').html(response);
-                    setTimeout(ajax, 2000)
+                    setTimeout(ajax, 5000)
                 }
             })
         }

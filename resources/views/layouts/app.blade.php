@@ -31,13 +31,15 @@
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ image("/assets/image/apple-touch-icon.png", 180, 180, false) }}" />
 
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
-    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=9" !!}">
+
+    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=10" !!}">
     {{--
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=6" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/responsive.css'). "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/custom.css'). "?v=1" !!}">
     --}}
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
