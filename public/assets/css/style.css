@@ -2576,7 +2576,6 @@ header.vertical_menu .navbar-collapse .navbar-nav {
 .blog_article .blog_post,
 .blog_small_grid .blog_post {
 	float: left;
-	width: 50%;
 	padding: 0 15px;
 }
 .blog_small_grid .blog_post:nth-child(2n+1) {

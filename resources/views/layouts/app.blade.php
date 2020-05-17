@@ -32,7 +32,8 @@
 
     <link rel="stylesheet" href="{!! asset("assets/bootstrap/css/bootstrap.min.css") !!}">
 
-    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=10" !!}">
+    <link rel="stylesheet" href="{!! asset('/assets/css/bakmaklazim.min.css') . "?v=11" !!}">
+
     {{--
     <link rel="stylesheet" href="{!! asset('/assets/css/all.min.css') . "?v=2" !!}">
     <link rel="stylesheet" href="{!! asset('/assets/css/style.css'). "?v=6" !!}">
