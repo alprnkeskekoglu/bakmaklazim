@@ -26,9 +26,3 @@ Route::get('/wp-admin', function() {
 });
 
 
-Route::get('/wp-admin22', function() {
-    dd(getBrowser(), $_SERVER['HTTP_USER_AGENT']);
-});
-
-
-
