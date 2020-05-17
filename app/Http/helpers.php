@@ -43,9 +43,9 @@ function image($path, $width = null, $height = null, $webp = true)
         return image('assets/images/default.png', $width, $height, false);
     }
 
-    $browser = getBrowser();
+    $webpStatus = getWebpStatus();
     $temp = pathinfo($path);
-    $extension = $browser == 'Safari' || $webp == false ? $temp['extension'] : 'webp';
+    $extension = !$webpStatus || $webp == false ? $temp['extension'] : 'webp';
     $newPath = $temp['dirname'] . '/' . $temp['filename'] . '.' . $extension;
 
     if ($width || $height) {
@@ -66,7 +66,7 @@ function image($path, $width = null, $height = null, $webp = true)
 
     $image = \Intervention\Image\Facades\Image::make(public_path($path));
 
-    if ($browser != "Safari" || $webp == true) {
+    if ($webpStatus || $webp == true) {
         $image = $image->encode('webp', 80);
     }
 
@@ -92,12 +92,27 @@ function image($path, $width = null, $height = null, $webp = true)
         return url($newPath);
     }
 
-    if ($browser != "Safari") {
+    if ($webpStatus) {
         $image->save(public_path($newPath));
     }
 
     return url($newPath);
 
+}
+
+function getWebpStatus() {
+    $browser = getBrowser();
+    $agent = $_SERVER['HTTP_USER_AGENT'] ?? "";
+
+    if($browser == 'Safari') {
+        return false;
+    }
+
+    if (strpos($agent, "AppleWebKit") !== false) {
+        return false;
+    }
+
+    return true;
 }
 
 function getBrowser()
