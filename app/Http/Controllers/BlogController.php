@@ -23,7 +23,7 @@ class BlogController extends Controller
                 ->withCount(['comments' => function ($q) {
                     $q->where('status', 1);
                 }])
-                ->paginate(6);
+                ->paginate(8);
         });
 
         $breadcrumb = [

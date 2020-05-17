@@ -10,10 +10,9 @@
     "require": {
         "php": "^7.4",
         "arcanedev/log-viewer": "^5.",
+        "dawnstar/dawnstar": "^0.15",
         "fideloper/proxy": "^4.0",
-        "intervention/image": "^2.4@dev",
-        "laravel/framework": "^6.2",
-        "spatie/laravel-analytics": "dev-master"
+        "laravel/framework": "^6.2"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -29,21 +28,13 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [],
-            "providers": [
-                "Dawnstar\\DawnstarServiceProvider"
-            ]
+            "dont-discover": []
         }
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Dawnstar\\": "packages/dawnstar/dawnstar/src"
+            "App\\": "app/"
         },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
         "files": [
             "app/Http/helpers.php"
         ]
