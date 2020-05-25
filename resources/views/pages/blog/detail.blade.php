@@ -15,14 +15,12 @@
     <meta name="url" property="og:url" content="{!! url($blog->url) !!}"/>
     <meta name="image" property="og:image" content="{!! image($blog->cover, null, null, false) !!}"/>
 
-
     <meta name="twitter:card" content="summary_large_image"/>
     <meta property="twitter:title" content="{!! $blog->name !!}"/>
     <meta name="twitter:site" content="@"{{ env('APP_NAME')}}/>
     <meta property="twitter:description" content="{!! \Str::limit(html_entity_decode(strip_tags($blog->detail)), 100) !!}"/>
     <meta name="twitter:image:src" content="{!! image($blog->cover, null, null, false) !!}"/>
 @endsection
-
 
 @section('content')
     <div class="section breadcrumb_section bg_gray custom_breadcrumb">
@@ -77,11 +75,13 @@
                                         <i class="far fa-calendar-alt"></i>
                                         <span>{!! localeDate($blog->date) !!}</span>
                                     </li>
-                                    <li class="d-none d-sm-block">
-                                        <i class="far fa-comments"></i>
-                                        <span>{!! $comments->count() !!} Yorum</span>
-                                    </li>
-                                    <li class="d-none d-sm-block">
+                                    @if($comments->count() > 0)
+                                        <li>
+                                            <i class="far fa-comments"></i>
+                                            <span>{!! $comments->count() !!} Yorum</span>
+                                        </li>
+                                    @endif
+                                    <li>
                                         <i class="far fa-eye"></i>
                                         <span>{!! $blog->view_count !!} Okunma</span>
                                     </li>
@@ -95,7 +95,7 @@
                                             <div class="artical_tags">
                                                 <i class="fa fa-tags"></i>
                                                 @foreach($blog->tags as $tag)
-                                                    <a href="{!! $tag->category->url . '?tags=' . $tag->slug !!}">{!! strto('lower', $tag->name) !!}</a>
+                                                    <a href="{!! $tag->url !!}">{!! strto('lower', $tag->name) !!}</a>
                                                 @endforeach
                                             </div>
                                         </div>

@@ -91,8 +91,9 @@
                 <div class="col-12">
                     <blockquote class="blockquote ">
                         <p class="mb-0 text-white">{!! $inspire['text'] !!}</p>
-                        <footer class="blockquote-footer text-right text-white"><cite
-                                title="Source Title">{!! $inspire['author'] !!}</cite></footer>
+                        <footer class="blockquote-footer text-right text-white">
+                            <cite title="Source Title">{!! $inspire['author'] !!}</cite>
+                        </footer>
                     </blockquote>
                 </div>
             </div>
@@ -152,7 +153,7 @@
                                                             </li>
                                                             <li>
                                                                 <i class="far fa-eye"></i>
-                                                                <span>{!! $mpBlog->view_count !!} Görüntüleme</span>
+                                                                <span>{!! $mpBlog->view_count !!} Okunma</span>
                                                             </li>
                                                             @if($mpBlog->comments_count > 0)
                                                                 <li>
@@ -204,7 +205,7 @@
                                                             </li>
                                                             <li>
                                                                 <i class="far fa-eye"></i>
-                                                                <span>{!! $lBlog->view_count !!} Görüntüleme</span>
+                                                                <span>{!! $lBlog->view_count !!} Okunma</span>
                                                             </li>
                                                             @if($lBlog->comments_count > 0)
                                                                 <li>

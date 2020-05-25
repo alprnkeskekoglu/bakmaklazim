@@ -8,8 +8,6 @@
         return $hold;
     });
 
-
-
 @endphp
 
 <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0 fixed_scroll_item d-none d-lg-block" data-margintop="100">
@@ -43,37 +41,37 @@
         </div>
     @endif
 
-
-        <div class="widget">
-            <h5 class="widget_title">En Çok Okunanlar</h5>
-            <ul class="recent_post">
-                @foreach($data['blogs'] as $blog)
-                    <li>
-                        <div class="post_footer">
-                            <div class="post_img">
-                                <a href="{{ $blog->url }}">
-                                    <img src="{!! $blog->cover ? image($blog->cover, 100, 100) : image($blog->image, 100, 100) !!}"
-                                         class="rounded-circle"
-                                         alt="{!! $blog->name !!}">
-                                </a>
-                            </div>
-                            <div class="post_content">
-                                <h6><a href="{{ $blog->url }}">{{ $blog->name }}</a></h6>
-
-                                <ul class="blog_meta">
-                                    <li>
-                                        <i class="far fa-calendar-alt"></i>
-                                        <span>{!! localeDate($blog->date) !!}</span>
-                                    </li>
-                                    <li>
-                                        <i class="far fa-eye"></i>
-                                        <span>{!! $blog->view_count !!}</span>
-                                    </li>
-                                </ul>
-                            </div>
+    <div class="widget">
+        <h5 class="widget_title">En Çok Okunanlar</h5>
+        <ul class="recent_post">
+            @foreach($data['blogs'] as $blog)
+                <li>
+                    <div class="post_footer">
+                        <div class="post_img">
+                            <a href="{{ $blog->url }}">
+                                <img
+                                    src="{!! $blog->cover ? image($blog->cover, 100, 100) : image($blog->image, 100, 100) !!}"
+                                    class="rounded-circle"
+                                    alt="{!! $blog->name !!}">
+                            </a>
                         </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+                        <div class="post_content">
+                            <h6><a href="{{ $blog->url }}">{{ $blog->name }}</a></h6>
+
+                            <ul class="blog_meta">
+                                <li>
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>{!! localeDate($blog->date) !!}</span>
+                                </li>
+                                <li>
+                                    <i class="far fa-eye"></i>
+                                    <span>{!! $blog->view_count !!}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    </div>
 </div>

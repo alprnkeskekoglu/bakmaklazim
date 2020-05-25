@@ -26,7 +26,8 @@
                     <div class="blog_post col-lg-4 col-md-6 col-sm-12">
                         <div class="blog_img">
                             <a href="{!! $category->url !!}">
-                                <img src="{!! image($category->cover, 350, 230) !!}" alt="{!! $category->name !!}"
+                                <img src="{!! image($category->cover, 350, 230) !!}"
+                                     alt="{!! $category->name !!}"
                                      width="350" height="230">
                             </a>
                         </div>

@@ -110,7 +110,6 @@
 
 @push('scripts')
     <script>
-
         $('.tag-checkbox').on('change', function () {
             var tags = [];
 
@@ -120,6 +119,5 @@
 
             window.location.href = window.location.origin + window.location.pathname + "?tags=" + tags.join();
         })
-
     </script>
 @endpush
