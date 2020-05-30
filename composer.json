@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.4",
         "arcanedev/log-viewer": "^5.",
-        "dawnstar/dawnstar": "^0.15",
+        "dawnstar/dawnstar": "^1.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2"
     },
