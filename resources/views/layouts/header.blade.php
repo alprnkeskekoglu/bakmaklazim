@@ -1,6 +1,7 @@
 @php
     $categories = \Dawnstar\Models\Category::where('status', 1)
         ->orderBy('order')
+        ->whereHas('blogs')
         ->get();
 @endphp
 <header class="header_wrap dark_skin fixed-top">

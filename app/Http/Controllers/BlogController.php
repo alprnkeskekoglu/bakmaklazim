@@ -38,7 +38,7 @@ class BlogController extends Controller
         $blog = Blog::where('slug', $slug)
             ->first();
 
-        if (is_null($blog)) {
+        if (is_null($blog) || $blog->status == 3) {
             abort(404);
         }
 

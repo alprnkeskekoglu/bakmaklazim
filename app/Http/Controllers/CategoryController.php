@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $category = Category::where('slug', $slug)
             ->first();
 
-        if (is_null($category)) {
+        if (is_null($category) || $category->status == 3) {
             abort(404);
         }
 
@@ -67,9 +67,8 @@ class CategoryController extends Controller
 
         $tags = $category->tags()
             ->where('status', 1)
-            ->withCount('blogs')
-            ->orderBy('name')
-            ->having('blogs_count', '>', 0);
+            ->whereHas('blogs')
+            ->orderBy('name');
 
         if (count($tagSlugs) > 0) {
             $tags = $tags->whereHas('blogs', function ($q) use ($blogs) {
@@ -84,7 +83,6 @@ class CategoryController extends Controller
             "Kategoriler" => route('category.index'),
             $category->name => "javascript:void(0);",
         ];
-
 
         return view('pages.category.detail', compact('category', 'blogs', 'tags', 'tagSlugs', 'breadcrumb'));
     }
